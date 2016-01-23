@@ -1,5 +1,5 @@
-#ifndef INATKE_SUCK_H
-#define INATKE_SUCK_H
+#ifndef ROLLER_SUCK_H
+#define ROLLER_SUCK_H
 
 #include "../CommandBase.h"
 #include "WPILib.h"
