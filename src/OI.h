@@ -12,7 +12,7 @@ public:
 	Joystick* operatorController;
 	Button* intakeInButton;
 	Button* intakeOutButton;
-
+	Button* RollerSuckButton;
 
 
 };

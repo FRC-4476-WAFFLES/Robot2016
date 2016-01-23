@@ -7,7 +7,10 @@
 class DriveSubsystem: public Subsystem
 {
 private:
-	Victor* RightMotor; Victor* LeftMotor;
+	Victor* RightMotorFront;
+	Victor* LeftMotorFront;
+	Victor* RightMotorBack;
+	Victor*LeftMotorBack;
 public:
 	DriveSubsystem();
 	void InitDefaultCommand();

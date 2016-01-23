@@ -4,9 +4,10 @@
 DriveSubsystem::DriveSubsystem() :
 		Subsystem("DriveSubsystem")
 {
-	 RightMotor = new Victor(1);
-	 LeftMotor = new Victor(0);
-
+	 RightMotorFront = new Victor(1);
+	 RightMotorBack = new  Victor(0);
+	 LeftMotorFront = new Victor(2);
+	 LeftMotorBack = new Victor(3);
 }
 
 void DriveSubsystem::InitDefaultCommand()
@@ -17,8 +18,10 @@ void DriveSubsystem::InitDefaultCommand()
 
 void DriveSubsystem::Drive(Joystick* right, Joystick* left)
 {
-	RightMotor->SetSpeed(right->GetY());
-	LeftMotor->SetSpeed(left->GetY());
+	RightMotorFront->SetSpeed(right->GetY());
+	LeftMotorFront->SetSpeed(left->GetY());
+	RightMotorBack->SetSpeed(right->GetY());
+	LeftMotorBack->SetSpeed(left->GetY());
 }
 // Put methods for controlling this subsystem
 // here. Call these from Commands.
