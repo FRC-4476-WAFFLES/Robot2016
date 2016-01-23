@@ -3,6 +3,8 @@
 #include "Commands/IntakeIn.h"
 #include "Commands/IntakeOut.h"
 #include "Commands/OperatorDrive.h"
+#include "Commands/RollerExtract.h"
+
 OI::OI()
 {
 	// Process operator interface input here.
@@ -15,6 +17,8 @@ OI::OI()
 	intakeOutButton->WhenPressed(new IntakeOut());
 	RollerSuckButton = new JoystickButton(operatorController, 1);
 	RollerSuckButton->WhileHeld(new RollerSuck());
+	RollerExtractButton = new JoystickButton(operatorController, 2);
+	RollerExtractButton->WhileHeld(new RollerExtract());
 }
 
 

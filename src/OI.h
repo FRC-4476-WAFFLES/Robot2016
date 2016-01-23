@@ -13,7 +13,7 @@ public:
 	Button* intakeInButton;
 	Button* intakeOutButton;
 	Button* RollerSuckButton;
-
+	Button* RollerExtractButton;
 
 };
 
