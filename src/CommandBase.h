@@ -8,6 +8,7 @@
 #include "WPILib.h"
 #include "Subsystems/RollerSubsystem.h"
 #include "Subsystems/ADefensesSubsystem.h"
+#include "Subsystems/Scalersubsystem.h"
 /**
  * The base for all commands. All atomic commands should subclass CommandBase.
  * CommandBase stores creates and stores each control system. To access a
@@ -25,6 +26,7 @@ public:
 	static std::unique_ptr<RollerSubsystem> roller;
 	static std::unique_ptr<OI> oi;
 	static std::unique_ptr<ADefensesSubsystem> GoToAngle;
+	static std::unique_ptr<ScalerSubsystem> Scaler;
 };
 
 #endif

@@ -5,7 +5,7 @@ RollerSubsystem::RollerSubsystem() :
 		Subsystem("RollerSubsystem")
 {
 
-	Roller = new Victor(3);
+	Roller = new Victor(5);
 
 }
 
