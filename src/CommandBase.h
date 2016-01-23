@@ -6,7 +6,7 @@
 #include "Subsystems/DriveSubsystem.h"
 #include "OI.h"
 #include "WPILib.h"
-
+#include "Subsystems/RollerSubsystem.h"
 /**
  * The base for all commands. All atomic commands should subclass CommandBase.
  * CommandBase stores creates and stores each control system. To access a
@@ -21,6 +21,7 @@ public:
 	// Create a single static instance of all of your subsystems
 	static std::unique_ptr<IntakeSubsystem> intake;
 	static std::unique_ptr<DriveSubsystem> drive;
+	static std::unique_ptr<RollerSubsystem> roller;
 	static std::unique_ptr<OI> oi;
 };
 

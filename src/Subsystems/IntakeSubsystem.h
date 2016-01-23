@@ -7,7 +7,7 @@ class IntakeSubsystem: public PIDSubsystem
 {
 private:
 	Victor* Arm;
-	Victor* Roller;
+
 
 	DigitalInput* IntakeRetracted;
 	Encoder* IntakeAngle;
@@ -19,7 +19,7 @@ public:
 	void InitDefaultCommand();
 	void Out();
     void In();
-    void Roll(float power);
+
 
 };
 

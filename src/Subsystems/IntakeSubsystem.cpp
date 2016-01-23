@@ -5,7 +5,6 @@ IntakeSubsystem::IntakeSubsystem() :
 		PIDSubsystem("IntakeSubsystem", 0.01, 0.00, 0.00)
 {
 	Arm = new Victor(2);
-	Roller = new Victor(3);
 
 	IntakeRetracted = new DigitalInput(0);
 	IntakeAngle = new Encoder(1,2);
@@ -42,9 +41,6 @@ void IntakeSubsystem::UsePIDOutput(double power){
 	Arm->PIDWrite(power);
 }
 
-void IntakeSubsystem::Roll(float power)
-{
-	Roller->SetSpeed(power);
-}
+
 
 
