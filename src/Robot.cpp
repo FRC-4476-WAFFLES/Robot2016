@@ -1,4 +1,3 @@
-#include <Commands/IntakeIn.h>
 #include "WPILib.h"
 
 #include "Commands/AutoDoNothing.h"
@@ -17,7 +16,7 @@ private:
 		CommandBase::init();
 		chooser = new SendableChooser();
 		chooser->AddDefault("Default Auto", new AutoDoNothing());
-		chooser->AddObject("My Auto", new AutoDoNothing());
+
 		SmartDashboard::PutData("Auto Modes", chooser);
 
 

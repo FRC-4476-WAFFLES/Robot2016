@@ -1,10 +1,13 @@
 #include "ADefensesCommandGroup.h"
+#include "ADefensesGoToAngle.h"
+
 
 ADefensesCommandGroup::ADefensesCommandGroup() : CommandGroup()
 {
-	AddSequential()
+
 	AddSequential(new ADefensesGoToAngle(90));
-	Requires(GoToAngle.get());
+
+
 }
 
 // Called just before this Command runs the first time
@@ -21,7 +24,7 @@ void ADefensesCommandGroup::Execute()
 // Make this return true when this Command no longer needs to run execute()
 bool ADefensesCommandGroup::IsFinished()
 {
-	return GoToAngle->OnTarget();
+	return false;
 }
 
 // Called once after isFinished returns true
