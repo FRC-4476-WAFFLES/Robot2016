@@ -15,7 +15,11 @@ private:
 public:
 	ScalerSubsystem();
 	void InitDefaultCommand();
-	void Drive (Joystick* right, Joystick* left);
+	double GetDeploy();
+	void SetDeploy(double Speed);
+	void ScalingMotors(double Speed);
+	double ScaleEncoder();
+
 };
 
 #endif
