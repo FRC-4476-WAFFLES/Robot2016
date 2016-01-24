@@ -4,10 +4,10 @@
 DriveSubsystem::DriveSubsystem() :
 		Subsystem("DriveSubsystem")
 {
-	 RightMotorFront = new Victor(1);
-	 RightMotorBack = new  Victor(0);
-	 LeftMotorFront = new Victor(2);
-	 LeftMotorBack = new Victor(3);
+	 RightMotorFront = new Victor(2);
+	 RightMotorBack = new  Victor(3);
+	 LeftMotorFront = new Victor(0);
+	 LeftMotorBack = new Victor(1);
 }
 
 void DriveSubsystem::InitDefaultCommand()
