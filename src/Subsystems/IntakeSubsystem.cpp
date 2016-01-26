@@ -4,10 +4,10 @@
 IntakeSubsystem::IntakeSubsystem() :
 		PIDSubsystem("IntakeSubsystem", 0.01, 0.00, 0.00)
 {
-	Arm = new Victor(4);
+	Arm = new Victor(INTAKE_MOTOR_ARM);
 
-	IntakeRetracted = new DigitalInput(0);
-	IntakeAngle = new Encoder(1,2);
+	IntakeRetracted = new DigitalInput(INTAKE_RETRACTED_SWITCH);
+	IntakeAngle = new Encoder(INTAKE_ENCODER_A, INTAKE_ENCODER_B);
 }
 
 void IntakeSubsystem::InitDefaultCommand()

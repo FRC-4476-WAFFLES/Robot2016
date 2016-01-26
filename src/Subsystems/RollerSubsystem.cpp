@@ -4,9 +4,7 @@
 RollerSubsystem::RollerSubsystem() :
 		Subsystem("RollerSubsystem")
 {
-
-	Roller = new Victor(5);
-
+	Roller = new Victor(ROLLER_MOTOR);
 }
 
 void RollerSubsystem::InitDefaultCommand()

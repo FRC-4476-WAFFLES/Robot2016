@@ -4,9 +4,8 @@
 ADefensesSubsystem::ADefensesSubsystem() :
 		PIDSubsystem("ADefensesSubsystem",0,0,0,0)
 {
-
-	Motor = new Victor(6);
-	Potentiometer = new AnalogPotentiometer(5);
+	Motor = new Victor(A_DEFENSES_MOTOR);
+	Potentiometer = new AnalogPotentiometer(A_DEFENSES_POT);
 }
 
 void ADefensesSubsystem::InitDefaultCommand()

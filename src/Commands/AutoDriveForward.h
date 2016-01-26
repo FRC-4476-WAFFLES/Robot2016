@@ -1,5 +1,5 @@
-#ifndef AUTO_DO_NOTHING_H
-#define AUTO_DO_NOTHING_H
+#ifndef AUTO_DRIVE_FORWARD_H
+#define AUTO_DRIVE_FORWARD_H
 
 #include "../CommandBase.h"
 #include "WPILib.h"

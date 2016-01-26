@@ -10,14 +10,28 @@
  * floating around.
  */
  
-// For example to map the left and right motors, you could define the
-// following variables to use with your drivetrain subsystem.
-//const int LEFTMOTOR = 1;
-//const int RIGHTMOTOR = 2;
+// PID Motors
+const int DRIVE_MOTOR_LEFT_FRONT = 0;
+const int DRIVE_MOTOR_LEFT_BACK = 1;
+const int DRIVE_MOTOR_RIGHT_FRONT = 2;
+const int DRIVE_MOTOR_RIGHT_BACK = 3;
+const int INTAKE_MOTOR_ARM = 4;
+const int ROLLER_MOTOR = 5;
+const int A_DEFENSES_MOTOR = 6;
+const int SCALER_CLIMB_1 = 7;
+const int SCALER_CLIMB_2 = 8;
+const int SCALER_DEPLOYER = 9;
 
-// If you are using multiple modules, make sure to define both the port
-// number and the module. For example you with a rangefinder:
-//const int RANGE_FINDER_PORT = 1;
-//const int RANGE_FINDER_MODULE = 1;
+// Analog Inputs
+const int A_DEFENSES_POT = 0;
+
+// Digital Inputs
+const int INTAKE_RETRACTED_SWITCH = 0;
+const int INTAKE_ENCODER_A = 1;
+const int INTAKE_ENCODER_B = 2;
+const int SCALER_CLIMB_ENCODER_A = 3;
+const int SCALER_CLIMB_ENCODER_B = 4;
+const int SCALER_DEPLOY_ENCODER_A = 5;
+const int SCALER_DEPLOY_ENCODER_B = 6;
 
 #endif
