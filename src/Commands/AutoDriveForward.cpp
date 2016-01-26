@@ -1,37 +1,37 @@
-#include <Commands/RollerSuck.h>
+#include "AutoDriveForward.h"
 
-RollerSuck::RollerSuck()
+AutoDriveForward::AutoDriveForward()
 {
-	Requires(roller.get());
+	SetTimeout(5.0);
 }
 
 // Called just before this Command runs the first time
-void RollerSuck::Initialize()
+void AutoDriveForward::Initialize()
 {
 
 }
 
 // Called repeatedly when this Command is scheduled to run
-void RollerSuck::Execute()
+void AutoDriveForward::Execute()
 {
-	roller->Roll(1);
+	drive->Drive(1.0, 1.0);
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool RollerSuck::IsFinished()
+bool AutoDriveForward::IsFinished()
 {
 	return false;
 }
 
 // Called once after isFinished returns true
-void RollerSuck::End()
+void AutoDriveForward::End()
 {
-	roller->Roll(0);
+	drive->Drive(0.0, 0.0);
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void RollerSuck::Interrupted()
+void AutoDriveForward::Interrupted()
 {
-	roller->Roll(0);
+	drive->Drive(0.0, 0.0);
 }

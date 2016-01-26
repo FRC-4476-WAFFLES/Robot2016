@@ -6,8 +6,8 @@ std::unique_ptr<OI> CommandBase::oi;
 std::unique_ptr<DriveSubsystem> CommandBase::drive;
 std::unique_ptr<IntakeSubsystem> CommandBase::intake;
 std::unique_ptr<RollerSubsystem> CommandBase::roller;
-std::unique_ptr<ADefensesSubsystem> CommandBase::GoToAngle;
-std::unique_ptr<ScalerSubsystem> CommandBase::Scaler;
+std::unique_ptr<ADefensesSubsystem> CommandBase::aDefenses;
+std::unique_ptr<ScalerSubsystem> CommandBase::scaler;
 CommandBase::CommandBase(const std::string &name) :
 		Command(name)
 {
@@ -27,6 +27,6 @@ void CommandBase::init()
 	drive.reset(new DriveSubsystem());
 	oi.reset(new OI());
 	roller.reset(new RollerSubsystem());
-	GoToAngle.reset(new ADefensesSubsystem());
-	Scaler.reset(new ScalerSubsystem());
+	aDefenses.reset(new ADefensesSubsystem());
+	scaler.reset(new ScalerSubsystem());
 }

@@ -14,7 +14,8 @@ private:
 public:
 	DriveSubsystem();
 	void InitDefaultCommand();
-	void Drive (Joystick* right, Joystick* left);
+	void Drive (Joystick* left, Joystick* right);
+	void Drive (double left, double right);
 };
 
 #endif

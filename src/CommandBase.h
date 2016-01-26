@@ -25,8 +25,8 @@ public:
 	static std::unique_ptr<DriveSubsystem> drive;
 	static std::unique_ptr<RollerSubsystem> roller;
 	static std::unique_ptr<OI> oi;
-	static std::unique_ptr<ADefensesSubsystem> GoToAngle;
-	static std::unique_ptr<ScalerSubsystem> Scaler;
+	static std::unique_ptr<ADefensesSubsystem> aDefenses;
+	static std::unique_ptr<ScalerSubsystem> scaler;
 };
 
 #endif

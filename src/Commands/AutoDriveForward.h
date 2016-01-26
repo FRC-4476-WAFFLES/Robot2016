@@ -1,12 +1,13 @@
-#ifndef SCALER_DEPLOY_H
-#define SCALER_DEPLOY_H
+#ifndef AUTO_DO_NOTHING_H
+#define AUTO_DO_NOTHING_H
+
 #include "../CommandBase.h"
 #include "WPILib.h"
 
-class ScalerDeploy: public CommandBase
+class AutoDriveForward: public CommandBase
 {
 public:
-	ScalerDeploy();
+	AutoDriveForward();
 	void Initialize();
 	void Execute();
 	bool IsFinished();

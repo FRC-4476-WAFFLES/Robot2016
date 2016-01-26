@@ -26,12 +26,12 @@ bool RollerExtract::IsFinished()
 // Called once after isFinished returns true
 void RollerExtract::End()
 {
-
+	roller->Roll(0);
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
 void RollerExtract::Interrupted()
 {
-
+	roller->Roll(0);
 }

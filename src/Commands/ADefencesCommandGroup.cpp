@@ -4,10 +4,7 @@
 
 ADefensesCommandGroup::ADefensesCommandGroup() : CommandGroup()
 {
-
 	AddSequential(new ADefensesGoToAngle(90));
-
-
 }
 
 // Called just before this Command runs the first time
@@ -19,6 +16,7 @@ void ADefensesCommandGroup::Initialize()
 // Called repeatedly when this Command is scheduled to run
 void ADefensesCommandGroup::Execute()
 {
+
 }
 
 // Make this return true when this Command no longer needs to run execute()

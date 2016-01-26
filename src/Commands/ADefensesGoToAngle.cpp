@@ -3,7 +3,7 @@
 ADefensesGoToAngle::ADefensesGoToAngle(double angle) : CommandBase("ADefensesGoToAngle")
 {
 	this->angle = angle;
-	Requires(GoToAngle.get());
+	Requires(aDefenses.get());
 }
 
 // Called just before this Command runs the first time
@@ -15,13 +15,13 @@ void ADefensesGoToAngle::Initialize()
 // Called repeatedly when this Command is scheduled to run
 void ADefensesGoToAngle::Execute()
 {
-	GoToAngle->SetSetpoint(angle);
+	aDefenses->SetSetpoint(angle);
 }
 
 // Make this return true when this Command no longer needs to run execute()
 bool ADefensesGoToAngle::IsFinished()
 {
-	return GoToAngle->OnTarget();
+	return aDefenses->OnTarget();
 }
 
 // Called once after isFinished returns true

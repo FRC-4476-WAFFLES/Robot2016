@@ -1,7 +1,8 @@
 #include "DriveSubsystem.h"
 #include "../RobotMap.h"
 #include "Commands/OperatorDrive.h"
-DriveSubsystem::DriveSubsystem() :
+
+DriveSubsystem::DriveSubsystem():
 		Subsystem("DriveSubsystem")
 {
 	 RightMotorFront = new Victor(2);
@@ -16,13 +17,17 @@ void DriveSubsystem::InitDefaultCommand()
 	SetDefaultCommand(new OperatorDrive());
 }
 
-void DriveSubsystem::Drive(Joystick* right, Joystick* left)
-{
-	RightMotorFront->SetSpeed(right->GetY());
-	LeftMotorFront->SetSpeed(left->GetY());
-	RightMotorBack->SetSpeed(right->GetY());
-	LeftMotorBack->SetSpeed(left->GetY());
-}
 // Put methods for controlling this subsystem
 // here. Call these from Commands.
+void DriveSubsystem::Drive(Joystick* left, Joystick* right)
+{
+	Drive(left->GetY(), right->GetY());
+}
 
+void DriveSubsystem::Drive(double left, double right)
+{
+	RightMotorFront->SetSpeed(right);
+	LeftMotorFront->SetSpeed(-left);
+	RightMotorBack->SetSpeed(right);
+	LeftMotorBack->SetSpeed(-left);
+}
