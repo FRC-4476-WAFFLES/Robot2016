@@ -5,11 +5,11 @@ ScalerSubsystem::ScalerSubsystem() :
 		Subsystem("ScalerSubsystem")
 {
 
-	 ScalingMotor1 = new Victor(7);
-	 ScalingMotor2 = new Victor(8);
+	 ScalingMotor1 = new Victor(4);
+	 ScalingMotor2 = new Victor(5);
 	 ScalingEncoder = new Encoder(3,4);
 	 DeployingEncoder = new Encoder(5,6);
-	 DeployingVictor = new Victor(9);
+	 DeployingVictor = new Victor(6);
 }
 
 void ScalerSubsystem::InitDefaultCommand()
