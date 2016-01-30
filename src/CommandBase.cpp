@@ -8,6 +8,7 @@ std::unique_ptr<IntakeSubsystem> CommandBase::intake;
 std::unique_ptr<RollerSubsystem> CommandBase::roller;
 std::unique_ptr<ADefensesSubsystem> CommandBase::aDefenses;
 std::unique_ptr<ScalerSubsystem> CommandBase::scaler;
+std::unique_ptr<CameraSubsystem> CommandBase::camera;
 CommandBase::CommandBase(const std::string &name) :
 		Command(name)
 {
@@ -29,4 +30,5 @@ void CommandBase::init()
 	roller.reset(new RollerSubsystem());
 	aDefenses.reset(new ADefensesSubsystem());
 	scaler.reset(new ScalerSubsystem());
+	camera.reset(new CameraSubsystem());
 }
