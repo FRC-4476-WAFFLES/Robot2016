@@ -19,6 +19,7 @@ public:
 	void InitDefaultCommand();
 	void Out();
     void In();
+    void Move(float Speed);
 
 
 };

@@ -26,9 +26,10 @@ void CommandBase::init()
 	// line should be repeated for each subsystem in the project.
 	intake.reset(new IntakeSubsystem());
 	drive.reset(new DriveSubsystem());
-	oi.reset(new OI());
 	roller.reset(new RollerSubsystem());
 	aDefenses.reset(new ADefensesSubsystem());
 	scaler.reset(new ScalerSubsystem());
-	camera.reset(new CameraSubsystem());
+	//camera.reset(new CameraSubsystem());
+
+	oi.reset(new OI());
 }

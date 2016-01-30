@@ -1,10 +1,8 @@
 #include "RollerSubsystem.h"
 #include "../RobotMap.h"
-
 RollerSubsystem::RollerSubsystem() :
 		Subsystem("RollerSubsystem")
 {
-
 	Roller = new Victor(8);
 
 }

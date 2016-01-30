@@ -1,25 +1,24 @@
 #include "WPILib.h"
 
-#include "Commands/AutoDriveForward.h"
 #include "Commands/AutoDoNothing.h"
 #include "CommandBase.h"
 #include <memory>
-
+#include "iostream"
 class Robot: public IterativeRobot
 {
 private:
 
-	std::unique_ptr<CommandBase> autonomousCommand;
+	std::unique_ptr<Command> autonomousCommand;
 	SendableChooser *chooser;
 
 	void RobotInit()
 	{
 		CommandBase::init();
 		chooser = new SendableChooser();
-		//chooser->AddDefault("Default Auto", new AutoDoNothing());
-		//chooser->AddObject("Drive Forward Auto", new AutoDriveForward());
+		chooser->AddDefault("Default Auto", new AutoDoNothing());
 
 		SmartDashboard::PutData("Auto Modes", chooser);
+		std::cout<<"Robot";
 
 
 	}
@@ -56,11 +55,10 @@ private:
 			autonomousCommand.reset(new ExampleCommand());
 		} */
 
-		/*autonomousCommand.reset((Command *)chooser->GetSelected());
+		autonomousCommand.reset((Command *)chooser->GetSelected());
 
 		if (autonomousCommand != NULL)
 			autonomousCommand->Start();
-			*/
 	}
 
 	void AutonomousPeriodic()

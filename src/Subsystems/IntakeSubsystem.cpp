@@ -1,27 +1,33 @@
 #include "IntakeSubsystem.h"
 #include "../RobotMap.h"
-
+#include "Commands/IntakeManual.h"
 IntakeSubsystem::IntakeSubsystem() :
-		PIDSubsystem("IntakeSubsystem", 0.01, 0.00, 0.00)
+		PIDSubsystem("IntakeSubsystem", 1.0, 0.00, 0.00)
 {
 	Arm = new Victor(7);
 
 	IntakeRetracted = new DigitalInput(0);
 	IntakeAngle = new Encoder(1,2);
+
 }
 
 void IntakeSubsystem::InitDefaultCommand()
 {
+	SetDefaultCommand(new IntakeManual());
 	//SetDefaultCommand(new MySpecialCommand());
 }
 
 void IntakeSubsystem::Out()
 {
-	SetSetpoint(1);
+	SetSetpoint(20);
+	Enable();
+
 }
 
 void IntakeSubsystem::In()
 {
+
+
 	if(IntakeRetracted->Get()){
 		Disable();
 		Arm->SetSpeed(0);
@@ -38,9 +44,16 @@ double IntakeSubsystem::ReturnPIDInput() {
 }
 
 void IntakeSubsystem::UsePIDOutput(double power){
+
 	Arm->PIDWrite(power);
 }
 
+void IntakeSubsystem::Move(float speed){
+
+	Disable();
+	Arm->SetSpeed(speed);
+
+}
 
 
 
