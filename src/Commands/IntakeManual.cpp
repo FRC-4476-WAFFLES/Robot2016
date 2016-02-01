@@ -1,37 +1,40 @@
-#include <Commands/RollerExtract.h>
+#include "IntakeManual.h"
 
-RollerExtract::RollerExtract()
+
+
+IntakeManual::IntakeManual() : CommandBase()
 {
-	Requires(roller.get());
+	Requires(intake.get());
 }
 
 // Called just before this Command runs the first time
-void RollerExtract::Initialize()
+void IntakeManual::Initialize()
 {
 
 }
 
 // Called repeatedly when this Command is scheduled to run
-void RollerExtract::Execute()
+void IntakeManual::Execute()
 {
-	roller->Roll(-0.5);
+	float speed = oi.get()->operatorController->GetY();
+	intake.get()->Move(speed*0.5);
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool RollerExtract::IsFinished()
+bool IntakeManual::IsFinished()
 {
 	return false;
 }
 
 // Called once after isFinished returns true
-void RollerExtract::End()
+void IntakeManual::End()
 {
-	roller->Roll(0);
+
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void RollerExtract::Interrupted()
+void IntakeManual::Interrupted()
 {
-	roller->Roll(0);
+
 }
