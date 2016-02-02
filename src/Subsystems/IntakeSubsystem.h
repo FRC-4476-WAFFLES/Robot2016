@@ -1,6 +1,6 @@
 #ifndef INTAKE_SUBSYSTEM_H
 #define INTAKE_SUBSYSTEM_H
-
+#include "CustomSensors/VexEncoder.h"
 #include "WPILib.h"
 
 class IntakeSubsystem: public PIDSubsystem
@@ -10,7 +10,7 @@ private:
 
 
 	DigitalInput* IntakeRetracted;
-	Encoder* IntakeAngle;
+	VexEncoder* IntakeAngle;
 protected:
 	double ReturnPIDInput();
 	void UsePIDOutput(double);
@@ -19,6 +19,7 @@ public:
 	void InitDefaultCommand();
 	void Out();
     void In();
+    void Move(float moveSpeed);
 
 
 };

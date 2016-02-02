@@ -18,12 +18,7 @@ private:
 		chooser = new SendableChooser();
 		chooser->AddDefault("Default Auto", new AutoDoNothing());
 
-		camera = new AxisCamera("axis-camera.local");
-
 		SmartDashboard::PutData("Auto Modes", chooser);
-		std::cout<<"Robot";
-
-
 	}
 
 	/**

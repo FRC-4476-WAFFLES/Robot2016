@@ -27,11 +27,10 @@ OI::OI()
 	joystickLeft = new Joystick(0);
 	joystickRight = new Joystick(1);
 	operatorController = new Joystick(2);
-	/*intakeInButton = new JoystickButton(operatorController, 5);
+	intakeInButton = new JoystickButton(operatorController, 5);
 	intakeInButton->WhenPressed(new IntakeIn());
 	intakeOutButton = new JoystickButton(operatorController, 6);
 	intakeOutButton->WhenPressed(new IntakeOut());
-	*/
 	RollerSuckButton = new JoystickButton(operatorController, 1);
 	RollerSuckButton->WhileHeld(new RollerSuck());
 	RollerExtractButton = new JoystickButton(operatorController, 2);

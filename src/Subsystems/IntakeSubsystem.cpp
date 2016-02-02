@@ -1,5 +1,6 @@
 #include "IntakeSubsystem.h"
 #include "../RobotMap.h"
+#include <iostream>
 
 IntakeSubsystem::IntakeSubsystem() :
 		PIDSubsystem("IntakeSubsystem", 0.01, 0.00, 0.00)
@@ -7,7 +8,7 @@ IntakeSubsystem::IntakeSubsystem() :
 	Arm = new Victor(INTAKE_MOTOR_ARM);
 
 	IntakeRetracted = new DigitalInput(INTAKE_RETRACTED_SWITCH);
-	IntakeAngle = new Encoder(INTAKE_ENCODER_A, INTAKE_ENCODER_B);
+	IntakeAngle = new VexEncoder(INTAKE_ENCODER, .6, .64);
 }
 
 void IntakeSubsystem::InitDefaultCommand()
@@ -17,7 +18,14 @@ void IntakeSubsystem::InitDefaultCommand()
 
 void IntakeSubsystem::Out()
 {
-	SetSetpoint(1);
+	Enable();
+	SetSetpoint(.541);
+}
+
+void IntakeSubsystem::Move(float moveSpeed)
+{
+	Disable();
+	Arm->SetSpeed(moveSpeed);
 }
 
 void IntakeSubsystem::In()
@@ -25,16 +33,18 @@ void IntakeSubsystem::In()
 	if(IntakeRetracted->Get()){
 		Disable();
 		Arm->SetSpeed(0);
-		IntakeAngle->Reset();
-
+//		IntakeAngle->Reset();
 	} else {
-		SetSetpoint(0);
 		Enable();
+		SetSetpoint(.630);
 	}
 }
 
 double IntakeSubsystem::ReturnPIDInput() {
-	return IntakeAngle->PIDGet();
+	// The PWM frequency is 220Hz
+	float period = IntakeAngle->GetPeriod()*220.0;
+	printf("Period: %.9f\n", period);
+	return period;
 }
 
 void IntakeSubsystem::UsePIDOutput(double power){
