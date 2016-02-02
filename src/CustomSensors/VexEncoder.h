@@ -7,18 +7,26 @@
 
 #ifndef SRC_CUSTOMSENSORS_VEXENCODER_H_
 #define SRC_CUSTOMSENSORS_VEXENCODER_H_
+
 #include "WPILib.h"
+
 class VexEncoder {
 private:
 	Counter* counter;
-	float start;
-	float end;
+	float lastInt;
+	float lastFract;
 public:
+	// Initialize a new sensor.
 	VexEncoder(int port);
-	VexEncoder(int port, float start, float end);
-	virtual ~VexEncoder();
-	float GetPeriod();
 
+	// Get the angle (in degrees) that the sensor is reading. Does not account for continuous rotation.
+	float GetRawAngle();
+
+	// Gets the angle of the sensor taking the continuous rotation into account.
+	float GetAngle();
+
+	// Reset the angle such that it is in its first rotation.
+	void Reset();
 };
 
 #endif /* SRC_CUSTOMSENSORS_VEXENCODER_H_ */
