@@ -18,7 +18,7 @@ public:
 	void Out();
     void In();
     void Move(float moveSpeed);
-
+    void Reset();
 
 };
 

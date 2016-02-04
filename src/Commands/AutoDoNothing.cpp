@@ -1,4 +1,4 @@
-#include "AutoDoNothing.h"
+#include "Commands/AutoDoNothing.h"
 
 AutoDoNothing::AutoDoNothing()
 {

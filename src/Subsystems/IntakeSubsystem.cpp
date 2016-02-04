@@ -1,25 +1,28 @@
 #include "IntakeSubsystem.h"
 #include "../RobotMap.h"
 #include <iostream>
+#include "Commands/IntakeIn.h"
 
 IntakeSubsystem::IntakeSubsystem() :
-		PIDSubsystem("IntakeSubsystem", 0.01, 0.00, 0.00)
+		PIDSubsystem("IntakeSubsystem", 0.02, 0.0001, 0.000)
 {
 	Arm = new Victor(INTAKE_MOTOR_ARM);
 
 	IntakeRetracted = new DigitalInput(INTAKE_RETRACTED_SWITCH);
 	IntakeAngle = new VexEncoder(INTAKE_ENCODER);
+	SetAbsoluteTolerance(5);
+	Enable();
 }
 
 void IntakeSubsystem::InitDefaultCommand()
 {
-	//SetDefaultCommand(new MySpecialCommand());
+	SetDefaultCommand(new IntakeIn());
 }
 
 void IntakeSubsystem::Out()
 {
 	Enable();
-	SetSetpoint(550);
+	SetSetpoint(896);
 }
 
 void IntakeSubsystem::Move(float moveSpeed)
@@ -30,26 +33,30 @@ void IntakeSubsystem::Move(float moveSpeed)
 
 void IntakeSubsystem::In()
 {
-	if(IntakeRetracted->Get()){
-		Disable();
-		Arm->SetSpeed(0);
-		IntakeAngle->Reset();
-	} else {
+//	if(IntakeRetracted->Get()){
+//		Disable();
+//		Arm->SetSpeed(0);
+//		IntakeAngle->Reset();
+//	}else {
 		Enable();
-		SetSetpoint(230);
-	}
+		SetSetpoint(572);
+//	}
 }
 
 double IntakeSubsystem::ReturnPIDInput() {
 	float angle = IntakeAngle->GetAngle();
-	printf("Angle: %.9f\n", angle);
+	SmartDashboard::PutNumber("IntakeAngle",angle);
 	return angle;
 }
 
 void IntakeSubsystem::UsePIDOutput(double power){
-	Arm->PIDWrite(power);
+	float limit = 0.5;
+	Arm->PIDWrite( - power * limit);
 }
 
+void IntakeSubsystem::Reset(){
+	IntakeAngle->Reset();
+}
 
 
 

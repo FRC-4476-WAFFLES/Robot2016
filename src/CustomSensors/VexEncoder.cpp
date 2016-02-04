@@ -9,10 +9,11 @@
 #include <math.h>
 
 VexEncoder::VexEncoder(int port) {
-	lastInt = 0;
 	counter = new Counter(port);
 	counter->SetSemiPeriodMode(true);
-	lastFract = GetRawAngle();
+	counter->SetSamplesToAverage(10);
+	GetAngle();
+	lastInt = 0;
 }
 
 float VexEncoder::GetAngle() {
@@ -36,7 +37,7 @@ float VexEncoder::GetAngle() {
 
 float VexEncoder::GetRawAngle() {
 	// PWM is 220Hz (from the docs) (And convert to degrees).
-	float angle = (counter->GetPeriod()*244.0)*360.0;
+	float angle = (counter->GetPeriod()*220.0)*360.0;
 	return angle;
 }
 
