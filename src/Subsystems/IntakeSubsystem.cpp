@@ -23,7 +23,7 @@ void IntakeSubsystem::InitDefaultCommand()
 void IntakeSubsystem::Out()
 {
 	Enable();
-	SetSetpoint(558);
+	SetSetpoint(INTAKE_MINIMUM_DISTANCE + 326);
 }
 
 void IntakeSubsystem::Move(float moveSpeed)
@@ -40,7 +40,7 @@ void IntakeSubsystem::In()
 //		IntakeAngle->Reset();
 //	}else {
 		Enable();
-		SetSetpoint(237);
+		SetSetpoint(INTAKE_MINIMUM_DISTANCE + 5);
 //	}
 }
 

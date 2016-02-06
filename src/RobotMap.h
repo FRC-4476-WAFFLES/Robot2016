@@ -32,5 +32,6 @@ const int SCALER_CLIMB_ENCODER_A = 3;
 const int SCALER_CLIMB_ENCODER_B = 4;
 const int SCALER_DEPLOY_ENCODER_A = 5;
 const int SCALER_DEPLOY_ENCODER_B = 6;
-
+//calibrate section
+const int INTAKE_MINIMUM_DISTANCE = 40;
 #endif
