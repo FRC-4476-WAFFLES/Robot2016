@@ -23,7 +23,7 @@ void IntakeSubsystem::InitDefaultCommand()
 void IntakeSubsystem::Out()
 {
 	Enable();
-	SetSetpoint(INTAKE_MINIMUM_DISTANCE + 326);
+	SetSetpoint(INTAKE_MINIMUM_DISTANCE + 310);
 }
 
 void IntakeSubsystem::Move(float moveSpeed)
