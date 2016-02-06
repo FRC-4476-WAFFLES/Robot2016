@@ -4,7 +4,7 @@
 #include "Commands/IntakeIn.h"
 
 IntakeSubsystem::IntakeSubsystem() :
-		PIDSubsystem("IntakeSubsystem", 0.02, 0.0001, 0.000)
+		PIDSubsystem("IntakeSubsystem", 0.02, 0.0, 0.0)
 {
 	Arm = new Victor(INTAKE_MOTOR_ARM);
 
@@ -12,6 +12,7 @@ IntakeSubsystem::IntakeSubsystem() :
 	IntakeAngle = new VexEncoder(INTAKE_ENCODER);
 	SetAbsoluteTolerance(5);
 	Enable();
+	LiveWindow::GetInstance()->AddActuator("Intake", "Intake PID", GetPIDController());
 }
 
 void IntakeSubsystem::InitDefaultCommand()
