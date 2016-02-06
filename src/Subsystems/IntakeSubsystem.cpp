@@ -4,26 +4,26 @@
 #include "Commands/IntakeIn.h"
 
 IntakeSubsystem::IntakeSubsystem() :
-		PIDSubsystem("IntakeSubsystem", 0.02, 0.0, 0.0)
+		PIDSubsystem("IntakeSubsystem", 0.01, 0.0, 0.006)
 {
 	Arm = new Victor(INTAKE_MOTOR_ARM);
 
 	IntakeRetracted = new DigitalInput(INTAKE_RETRACTED_SWITCH);
 	IntakeAngle = new VexEncoder(INTAKE_ENCODER);
 	SetAbsoluteTolerance(5);
-	Enable();
 	LiveWindow::GetInstance()->AddActuator("Intake", "Intake PID", GetPIDController());
 }
 
 void IntakeSubsystem::InitDefaultCommand()
 {
+//	IntakeAngle->Reset();
 	SetDefaultCommand(new IntakeIn());
 }
 
 void IntakeSubsystem::Out()
 {
 	Enable();
-	SetSetpoint(896);
+	SetSetpoint(558);
 }
 
 void IntakeSubsystem::Move(float moveSpeed)
@@ -40,7 +40,7 @@ void IntakeSubsystem::In()
 //		IntakeAngle->Reset();
 //	}else {
 		Enable();
-		SetSetpoint(572);
+		SetSetpoint(237);
 //	}
 }
 
@@ -51,8 +51,7 @@ double IntakeSubsystem::ReturnPIDInput() {
 }
 
 void IntakeSubsystem::UsePIDOutput(double power){
-	float limit = 0.5;
-	Arm->PIDWrite( - power * limit);
+	Arm->PIDWrite( - power );
 }
 
 void IntakeSubsystem::Reset(){

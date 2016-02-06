@@ -10,11 +10,12 @@
 
 #include "WPILib.h"
 
-class VexEncoder {
+class VexEncoder: SensorBase {
 private:
 	Counter* counter;
 	float lastInt;
 	float lastFract;
+	bool first;
 public:
 	// Initialize a new sensor.
 	VexEncoder(int port);

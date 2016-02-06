@@ -14,10 +14,19 @@ VexEncoder::VexEncoder(int port) {
 	counter->SetSamplesToAverage(10);
 	GetAngle();
 	lastInt = 0;
+	first = true;
 }
 
 float VexEncoder::GetAngle() {
 	float rawAngle = GetRawAngle();
+
+	// Reset on the first run through
+	if(first) {
+		lastInt = 0;
+		lastFract = rawAngle;
+		first = false;
+		return rawAngle;
+	}
 
 	// Find the shortest path to the new value
 	if(rawAngle-lastFract > 180.0){
@@ -37,11 +46,11 @@ float VexEncoder::GetAngle() {
 
 float VexEncoder::GetRawAngle() {
 	// PWM is 220Hz (from the docs) (And convert to degrees).
-	float angle = (counter->GetPeriod()*220.0)*360.0;
+	float angle = (counter->GetPeriod()*240.0)*360.0;
 	return angle;
 }
 
 void VexEncoder::Reset() {
 	// Reset the angle such that it is in its first rotation.
-	lastInt = 0;
+	first = true;
 }
