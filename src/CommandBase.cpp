@@ -30,7 +30,6 @@ void CommandBase::init()
 	aDefenses.reset(new ADefensesSubsystem());
 	scaler.reset(new ScalerSubsystem());
 	//camera.reset(new CameraSubsystem());
-	intake.get()->Reset();
 
 	oi.reset(new OI());
 }

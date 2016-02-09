@@ -11,7 +11,7 @@
 VexEncoder::VexEncoder(int port) {
 	counter = new Counter(port);
 	counter->SetSemiPeriodMode(true);
-	counter->SetSamplesToAverage(10);
+	counter->SetSamplesToAverage(1);
 	GetAngle();
 	lastInt = 0;
 	first = true;
@@ -20,9 +20,11 @@ VexEncoder::VexEncoder(int port) {
 float VexEncoder::GetAngle() {
 	float rawAngle = GetRawAngle();
 
+	SmartDashboard::PutNumber("RawAngle", rawAngle);
+
 	// Throw away angles outside the acceptable range
 	if(rawAngle > 360 || rawAngle<0) {
-		return lastFract + (lastInt * 360.0)
+		return lastFract + (lastInt * 360.0);
 	}
 
 	// Reset on the first run through
@@ -42,6 +44,8 @@ float VexEncoder::GetAngle() {
 
 	// Calculate the new value
 	float newValue = rawAngle + ((float)lastInt * 360.0);
+
+	SmartDashboard::PutNumber("Angle", newValue);
 
 	// Remember this for next time
 	lastFract = rawAngle;

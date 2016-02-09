@@ -17,6 +17,7 @@ public:
 	Button* ADefencesButton;
 	Button* ScalerDeployButton;
 	Button* ScalerRetractButton;
+	Button* ManualInatke;
 };
 
 #endif
