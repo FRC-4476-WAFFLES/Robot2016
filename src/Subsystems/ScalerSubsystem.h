@@ -12,6 +12,7 @@ private:
 	Encoder* ScalingEncoder;
 	Encoder* DeployingEncoder;
 	Victor* DeployingVictor;
+	Relay* PositionLock;
 public:
 	ScalerSubsystem();
 	void InitDefaultCommand();

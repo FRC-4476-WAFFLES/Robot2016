@@ -15,6 +15,8 @@ void ADefensesGoToAngle::Initialize()
 // Called repeatedly when this Command is scheduled to run
 void ADefensesGoToAngle::Execute()
 {
+
+	aDefenses->Enable();
 	aDefenses->SetSetpoint(angle);
 }
 

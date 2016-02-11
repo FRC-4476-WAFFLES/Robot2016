@@ -20,7 +20,7 @@ VexEncoder::VexEncoder(int port) {
 float VexEncoder::GetAngle() {
 	float rawAngle = GetRawAngle();
 
-	SmartDashboard::PutNumber("RawAngle", rawAngle);
+
 
 	// Throw away angles outside the acceptable range
 	if(rawAngle > 360 || rawAngle<0) {
@@ -45,7 +45,7 @@ float VexEncoder::GetAngle() {
 	// Calculate the new value
 	float newValue = rawAngle + ((float)lastInt * 360.0);
 
-	SmartDashboard::PutNumber("Angle", newValue);
+
 
 	// Remember this for next time
 	lastFract = rawAngle;

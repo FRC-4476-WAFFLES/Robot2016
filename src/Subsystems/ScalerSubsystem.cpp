@@ -10,6 +10,7 @@ ScalerSubsystem::ScalerSubsystem() :
 	 ScalingEncoder = new Encoder(SCALER_CLIMB_ENCODER_A, SCALER_CLIMB_ENCODER_B);
 	 DeployingEncoder = new Encoder(SCALER_DEPLOY_ENCODER_A, SCALER_DEPLOY_ENCODER_B);
 	 DeployingVictor = new Victor(SCALER_DEPLOYER);
+	 PositionLock = new Relay(SCALER_POSITION_LOCK);
 }
 
 void ScalerSubsystem::InitDefaultCommand()
