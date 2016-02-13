@@ -21,7 +21,7 @@ void IntakeSubsystem::InitDefaultCommand()
 void IntakeSubsystem::Out()
 {
 	Enable();
-	SetSetpoint(INTAKE_MINIMUM_DISTANCE + 310);
+	SetSetpoint(INTAKE_MINIMUM_DISTANCE + 320);
 	SetAbsoluteTolerance(25);
 }
 

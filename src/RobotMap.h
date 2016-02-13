@@ -17,9 +17,9 @@ const int DRIVE_MOTOR_RIGHT_FRONT = 2;
 const int DRIVE_MOTOR_RIGHT_BACK = 3;
 const int SCALER_CLIMB_1 = 4;
 const int SCALER_CLIMB_2 = 5;
-const int ROLLER_MOTOR = 6;
+const int SCALER_DEPLOYER = 6;
 const int INTAKE_MOTOR_ARM = 7;
-const int SCALER_DEPLOYER = 8;
+const int ROLLER_MOTOR = 8;
 const int A_DEFENSES_MOTOR = 9;
 
 // Analog Inputs
@@ -36,5 +36,5 @@ const int SCALER_CLIMB_ENCODER_B = 4;
 const int SCALER_DEPLOY_ENCODER_A = 5;
 const int SCALER_DEPLOY_ENCODER_B = 6;
 //calibrate section
-const int INTAKE_MINIMUM_DISTANCE = 40;
+const int INTAKE_MINIMUM_DISTANCE = 114;
 #endif
