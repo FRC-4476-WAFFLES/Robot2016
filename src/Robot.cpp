@@ -17,10 +17,11 @@ private:
 	{
 		CommandBase::init();
 		chooser = new SendableChooser();
-		chooser->AddDefault("Default Auto", new AutoDoNothing());
-		//chooser->AddDefault("Default Auto", new AutoDriveForwardLowBar());
+		//chooser->AddDefault("Default Auto", new AutoDoNothing());
+		chooser->AddDefault("Default Auto", new AutoDriveForwardLowBar());
 
 		SmartDashboard::PutData("Auto Modes", chooser);
+
 	}
 
 	/**

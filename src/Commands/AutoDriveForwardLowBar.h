@@ -1,13 +1,13 @@
-#ifndef AUTO_DRIVE_FORWARD_H
-#define AUTO_DRIVE_FORWARD_H
+#ifndef AUTO_DRIVE_FORWARD_LOW_BAR_H
+#define AUTO_DRIVE_FORWARD_LOW_BAR_H
 
 #include "../CommandBase.h"
 #include "WPILib.h"
 
-class AutoDriveForward: public CommandBase
+class AutoDriveForwardLowBar: public CommandBase
 {
 public:
-	AutoDriveForward();
+	AutoDriveForwardLowBar();
 	void Initialize();
 	void Execute();
 	bool IsFinished();
