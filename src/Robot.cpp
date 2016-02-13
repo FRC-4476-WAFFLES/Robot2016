@@ -1,7 +1,8 @@
+#include <Commands/AutoDriveForwardLowBar.h>
 #include "WPILib.h"
 
 #include "Commands/AutoDoNothing.h"
-#include "Commands/AutoDriveForward.h"
+#include "Commands/AutoDriveForwardLowBar.h"
 #include "CommandBase.h"
 #include <memory>
 #include "iostream"
@@ -17,6 +18,7 @@ private:
 		CommandBase::init();
 		chooser = new SendableChooser();
 		chooser->AddDefault("Default Auto", new AutoDoNothing());
+		//chooser->AddDefault("Default Auto", new AutoDriveForwardLowBar());
 
 		SmartDashboard::PutData("Auto Modes", chooser);
 	}

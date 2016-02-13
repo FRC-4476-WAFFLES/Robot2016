@@ -1,4 +1,4 @@
-#include "AutoDriveForward.h"
+#include <Commands/AutoDriveForwardLowBar.h>
 
 AutoDriveForward::AutoDriveForward()
 {
@@ -12,9 +12,10 @@ void AutoDriveForward::Initialize()
 }
 
 // Called repeatedly when this Command is scheduled to run
+//1.0, 1.0 represents full speed (change accordingly)
 void AutoDriveForward::Execute()
 {
-	drive->Drive(1.0, 1.0);
+	drive->Drive(0.5, 0.5);
 }
 
 // Make this return true when this Command no longer needs to run execute()
