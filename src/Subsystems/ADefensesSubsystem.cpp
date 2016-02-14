@@ -1,8 +1,9 @@
 #include "ADefensesSubsystem.h"
 #include "../RobotMap.h"
-#include "Commands/ADefensesGoToAngle.h"
+
 ADefensesSubsystem::ADefensesSubsystem() :
-		PIDSubsystem("ADefensesSubsystem",0.000,0.000,0.000)
+// keepGoingUpForP(space)UntilItStartsToWabbleAndThenAdjustDspace)Slowly
+		PIDSubsystem("ADefensesSubsystem",0.001,0.000,0.000)
 {
 	Motor = new Victor(A_DEFENSES_MOTOR);
 	Potentiometer = new VexEncoder(A_DEFENSES_POT);
@@ -10,7 +11,6 @@ ADefensesSubsystem::ADefensesSubsystem() :
 
 void ADefensesSubsystem::InitDefaultCommand()
 {
-	SetDefaultCommand(new ADefensesGoToAngle(0));
 
 }
 

@@ -1,15 +1,15 @@
-#ifndef A_DEFENSES_COMMAND_GROUP_H
-#define A_DEFENSES_COMMAND_GROUP_H
+#ifndef PORTICULUS_H
+#define PORTICULUS_H
 
 #include "../CommandBase.h"
 #include "WPILib.h"
 
-class ADefensesCommandGroup: public CommandGroup
+class Porticulus: public CommandBase
 {
 private:
-
+	int SequentialIndex;
 public:
-	ADefensesCommandGroup();
+	Porticulus();
 	void Initialize();
 	void Execute();
 	bool IsFinished();

@@ -4,12 +4,27 @@
 #include "Commands/IntakeOut.h"
 #include "Commands/OperatorDrive.h"
 #include "Commands/RollerExtract.h"
-#include "Commands/ADefensesCommandGroup.h"
 #include "Commands/ScalerRetract.h"
 #include "Commands/ScalerDeploy.h"
 #include "Commands/IntakeHalfWayPoint.h"
+#include "Commands/ChevalDeFrisse.h"
+#include "Commands/Porticulus.h"
 OI::OI()
 {
+
+//		std::unique_ptr<Command> autonomousCommand;
+//		SendableChooser *chooser;
+//		CommandBase::init();
+//		chooser = new SendableChooser();
+//		chooser->AddDefault("ChevalDeFrisse", new ChevalDeFrisse());
+//		chooser->AddObject("Porticulus", new Porticulus());
+//
+//		SmartDashboard::PutData("Auto Modes", chooser);
+
+
+
+
+
 	/*
 	Button:
 	1=X
@@ -36,14 +51,14 @@ OI::OI()
 	RollerSuckButton->WhileHeld(new RollerSuck());
 	RollerExtractButton = new JoystickButton(operatorController, 2);
 	RollerExtractButton->WhileHeld(new RollerExtract());
-	ADefencesButton = new JoystickButton(operatorController, 3);
-	ADefencesButton->WhenPressed(new ADefensesCommandGroup());
 	ScalerDeployButton = new JoystickButton(operatorController, 8);
 	ScalerDeployButton->WhileHeld(new ScalerDeploy());
 	ScalerRetractButton = new JoystickButton(operatorController, 7);
 	ScalerRetractButton->WhileHeld(new ScalerRetract());
 	IntakeHalfWayPointButton =new JoystickButton (operatorController, 4);
-	IntakeHalfWayPointButton->WhenPressed(new IntakeHalfWayPoint);
+	IntakeHalfWayPointButton->WhenPressed(new IntakeHalfWayPoint());
+	ADefencesButton= new JoystickButton(operatorController, 3);
+	ADefencesButton->WhenPressed(new Porticulus());
 }
 
 

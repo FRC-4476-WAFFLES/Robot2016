@@ -10,7 +10,6 @@
 class Robot: public IterativeRobot
 {
 private:
-	AxisCamera* camera;
 	std::unique_ptr<Command> autonomousCommand;
 	SendableChooser *chooser;
 
@@ -23,6 +22,8 @@ private:
 
 		SmartDashboard::PutData("Auto Modes", chooser);
 
+		CameraServer::GetInstance()->SetQuality(50);
+		CameraServer::GetInstance()->StartAutomaticCapture("cam0");
 	}
 	/**
      * This function is called once each time the robot enters Disabled mode.

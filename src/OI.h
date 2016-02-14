@@ -19,6 +19,7 @@ public:
 	Button* ScalerRetractButton;
 	Button* ManualInatke;
 	Button* IntakeHalfWayPointButton;
+
 };
 
 #endif

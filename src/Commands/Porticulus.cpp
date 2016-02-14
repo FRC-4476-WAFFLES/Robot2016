@@ -1,39 +1,52 @@
-#include "ADefensesCommandGroup.h"
-#include "ADefensesGoToAngle.h"
+#include "Porticulus.h"
 
 
-ADefensesCommandGroup::ADefensesCommandGroup() : CommandGroup()
+Porticulus::Porticulus() : CommandBase()
 {
-	AddSequential(new ADefensesGoToAngle(90));
+	Requires(aDefenses.get());
 }
 
 // Called just before this Command runs the first time
-void ADefensesCommandGroup::Initialize()
+void Porticulus::Initialize()
 {
-
+	aDefenses->Enable();
+	switch(SequentialIndex){
+		case 0:
+			aDefenses->SetSetpoint(422);
+			break;
+		case 1:
+			aDefenses->SetSetpoint(381);
+			break;
+		case 2:
+			aDefenses->SetSetpoint(193);
+			SequentialIndex = -1;
+			break;
+	}
+	SequentialIndex++;
 }
 
+
 // Called repeatedly when this Command is scheduled to run
-void ADefensesCommandGroup::Execute()
+void Porticulus::Execute()
 {
 
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool ADefensesCommandGroup::IsFinished()
+bool Porticulus::IsFinished()
 {
-	return false;
+	return true;
 }
 
 // Called once after isFinished returns true
-void ADefensesCommandGroup::End()
+void Porticulus::End()
 {
 
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void ADefensesCommandGroup::Interrupted()
+void Porticulus::Interrupted()
 {
 
 }
