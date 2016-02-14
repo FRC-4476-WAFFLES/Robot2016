@@ -1,13 +1,15 @@
-#ifndef INTAKE_OUT_H
-#define INTAKE_OUT_H
+#ifndef A_DEFENSES_COMMAND_GROUP_H
+#define A_DEFENSES_COMMAND_GROUP_H
 
 #include "../CommandBase.h"
 #include "WPILib.h"
-#include "RobotMap.h"
-class IntakeOut: public CommandBase
+
+class ADefensesCommandGroup: public CommandGroup
 {
+private:
+
 public:
-	IntakeOut();
+	ADefensesCommandGroup();
 	void Initialize();
 	void Execute();
 	bool IsFinished();

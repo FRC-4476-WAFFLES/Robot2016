@@ -18,29 +18,12 @@ void IntakeSubsystem::InitDefaultCommand()
 	SetDefaultCommand(new IntakeIn());
 }
 
-void IntakeSubsystem::Out()
-{
-	Enable();
-	SetSetpoint(INTAKE_MINIMUM_DISTANCE + 320);
-	SetAbsoluteTolerance(25);
-}
+
 
 void IntakeSubsystem::Move(float moveSpeed)
 {
 	Disable();
 	Arm->SetSpeed(moveSpeed);
-}
-
-void IntakeSubsystem::In()
-{
-//	if(IntakeRetracted->Get()){
-//		Disable();
-//		Arm->SetSpeed(0);
-//		IntakeAngle->Reset();
-//	}else {
-	Enable();
-	SetSetpoint(12 + INTAKE_MINIMUM_DISTANCE);
-	//	}
 }
 
 double IntakeSubsystem::ReturnPIDInput() {

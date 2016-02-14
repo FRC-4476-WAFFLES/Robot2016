@@ -29,7 +29,7 @@ public:
 	static std::unique_ptr<OI> oi;
 	static std::unique_ptr<ADefensesSubsystem> aDefenses;
 	static std::unique_ptr<ScalerSubsystem> scaler;
-//	static std::unique_ptr<CameraSubsystem> camera;
+	//static std::unique_ptr<CameraSubsystem> camera;
 };
 
 #endif

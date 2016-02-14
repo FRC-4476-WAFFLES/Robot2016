@@ -21,6 +21,7 @@ public:
 	void ScalingMotors(double Speed);
 	double ScaleEncoder();
 
+
 };
 
 #endif

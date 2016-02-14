@@ -1,18 +1,21 @@
-#ifndef INTAKE_OUT_H
-#define INTAKE_OUT_H
+#ifndef CHEVAL_DE_FRISSE_H
+#define CHEVAL_DE_FRISSE_H
 
 #include "../CommandBase.h"
 #include "WPILib.h"
-#include "RobotMap.h"
-class IntakeOut: public CommandBase
+
+class ChevalDeFrisse: public CommandBase
 {
+private:
+	int SequentialIndex;
 public:
-	IntakeOut();
+	ChevalDeFrisse();
 	void Initialize();
 	void Execute();
 	bool IsFinished();
 	void End();
 	void Interrupted();
+
 };
 
 #endif

@@ -14,7 +14,7 @@ void ScalerRetract::Initialize()
 // Called repeatedly when this Command is scheduled to run
 void ScalerRetract::Execute()
 {
-	scaler->ScalingMotors(1);
+	scaler->ScalingMotors(0.2);
 }
 
 // Make this return true when this Command no longer needs to run execute()

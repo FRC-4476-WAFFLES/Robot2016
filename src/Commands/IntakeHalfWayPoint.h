@@ -1,13 +1,15 @@
-#ifndef INTAKE_OUT_H
-#define INTAKE_OUT_H
-
+#ifndef INTAKE_HALF_WAY_POINT_H
+#define INTAKE_HALF_WAY_POINT_H
 #include "../CommandBase.h"
 #include "WPILib.h"
 #include "RobotMap.h"
-class IntakeOut: public CommandBase
+class IntakeHalfWayPoint: public CommandBase
 {
+private:
+
 public:
-	IntakeOut();
+
+	IntakeHalfWayPoint();
 	void Initialize();
 	void Execute();
 	bool IsFinished();

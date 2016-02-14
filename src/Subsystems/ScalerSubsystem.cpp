@@ -25,15 +25,18 @@ void ScalerSubsystem::InitDefaultCommand()
 
 	double ScalerSubsystem::GetDeploy()
 	{
+
 		return DeployingEncoder->Get();
 	}
 	void ScalerSubsystem::SetDeploy(double Speed)
 	{
-		  DeployingVictor->SetSpeed(Speed);
+		//Speed = 0.1;
+		DeployingVictor->SetSpeed(Speed);
 	}
 
 	 void ScalerSubsystem::ScalingMotors(double Speed)
 	 {
+		 //speed = 0.1
 		 ScalingMotor1->SetSpeed(Speed);
 		 ScalingMotor2->SetSpeed(Speed);
 	 }

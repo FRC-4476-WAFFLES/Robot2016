@@ -7,6 +7,7 @@
 #include "Commands/ADefensesCommandGroup.h"
 #include "Commands/ScalerRetract.h"
 #include "Commands/ScalerDeploy.h"
+#include "Commands/IntakeHalfWayPoint.h"
 OI::OI()
 {
 	/*
@@ -22,7 +23,7 @@ OI::OI()
 	9=Back Button
 	10=Start Button
 	*/
-
+	//Options between button types: WhenPressed, WhileHeld, ToggleWhenPressed
 	// Process operator interface input here.
 	joystickLeft = new Joystick(0);
 	joystickRight = new Joystick(1);
@@ -38,9 +39,11 @@ OI::OI()
 	ADefencesButton = new JoystickButton(operatorController, 3);
 	ADefencesButton->WhenPressed(new ADefensesCommandGroup());
 	ScalerDeployButton = new JoystickButton(operatorController, 8);
-	ScalerDeployButton->WhenPressed(new ScalerDeploy());
+	ScalerDeployButton->WhileHeld(new ScalerDeploy());
 	ScalerRetractButton = new JoystickButton(operatorController, 7);
-	ScalerRetractButton->WhenPressed(new ScalerRetract());
+	ScalerRetractButton->WhileHeld(new ScalerRetract());
+	IntakeHalfWayPointButton =new JoystickButton (operatorController, 4);
+	IntakeHalfWayPointButton->WhenPressed(new IntakeHalfWayPoint);
 }
 
 

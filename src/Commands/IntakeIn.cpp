@@ -14,7 +14,8 @@ void IntakeIn::Initialize()
 // Called repeatedly when this Command is scheduled to run
 void IntakeIn::Execute()
 {
-	intake->In();
+	intake->Enable();
+	intake->SetSetpoint(12 + INTAKE_MINIMUM_DISTANCE);
 }
 
 // Make this return true when this Command no longer needs to run execute()

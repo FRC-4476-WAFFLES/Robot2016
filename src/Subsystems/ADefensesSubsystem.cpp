@@ -1,8 +1,8 @@
 #include "ADefensesSubsystem.h"
 #include "../RobotMap.h"
-
+#include "Commands/ADefensesGoToAngle.h"
 ADefensesSubsystem::ADefensesSubsystem() :
-		PIDSubsystem("ADefensesSubsystem",0,0,0)
+		PIDSubsystem("ADefensesSubsystem",0.000,0.000,0.000)
 {
 	Motor = new Victor(A_DEFENSES_MOTOR);
 	Potentiometer = new VexEncoder(A_DEFENSES_POT);
@@ -10,14 +10,14 @@ ADefensesSubsystem::ADefensesSubsystem() :
 
 void ADefensesSubsystem::InitDefaultCommand()
 {
-	//SetDefaultCommand(new MySpecialCommand());
+	SetDefaultCommand(new ADefensesGoToAngle(0));
 
 }
 
 double ADefensesSubsystem::ReturnPIDInput() {
 	rawAngle = Potentiometer->GetAngle();
-	SmartDashboard::PutNumber("RawAngle", rawAngle);
-	return Potentiometer->GetAngle();
+	SmartDashboard::PutNumber("ADefenseAngle", rawAngle);
+	return rawAngle;
 
 }
 
