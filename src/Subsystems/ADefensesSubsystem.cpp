@@ -3,7 +3,7 @@
 
 ADefensesSubsystem::ADefensesSubsystem() :
 // keepGoingUpForP(space)UntilItStartsToWabbleAndThenAdjustDspace)Slowly
-		PIDSubsystem("ADefensesSubsystem",0.001,0.000,0.000)
+		PIDSubsystem("ADefensesSubsystem",0.005,0.000,0.000)
 {
 	Motor = new Victor(A_DEFENSES_MOTOR);
 	Potentiometer = new VexEncoder(A_DEFENSES_POT);

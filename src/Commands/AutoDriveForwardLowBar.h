@@ -13,6 +13,7 @@ public:
 	bool IsFinished();
 	void End();
 	void Interrupted();
+
 };
 
 #endif

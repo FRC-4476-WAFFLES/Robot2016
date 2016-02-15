@@ -22,8 +22,8 @@ private:
 
 		SmartDashboard::PutData("Auto Modes", chooser);
 
-		CameraServer::GetInstance()->SetQuality(50);
-		CameraServer::GetInstance()->StartAutomaticCapture("cam0");
+		//CameraServer::GetInstance()->SetQuality(50);
+		//CameraServer::GetInstance()->StartAutomaticCapture("cam0");
 	}
 	/**
      * This function is called once each time the robot enters Disabled mode.
