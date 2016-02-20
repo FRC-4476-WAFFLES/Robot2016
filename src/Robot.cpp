@@ -53,6 +53,11 @@ private:
 		CameraServer::GetInstance()->SetQuality(50);
 		CameraServer::GetInstance()->StartAutomaticCapture("cam0");
 
+<<<<<<< HEAD
+=======
+		CameraServer::GetInstance()->SetQuality(50);
+		CameraServer::GetInstance()->StartAutomaticCapture("cam0");
+>>>>>>> parent of 8ae5c15... *No connection*
 	}
 	/**
      * This function is called once each time the robot enters Disabled mode.

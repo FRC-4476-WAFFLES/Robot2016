@@ -45,8 +45,11 @@ OI::OI()
 	IntakeHalfWayPointButton->WhenPressed(new IntakeHalfWayPoint());
 	ADefencesButton= new JoystickButton(operatorController, 3);
 	ADefencesButton->WhenPressed(new Porticulus());
+<<<<<<< HEAD
 	//Substitute Porticulus with cheval de frisse command for test
 
+=======
+>>>>>>> parent of 8ae5c15... *No connection*
 }
 
 
