@@ -8,7 +8,7 @@ IntakeOut::IntakeOut() : CommandBase("IntakeOut")
 // Called just before this Command runs the first time
 void IntakeOut::Initialize()
 {
-	intake->SetSetpoint(346);
+	intake->SetSetpoint(419);
 }
 
 // Called repeatedly when this Command is scheduled to run
