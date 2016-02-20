@@ -4,27 +4,13 @@
 #include "Commands/IntakeOut.h"
 #include "Commands/OperatorDrive.h"
 #include "Commands/RollerExtract.h"
+#include "Commands/ADefensesCommandGroup.h"
 #include "Commands/ScalerRetract.h"
 #include "Commands/ScalerDeploy.h"
 #include "Commands/IntakeHalfWayPoint.h"
-#include "Commands/ChevalDeFrisse.h"
 #include "Commands/Porticulus.h"
 OI::OI()
 {
-
-//		std::unique_ptr<Command> autonomousCommand;
-//		SendableChooser *chooser;
-//		CommandBase::init();
-//		chooser = new SendableChooser();
-//		chooser->AddDefault("ChevalDeFrisse", new ChevalDeFrisse());
-//		chooser->AddObject("Porticulus", new Porticulus());
-//
-//		SmartDashboard::PutData("Auto Modes", chooser);
-
-
-
-
-
 	/*
 	Button:
 	1=X
@@ -60,6 +46,7 @@ OI::OI()
 	ADefencesButton= new JoystickButton(operatorController, 3);
 	ADefencesButton->WhenPressed(new Porticulus());
 	//Substitute Porticulus with cheval de frisse command for test
+
 }
 
 

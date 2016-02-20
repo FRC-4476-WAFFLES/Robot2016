@@ -25,7 +25,6 @@ void ScalerSubsystem::InitDefaultCommand()
 
 	double ScalerSubsystem::GetDeploy()
 	{
-
 		return DeployingEncoder->Get();
 	}
 	void ScalerSubsystem::SetDeploy(double Speed)
@@ -37,6 +36,7 @@ void ScalerSubsystem::InitDefaultCommand()
 	 void ScalerSubsystem::ScalingMotors(double Speed)
 	 {
 		 //speed = 0.1
+
 		 ScalingMotor1->SetSpeed(Speed);
 		 ScalingMotor2->SetSpeed(Speed);
 	 }

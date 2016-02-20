@@ -15,7 +15,7 @@ void IntakeHalfWayPoint::Initialize()
 void IntakeHalfWayPoint::Execute()
 {
 	intake->Enable();
-	intake->SetSetpoint(171 + INTAKE_MINIMUM_DISTANCE);
+	intake->SetSetpoint(184);
 }
 
 // Make this return true when this Command no longer needs to run execute()

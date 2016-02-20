@@ -14,7 +14,6 @@ void AutoDriveForwardLowBar::Initialize()
 //1.0, 1.0 represents full speed (change accordingly)
 void AutoDriveForwardLowBar::Execute()
 {
-
 	drive->Drive(0.5, 0.05);
 
 }

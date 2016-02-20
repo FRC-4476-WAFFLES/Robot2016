@@ -10,6 +10,7 @@ ChevalDeFrisse::ChevalDeFrisse() : CommandBase()
 // Called just before this Command runs the first time
 void ChevalDeFrisse::Initialize()
 {
+
 	aDefenses->Enable();
 	switch(SequentialIndex){
 	case 0:
@@ -25,6 +26,7 @@ void ChevalDeFrisse::Initialize()
 	}
 
 	SequentialIndex++;
+
 }
 
 // Called repeatedly when this Command is scheduled to run

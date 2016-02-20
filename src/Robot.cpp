@@ -10,20 +10,38 @@
 class Robot: public IterativeRobot
 {
 private:
+	AxisCamera* camera;
 	std::unique_ptr<Command> autonomousCommand;
 	SendableChooser *chooser;
 
+	void autonomousInit(){
+
+		CommandBase::init();
+				chooser = new SendableChooser();
+				chooser->AddDefault("Auto do nothing", new AutoDoNothing());
+				chooser->AddDefault("Low Bar auto", new AutoDriveForwardLowBar());
+
+				SmartDashboard::PutData("Auto Modes", chooser);
+
+	}
+
+
+
+
 	void RobotInit()
 	{
-		CommandBase::init();
-		chooser = new SendableChooser();
-		//chooser->AddDefault("Default Auto", new AutoDoNothing());
-		chooser->AddDefault("Default Auto", new AutoDriveForwardLowBar());
 
-		SmartDashboard::PutData("Auto Modes", chooser);
+//		CommandBase::init();
+//		chooser = new SendableChooser();
+//		chooser->AddDefault("Default Auto", new AutoDoNothing());
+//		chooser->AddDefault("Default Auto", new AutoDriveForwardLowBar());
+//
+//		SmartDashboard::PutData("Auto Modes", chooser);
 
-		//CameraServer::GetInstance()->SetQuality(50);
-		//CameraServer::GetInstance()->StartAutomaticCapture("cam0");
+		//irrelevant
+		CameraServer::GetInstance()->SetQuality(50);
+		CameraServer::GetInstance()->StartAutomaticCapture("cam0");
+
 	}
 	/**
      * This function is called once each time the robot enters Disabled mode.
@@ -50,6 +68,10 @@ private:
 	 */
 	void AutonomousInit()
 	{
+		//gets the selected command
+		autonomousCommand = (Command *) chooser->GetSelected();
+		//starts the selected command
+		autonomousCommand->Start();
 		/* std::string autoSelected = SmartDashboard::GetString("Auto Selector", "Default");
 		if(autoSelected == "My Auto") {
 			autonomousCommand.reset(new MyAutoCommand());
@@ -65,6 +87,7 @@ private:
 
 	void AutonomousPeriodic()
 	{
+
 		Scheduler::GetInstance()->Run();
 	}
 

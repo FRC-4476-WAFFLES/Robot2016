@@ -15,7 +15,7 @@ void IntakeIn::Initialize()
 void IntakeIn::Execute()
 {
 	intake->Enable();
-	intake->SetSetpoint(12 + INTAKE_MINIMUM_DISTANCE);
+	intake->SetSetpoint(37);
 }
 
 // Make this return true when this Command no longer needs to run execute()
