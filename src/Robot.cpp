@@ -3,6 +3,8 @@
 
 #include "Commands/AutoDoNothing.h"
 #include "Commands/AutoDriveForwardLowBar.h"
+#include "Commands/ChevalDeFrisse.h"
+#include "Commands/Porticulus.h"
 #include "CommandBase.h"
 #include <memory>
 #include "iostream"
@@ -13,7 +15,8 @@ private:
 	AxisCamera* camera;
 	std::unique_ptr<Command> autonomousCommand;
 	SendableChooser *chooser;
-
+	SendableChooser *ADefesesChooser;
+	Command *ADefenseCommand;
 	void autonomousInit(){
 
 		CommandBase::init();
@@ -22,6 +25,14 @@ private:
 				chooser->AddDefault("Low Bar auto", new AutoDriveForwardLowBar());
 
 				SmartDashboard::PutData("Auto Modes", chooser);
+
+				//a def
+		CommandBase::init();
+				ADefesesChooser = new SendableChooser();
+				ADefesesChooser->AddDefault("cheval de frisse a defense", new ChevalDeFrisse());
+				ADefesesChooser->AddDefault("porticulus a defense", new Porticulus());
+
+				SmartDashboard::PutData("a defense mode", ADefesesChooser);
 
 	}
 
@@ -69,7 +80,7 @@ private:
 	void AutonomousInit()
 	{
 		//gets the selected command
-		autonomousCommand = (Command *) chooser->GetSelected();
+		autonomousCommand.reset((Command*)chooser->GetSelected());
 		//starts the selected command
 		autonomousCommand->Start();
 		/* std::string autoSelected = SmartDashboard::GetString("Auto Selector", "Default");
@@ -79,7 +90,7 @@ private:
 			autonomousCommand.reset(new ExampleCommand());
 		} */
 
-		autonomousCommand.reset((Command *)chooser->GetSelected());
+
 
 		if (autonomousCommand != NULL)
 			autonomousCommand->Start();
@@ -93,6 +104,9 @@ private:
 
 	void TeleopInit()
 	{
+
+		ADefenseCommand = (Command*)ADefesesChooser->GetSelected();
+		ADefenseCommand->Start();
 		// This makes sure that the autonomous stops running when
 		// teleop starts running. If you want the autonomous to
 		// continue until interrupted by another command, remove
