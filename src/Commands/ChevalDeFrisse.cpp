@@ -5,6 +5,7 @@
 ChevalDeFrisse::ChevalDeFrisse() : CommandBase()
 {
 	Requires(aDefenses.get());
+
 }
 
 // Called just before this Command runs the first time
