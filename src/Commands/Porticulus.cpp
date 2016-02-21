@@ -13,21 +13,8 @@ void Porticulus::Initialize()
 {
 	// If this does not work in Initialize constructor, add it to Execute for a trial *delete this comment after*
 	//Cases only work for int and char
-	aDefenses->Enable();
-		switch(SequentialIndex){
-			case 0:
-				aDefenses->SetSetpoint(193);
-				break;
-			case 1:
-				aDefenses->SetSetpoint(381);
-				break;
-			case 2:
-				aDefenses->SetSetpoint(422);
-				SequentialIndex = -1;
-				break;
-		}
-		SequentialIndex++;
 
+	aDefenses->GoToNextPorticulusSetpoint();
 }
 
 // Called repeatedly when this Command is scheduled to run

@@ -15,12 +15,7 @@ void AutoDriveForwardLowBar::Initialize()
 //1.0, 1.0 represents full speed (change accordingly)
 void AutoDriveForwardLowBar::Execute()
 {
-<<<<<<< HEAD
-	drive->Drive(0.5, 0.05);
-
-=======
 	drive->Drive(0.5, 0.5);
->>>>>>> parent of 8ae5c15... *No connection*
 }
 
 // Make this return true when this Command no longer needs to run execute()

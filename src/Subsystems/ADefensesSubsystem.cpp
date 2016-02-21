@@ -5,14 +5,15 @@
 ADefensesSubsystem::ADefensesSubsystem():
 
 // keepGoingUpForP(space)UntilItStartsToWabbleAndThenAdjustDspace)Slowly
-<<<<<<< HEAD
+
 	PIDSubsystem("ADefensesSubsystem",0.001,0.000,0.000)
-=======
-		PIDSubsystem("ADefensesSubsystem",0.001,0.000,0.000)
->>>>>>> parent of 8ae5c15... *No connection*
+
+
+
 {
 	Motor = new Victor(A_DEFENSES_MOTOR);
 	Potentiometer = new VexEncoder(A_DEFENSES_POT);
+	PorticulusIndex = 0;
 }
 
 void ADefensesSubsystem::InitDefaultCommand()
@@ -30,6 +31,23 @@ double ADefensesSubsystem::ReturnPIDInput() {
 
 void ADefensesSubsystem::UsePIDOutput(double power){
 	Motor->PIDWrite(power);
+}
+
+void ADefensesSubsystem::GoToNextPorticulusSetpoint()
+{
+	switch(PorticulusIndex){
+				case 0:
+					SetSetpoint(193);
+					break;
+				case 1:
+					SetSetpoint(381);
+					break;
+				case 2:
+					SetSetpoint(422);
+					PorticulusIndex = -1;
+					break;
+	}
+	PorticulusIndex++;
 }
 
 

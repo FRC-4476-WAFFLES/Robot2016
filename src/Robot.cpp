@@ -15,24 +15,24 @@ private:
 	AxisCamera* camera;
 	std::unique_ptr<Command> autonomousCommand;
 	SendableChooser *chooser;
-	SendableChooser *ADefesesChooser;
-	Command *ADefenseCommand;
+//	SendableChooser *ADefesesChooser;
+//	Command *ADefenseCommand;
 	void autonomousInit(){
 
 		CommandBase::init();
 				chooser = new SendableChooser();
-				chooser->AddDefault("Auto do nothing", new AutoDoNothing());
+				//chooser->AddDefault("Auto do nothing", new AutoDoNothing());
 				chooser->AddDefault("Low Bar auto", new AutoDriveForwardLowBar());
 
 				SmartDashboard::PutData("Auto Modes", chooser);
 
 				//a def
-		CommandBase::init();
-				ADefesesChooser = new SendableChooser();
-				ADefesesChooser->AddDefault("cheval de frisse a defense", new ChevalDeFrisse());
-				ADefesesChooser->AddDefault("porticulus a defense", new Porticulus());
-
-				SmartDashboard::PutData("a defense mode", ADefesesChooser);
+//		CommandBase::init();
+//				ADefesesChooser = new SendableChooser();
+//				ADefesesChooser->AddDefault("cheval de frisse a defense", new ChevalDeFrisse());
+//				ADefesesChooser->AddDefault("porticulus a defense", new Porticulus());
+//
+//				SmartDashboard::PutData("a defense mode", ADefesesChooser);
 
 	}
 
@@ -42,22 +42,17 @@ private:
 	void RobotInit()
 	{
 
-//		CommandBase::init();
-//		chooser = new SendableChooser();
-//		chooser->AddDefault("Default Auto", new AutoDoNothing());
-//		chooser->AddDefault("Default Auto", new AutoDriveForwardLowBar());
-//
-//		SmartDashboard::PutData("Auto Modes", chooser);
+		CommandBase::init();
+		chooser = new SendableChooser();
+		chooser->AddDefault("Default Auto", new AutoDoNothing());
+		chooser->AddDefault("Default Auto", new AutoDriveForwardLowBar());
+
+		SmartDashboard::PutData("Auto Modes", chooser);
 
 		//irrelevant
 		CameraServer::GetInstance()->SetQuality(50);
 		CameraServer::GetInstance()->StartAutomaticCapture("cam0");
 
-<<<<<<< HEAD
-=======
-		CameraServer::GetInstance()->SetQuality(50);
-		CameraServer::GetInstance()->StartAutomaticCapture("cam0");
->>>>>>> parent of 8ae5c15... *No connection*
 	}
 	/**
      * This function is called once each time the robot enters Disabled mode.
@@ -84,10 +79,10 @@ private:
 	 */
 	void AutonomousInit()
 	{
-		//gets the selected command
-		autonomousCommand.reset((Command*)chooser->GetSelected());
-		//starts the selected command
-		autonomousCommand->Start();
+//		//gets the selected command
+//		autonomousCommand.reset((Command*)chooser->GetSelected());
+//		//starts the selected command
+//		autonomousCommand->Start();
 		/* std::string autoSelected = SmartDashboard::GetString("Auto Selector", "Default");
 		if(autoSelected == "My Auto") {
 			autonomousCommand.reset(new MyAutoCommand());
@@ -110,8 +105,8 @@ private:
 	void TeleopInit()
 	{
 
-		ADefenseCommand = (Command*)ADefesesChooser->GetSelected();
-		ADefenseCommand->Start();
+//		ADefenseCommand = (Command*)ADefesesChooser->GetSelected();
+//		ADefenseCommand->Start();
 		// This makes sure that the autonomous stops running when
 		// teleop starts running. If you want the autonomous to
 		// continue until interrupted by another command, remove

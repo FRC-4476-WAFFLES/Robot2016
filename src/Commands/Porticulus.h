@@ -3,11 +3,10 @@
 
 #include "../CommandBase.h"
 #include "WPILib.h"
+#include "Subsystems/ADefensesSubsystem.h"
 
 class Porticulus: public CommandBase
 {
-private:
-	int SequentialIndex;
 public:
 	Porticulus();
 	void Initialize();
