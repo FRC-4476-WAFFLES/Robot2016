@@ -12,11 +12,13 @@ private:
 protected:
 	double ReturnPIDInput();
 	void UsePIDOutput(double);
+
 public:
 	ADefensesSubsystem();
 	void InitDefaultCommand();
 	float rawAngle;
 	void GoToNextPorticulusSetpoint();
+	void move(float moveSpeed);
 
 
 };

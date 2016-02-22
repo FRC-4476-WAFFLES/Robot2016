@@ -15,10 +15,11 @@ public:
 	Button* RollerSuckButton;
 	Button* RollerExtractButton;
 	Button* ADefencesButton;
-	Button* ScalerDeployButton;
+	//Button* ScalerDeployButton;
 	Button* ScalerRetractButton;
 	Button* ManualInatke;
 	Button* IntakeHalfWayPointButton;
+	Button* ReverseSpoolButton;
 };
 
 #endif

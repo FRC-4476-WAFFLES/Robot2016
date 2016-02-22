@@ -15,7 +15,7 @@ void IntakeIn::Initialize()
 void IntakeIn::Execute()
 {
 	intake->Enable();
-	intake->SetSetpoint(117);
+	intake->SetSetpoint(170);
 }
 
 // Make this return true when this Command no longer needs to run execute()

@@ -29,7 +29,7 @@ const int SCALER_POSITION_LOCK = 0;
 
 // Digital Inputs
 const int INTAKE_ENCODER = 0;
-const int INTAKE_RETRACTED_SWITCH = 1;
+const int SCALING_DEPLOYING_ENCODER = 1;
 const int A_DEFENSES_POT = 2;
 const int SCALER_CLIMB_ENCODER_A = 3;
 const int SCALER_CLIMB_ENCODER_B = 4;

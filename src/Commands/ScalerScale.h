@@ -1,15 +1,15 @@
-#ifndef A_DEFENSES_COMMAND_GROUP_H
-#define A_DEFENSES_COMMAND_GROUP_H
-
+#ifndef SCALER_SCALE_H
+#define SCALER_SCALE_H
 #include "../CommandBase.h"
 #include "WPILib.h"
 
-class ADefensesCommandGroup: public CommandGroup
+class ScalerScale: public CommandBase
 {
 private:
 
 public:
-	ADefensesCommandGroup();
+
+	ScalerScale();
 	void Initialize();
 	void Execute();
 	bool IsFinished();

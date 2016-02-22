@@ -8,7 +8,7 @@ IntakeSubsystem::IntakeSubsystem() :
 {
 	Arm = new Victor(INTAKE_MOTOR_ARM);
 
-	IntakeRetracted = new DigitalInput(INTAKE_RETRACTED_SWITCH);
+
 	IntakeAngle = new VexEncoder(INTAKE_ENCODER);
 	LiveWindow::GetInstance()->AddActuator("Intake", "Intake PID", GetPIDController());
 }
