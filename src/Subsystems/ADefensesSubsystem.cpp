@@ -27,7 +27,7 @@ double ADefensesSubsystem::ReturnPIDInput() {
 }
 
 void ADefensesSubsystem::UsePIDOutput(double power){
-	Motor->PIDWrite(power);
+	Motor->PIDWrite(-power);
 }
 
 void ADefensesSubsystem::GoToNextPorticulusSetpoint()
