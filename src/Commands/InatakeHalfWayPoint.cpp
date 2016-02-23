@@ -15,7 +15,7 @@ void IntakeHalfWayPoint::Initialize()
 void IntakeHalfWayPoint::Execute()
 {
 	intake->Enable();
-	intake->SetSetpoint(265);
+	intake->SetSetpoint(455);
 }
 
 // Make this return true when this Command no longer needs to run execute()

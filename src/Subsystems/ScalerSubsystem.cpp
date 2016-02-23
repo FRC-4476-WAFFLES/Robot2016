@@ -32,7 +32,7 @@ void ScalerSubsystem::InitDefaultCommand()
 	void ScalerSubsystem::SetDeploy(double Speed)
 	{
 		//Speed = 0.1;
-		DeployingVictor->SetSpeed(Speed);
+		DeployingVictor->SetSpeed(-Speed);
 	}
 
 	 void ScalerSubsystem::ScalingMotors(double Speed)

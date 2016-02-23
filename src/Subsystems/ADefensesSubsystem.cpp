@@ -1,16 +1,18 @@
 #include "ADefensesSubsystem.h"
 #include "../RobotMap.h"
 #include "Commands/Porticulus.h"
+#include "Commands/ChevalDeFrisse.h"
 
 ADefensesSubsystem::ADefensesSubsystem():
 
 // keepGoingUpForP(space)UntilItStartsToWabbleAndThenAdjustDspace)Slowly
 
-PIDSubsystem("ADefensesSubsystem",0.001,0.000,0.000)
+PIDSubsystem("ADefensesSubsystem", 0.03, 0.000, 0.000)
 {
 	Motor = new Victor(A_DEFENSES_MOTOR);
 	Potentiometer = new VexEncoder(A_DEFENSES_POT);
-	PorticulusIndex = 0;
+	PorticulusIndex = 1;
+	ChevalDeFrisseIndex = 0;
 }
 
 void ADefensesSubsystem::InitDefaultCommand()
@@ -32,26 +34,37 @@ void ADefensesSubsystem::UsePIDOutput(double power){
 
 void ADefensesSubsystem::GoToNextPorticulusSetpoint()
 {
+	Enable();
 	switch(PorticulusIndex){
 				case 0:
-					SetSetpoint(23);
+					SetSetpoint(40);
 					break;
 				case 1:
-					SetSetpoint(234);
+					SetSetpoint(254);
 					break;
+				default:
 				case 2:
-					SetSetpoint(190);
+					SetSetpoint(210);
 					PorticulusIndex = -1;
 					break;
 	}
 	PorticulusIndex++;
 }
 
-void ADefensesSubsystem::move(float MoveSpeed){
+void ADefensesSubsystem::GoToNextChevalDeFrisseSetpoint()
+{
+	Enable();
+		switch(ChevalDeFrisseIndex){
+		case 0:
+			SetSetpoint(40);
+			break;
 
-	Disable();
-	Motor->SetSpeed(MoveSpeed);
+		case 1:
+			SetSetpoint(261);
+			ChevalDeFrisseIndex = -1;
+			break;
+		}
 
+		ChevalDeFrisseIndex++;
 }
-
 

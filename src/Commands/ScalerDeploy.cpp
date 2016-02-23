@@ -14,20 +14,21 @@ void ScalerDeploy::Initialize()
 // Called repeatedly when this Command is scheduled to run
 void ScalerDeploy::Execute()
 {
-	scaler->SetDeploy(0.1);
+	scaler->SetDeploy(0.25);
 }
 
 // Make this return true when this Command no longer needs to run execute()
 bool ScalerDeploy::IsFinished()
 {
-	return scaler->GetDeploy()>1;
+	return scaler->GetDeploy()>630;
 
 }
 
 // Called once after isFinished returns true
 void ScalerDeploy::End()
 {
-	scaler->SetDeploy(0);
+	scaler->SetDeploy(0.01);
+
 }
 
 // Called when another command which requires one or more of the same

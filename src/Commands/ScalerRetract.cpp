@@ -14,13 +14,13 @@ void ScalerRetract::Initialize()
 // Called repeatedly when this Command is scheduled to run
 void ScalerRetract::Execute()
 {
-	scaler->ScalingMotors(0.75);
+	scaler->ScalingMotors(0.25);
 }
 
 // Make this return true when this Command no longer needs to run execute()
 bool ScalerRetract::IsFinished()
 {
-	return scaler->ScaleEncoder()>1;
+	return scaler->ScaleEncoder()<-3498*1.05;
 }
 
 // Called once after isFinished returns true

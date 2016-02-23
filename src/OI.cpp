@@ -6,10 +6,12 @@
 #include "Commands/OperatorDrive.h"
 #include "Commands/RollerExtract.h"
 #include "Commands/ScalerRetract.h"
-//#include "Commands/ScalerDeploy.h"
+#include "Commands/ScalerDeploy.h"
 #include "Commands/IntakeHalfWayPoint.h"
 #include "Commands/Porticulus.h"
 #include "Commands/ScalerScale.h"
+#include "Commands/ScalerCommandGroup.h"
+#include "Commands/ChevalDeFrisse.h"
 OI::OI()
 {
 	/*
@@ -38,15 +40,18 @@ OI::OI()
 	RollerSuckButton->WhileHeld(new RollerSuck());
 	RollerExtractButton = new JoystickButton(operatorController, 2);
 	RollerExtractButton->WhileHeld(new RollerExtract());
-	//ScalerDeployButton = new JoystickButton(operatorController, 8);
-	//ScalerDeployButton->WhileHeld(new ScalerDeploy());
-	ScalerRetractButton = new JoystickButton(operatorController, 7);
-	ScalerRetractButton->WhileHeld(new ScalerRetract());
+//	ScalerDeployButton = new JoystickButton(operatorController, 3);
+//	ScalerDeployButton->WhileHeld(new ScalerDeploy());
+//	ScalerRetractButton = new JoystickButton(operatorController, 8);
+//	ScalerRetractButton->WhileHeld(new ScalerRetract());
 	IntakeHalfWayPointButton =new JoystickButton (operatorController, 4);
 	IntakeHalfWayPointButton->WhenPressed(new IntakeHalfWayPoint());
-	ADefencesButton= new JoystickButton(operatorController, 3);
-	ADefencesButton->WhenPressed(new Porticulus());
-	ReverseSpoolButton = new JoystickButton(operatorController, 8);
+//	ADefencesButton= new JoystickButton(operatorController, 3);
+//	ADefencesButton->WhenPressed(new Porticulus());
+	ReverseSpoolButton = new JoystickButton(operatorController, 3);
 	ReverseSpoolButton->WhileHeld(new ScalerScale());
-
+	AutoScaler = new JoystickButton(operatorController, 7);
+	AutoScaler->WhenPressed(new ScalerCommandGroup());
+//	ChevalDeFrisseButton = new JoystickButton(operatorController, 8);
+//	ChevalDeFrisseButton->WhenPressed(new ChevalDeFrisse());
 }

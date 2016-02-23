@@ -7,7 +7,7 @@ IntakeSubsystem::IntakeSubsystem() :
 		PIDSubsystem("IntakeSubsystem", 0.01, 0.0, 0.01)
 {
 	Arm = new Victor(INTAKE_MOTOR_ARM);
-
+	SetAbsoluteTolerance(10.000);
 
 	IntakeAngle = new VexEncoder(INTAKE_ENCODER);
 	LiveWindow::GetInstance()->AddActuator("Intake", "Intake PID", GetPIDController());
@@ -32,7 +32,7 @@ double IntakeSubsystem::ReturnPIDInput() {
 }
 
 void IntakeSubsystem::UsePIDOutput(double power){
-	Arm->PIDWrite( - power );
+	Arm->PIDWrite( power );
 }
 
 void IntakeSubsystem::Reset(){

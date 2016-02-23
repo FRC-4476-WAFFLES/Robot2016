@@ -7,6 +7,7 @@ class ADefensesSubsystem: public PIDSubsystem
 {
 private:
 	int PorticulusIndex;
+	int ChevalDeFrisseIndex;
 		Victor* Motor;
 		VexEncoder* Potentiometer;
 protected:
@@ -19,6 +20,7 @@ public:
 	float rawAngle;
 	void GoToNextPorticulusSetpoint();
 	void move(float moveSpeed);
+	void GoToNextChevalDeFrisseSetpoint();
 
 
 };

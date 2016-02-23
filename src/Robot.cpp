@@ -49,7 +49,6 @@ private:
 
 		SmartDashboard::PutData("Auto Modes", chooser);
 
-		//irrelevant
 		CameraServer::GetInstance()->SetQuality(50);
 		CameraServer::GetInstance()->StartAutomaticCapture("cam0");
 
@@ -65,6 +64,8 @@ private:
 
 	void DisabledPeriodic()
 	{
+		SmartDashboard::PutNumber("ScalerEncoder", CommandBase::scaler->ScaleEncoder());
+		SmartDashboard::PutNumber("ScalerDeploy", CommandBase::scaler->GetDeploy());
 		Scheduler::GetInstance()->Run();
 	}
 
