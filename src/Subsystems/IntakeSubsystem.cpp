@@ -18,8 +18,6 @@ void IntakeSubsystem::InitDefaultCommand()
 	SetDefaultCommand(new IntakeIn());
 }
 
-
-
 void IntakeSubsystem::Move(float moveSpeed)
 {
 	Disable();

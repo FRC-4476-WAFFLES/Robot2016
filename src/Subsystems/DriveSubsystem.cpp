@@ -1,6 +1,6 @@
+#include <Commands/DriveOperator.h>
 #include "DriveSubsystem.h"
 #include "../RobotMap.h"
-#include "Commands/OperatorDrive.h"
 
 DriveSubsystem::DriveSubsystem():
 		Subsystem("DriveSubsystem")
@@ -9,15 +9,17 @@ DriveSubsystem::DriveSubsystem():
 	 RightMotorBack = new  Victor(DRIVE_MOTOR_RIGHT_BACK);
 	 LeftMotorFront = new Victor(DRIVE_MOTOR_LEFT_FRONT);
 	 LeftMotorBack = new Victor(DRIVE_MOTOR_LEFT_BACK);
+	 gyro = new ADXRS450_Gyro();
 }
-
-
 
 void DriveSubsystem::InitDefaultCommand()
 {
 	// Set the default command for a subsystem here.
-	SetDefaultCommand(new OperatorDrive());
+	SetDefaultCommand(new DriveOperator());
+}
 
+double DriveSubsystem::GetGyro() {
+	return gyro->GetAngle();
 }
 
 void DriveSubsystem::Drive(double left, double right)

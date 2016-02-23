@@ -22,6 +22,7 @@ public:
 	CommandBase(const std::string &name);
 	CommandBase();
 	static void init();
+	static void prints();
 	// Create a single static instance of all of your subsystems
 	static std::unique_ptr<IntakeSubsystem> intake;
 	static std::unique_ptr<DriveSubsystem> drive;

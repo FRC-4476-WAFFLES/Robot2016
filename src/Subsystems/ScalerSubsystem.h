@@ -1,7 +1,6 @@
 #ifndef SCALER_SUBSYSTEM_H
 #define SCALER_SUBSYSTEM_H
 #include "CustomSensors/VexEncoder.h"
-#include "Commands/Subsystem.h"
 #include "WPILib.h"
 
 class ScalerSubsystem: public Subsystem

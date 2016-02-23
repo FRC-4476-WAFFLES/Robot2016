@@ -6,22 +6,23 @@
 class OI
 {
 public:
+	enum OperatorButton {
+		X=1,
+		A=2,
+		B=3,
+		Y=4,
+		BumperTopLeft=5,
+		BumperTopRight=6,
+		BumperBottomLeft=7,
+		BumperBottomRight=8,
+		Back=9,
+		Start=10,
+	};
+
 	OI();
 	Joystick* joystickLeft;
 	Joystick* joystickRight;
 	Joystick* operatorController;
-	Button* intakeInButton;
-	Button* intakeOutButton;
-	Button* RollerSuckButton;
-	Button* RollerExtractButton;
-	Button* ADefencesButton;
-	Button* ScalerDeployButton;
-	Button* ScalerRetractButton;
-	Button* ManualInatke;
-	Button* IntakeHalfWayPointButton;
- 	Button* ReverseSpoolButton;
-	Button* AutoScaler;
-	Button* ChevalDeFrisseButton;
 };
 
 #endif

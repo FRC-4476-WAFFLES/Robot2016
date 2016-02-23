@@ -14,9 +14,11 @@ class Robot: public IterativeRobot
 private:
 	AxisCamera* camera;
 	std::unique_ptr<Command> autonomousCommand;
-	SendableChooser *chooser;
+	SendableChooser* chooser;
+
 //	SendableChooser *ADefesesChooser;
 //	Command *ADefenseCommand;
+
 	void autonomousInit(){
 
 		CommandBase::init();
@@ -36,12 +38,8 @@ private:
 
 	}
 
-
-
-
 	void RobotInit()
 	{
-
 		CommandBase::init();
 		chooser = new SendableChooser();
 		chooser->AddDefault("Default Auto", new AutoDoNothing());
@@ -51,8 +49,8 @@ private:
 
 		CameraServer::GetInstance()->SetQuality(50);
 		CameraServer::GetInstance()->StartAutomaticCapture("cam0");
-
 	}
+
 	/**
      * This function is called once each time the robot enters Disabled mode.
      * You can use it to reset any subsystem information you want to clear when
@@ -67,6 +65,7 @@ private:
 		SmartDashboard::PutNumber("ScalerEncoder", CommandBase::scaler->ScaleEncoder());
 		SmartDashboard::PutNumber("ScalerDeploy", CommandBase::scaler->GetDeploy());
 		Scheduler::GetInstance()->Run();
+		CommandBase::prints();
 	}
 
 	/**
@@ -91,21 +90,18 @@ private:
 			autonomousCommand.reset(new ExampleCommand());
 		} */
 
-
-
 		if (autonomousCommand != NULL)
 			autonomousCommand->Start();
 	}
 
 	void AutonomousPeriodic()
 	{
-
+		CommandBase::prints();
 		Scheduler::GetInstance()->Run();
 	}
 
 	void TeleopInit()
 	{
-
 //		ADefenseCommand = (Command*)ADefesesChooser->GetSelected();
 //		ADefenseCommand->Start();
 		// This makes sure that the autonomous stops running when
@@ -118,12 +114,13 @@ private:
 
 	void TeleopPeriodic()
 	{
+		CommandBase::prints();
 		Scheduler::GetInstance()->Run();
-
 	}
 
 	void TestPeriodic()
 	{
+		CommandBase::prints();
 		LiveWindow::GetInstance()->Run();
 	}
 };

@@ -1,13 +1,13 @@
-#ifndef OPERATOR_DRIVE_H
-#define OPERATOR_DRIVE_H
+#ifndef DRIVE_OPERATOR_H
+#define DRIVE_OPERATOR_H
 
 #include "../CommandBase.h"
 #include "WPILib.h"
 
-class OperatorDrive: public CommandBase
+class DriveOperator: public CommandBase
 {
 public:
-	OperatorDrive();
+	DriveOperator();
 	void Initialize();
 	void Execute();
 	bool IsFinished();

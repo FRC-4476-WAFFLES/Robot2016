@@ -17,15 +17,10 @@ PIDSubsystem("ADefensesSubsystem", 0.03, 0.000, 0.000)
 
 void ADefensesSubsystem::InitDefaultCommand()
 {
-
-
 }
 
 double ADefensesSubsystem::ReturnPIDInput() {
-	rawAngle = Potentiometer->GetAngle();
-	SmartDashboard::PutNumber("ADefenseAngle", rawAngle);
-	return rawAngle;
-
+	return Potentiometer->GetAngle();
 }
 
 void ADefensesSubsystem::UsePIDOutput(double power){
@@ -67,4 +62,3 @@ void ADefensesSubsystem::GoToNextChevalDeFrisseSetpoint()
 
 		ChevalDeFrisseIndex++;
 }
-

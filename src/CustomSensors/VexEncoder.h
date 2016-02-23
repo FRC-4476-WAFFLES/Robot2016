@@ -1,10 +1,3 @@
-/*
- * VexEncoder.h
- *
- *  Created on: Feb 1, 2016
- *      Author: WAFFLES_Guest
- */
-
 #ifndef SRC_CUSTOMSENSORS_VEXENCODER_H_
 #define SRC_CUSTOMSENSORS_VEXENCODER_H_
 
