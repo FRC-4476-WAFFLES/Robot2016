@@ -18,7 +18,7 @@ void AutoDriveForwardLowBar::Execute()
 
 	float gyroAngle = drive->GetGyro();
 
-	drive->Drive(-0.1*gyroAngle+0.5, 0.1*gyroAngle+0.5);
+	drive->Drive(-0.1*gyroAngle+0.0, 0.1*gyroAngle+0.0);
 }
 
 // Make this return true when this Command no longer needs to run execute()
