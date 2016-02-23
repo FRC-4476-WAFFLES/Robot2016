@@ -9,6 +9,7 @@ DriveSubsystem::DriveSubsystem():
 	 RightMotorBack = new  Victor(DRIVE_MOTOR_RIGHT_BACK);
 	 LeftMotorFront = new Victor(DRIVE_MOTOR_LEFT_FRONT);
 	 LeftMotorBack = new Victor(DRIVE_MOTOR_LEFT_BACK);
+	 gyro = new ADXRS450_Gyro();
 }
 
 void DriveSubsystem::InitDefaultCommand()

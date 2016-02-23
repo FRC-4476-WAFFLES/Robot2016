@@ -4,7 +4,6 @@
 ScalerSubsystem::ScalerSubsystem() :
 		Subsystem("ScalerSubsystem")
 {
-
 	 ScalingMotor1 = new Victor(SCALER_CLIMB_1);
 	 ScalingMotor2 = new Victor(SCALER_CLIMB_2);
 	 ScalingEncoder = new Encoder(SCALER_CLIMB_ENCODER_A, SCALER_CLIMB_ENCODER_B);

@@ -44,7 +44,7 @@ OI::OI()
 		temp = new JoystickButton(operatorController, OperatorButton::Y);
 		temp->WhenPressed(new IntakeHalfWayPoint());
 		temp = new JoystickButton(operatorController, OperatorButton::BumperTopRight);
-		temp->WhenPressed(new IntakeHalfWayPoint());
+		temp->WhenPressed(new IntakeOut());
 
 		temp = new JoystickButton(operatorController, OperatorButton::X);
 		temp->WhileHeld(new RollerSuck());
