@@ -1,10 +1,3 @@
-/*
- * VexEncoder.cpp
- *
- *  Created on: Feb 1, 2016
- *      Author: WAFFLES_Guest
- */
-
 #include <CustomSensors/VexEncoder.h>
 #include <math.h>
 

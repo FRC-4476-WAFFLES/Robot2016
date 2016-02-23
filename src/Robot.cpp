@@ -40,7 +40,6 @@ private:
 
 	void RobotInit()
 	{
-
 		CommandBase::init();
 		chooser = new SendableChooser();
 		chooser->AddDefault("Default Auto", new AutoDoNothing());
@@ -51,7 +50,6 @@ private:
 		//irrelevant
 		CameraServer::GetInstance()->SetQuality(50);
 		CameraServer::GetInstance()->StartAutomaticCapture("cam0");
-
 	}
 
 	/**
