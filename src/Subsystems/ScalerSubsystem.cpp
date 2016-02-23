@@ -16,38 +16,31 @@ ScalerSubsystem::ScalerSubsystem() :
 void ScalerSubsystem::InitDefaultCommand()
 {
 	// Set the default command for a subsystem here.
-
 }
 
+double ScalerSubsystem::GetDeploy()
+{
+	return DeployingVexEncoder->GetAngle();
+}
 
-// Put methods for controlling this subsystem
-// here. Call these from Commands.
+void ScalerSubsystem::SetDeploy(double Speed)
+{
+	DeployingVictor->SetSpeed(Speed);
+}
 
-	double ScalerSubsystem::GetDeploy()
-	{
-		double angle = DeployingVexEncoder->GetAngle();
-		SmartDashboard::PutNumber("scalerTiltAngle", angle);
-		return angle;
-	}
-	void ScalerSubsystem::SetDeploy(double Speed)
-	{
-		//Speed = 0.1;
-		DeployingVictor->SetSpeed(Speed);
-	}
+void ScalerSubsystem::ScalingMotors(double Speed)
+{
+	ScalingMotor1->SetSpeed(Speed);
+	ScalingMotor2->SetSpeed(Speed);
+}
 
-	 void ScalerSubsystem::ScalingMotors(double Speed)
-	 {
-		 //speed = 0.1
-			SmartDashboard::PutNumber("scalingSpeed", Speed);
-		 ScalingMotor1->SetSpeed(Speed);
-		 ScalingMotor2->SetSpeed(Speed);
-	 }
-	 double ScalerSubsystem::ScaleEncoder()
-	 {
-		 return ScalingEncoder->Get();
-	 }
-	 void ScalerSubsystem::ReverseSpool(double Speed)
-	 {
-		 ScalingMotor1->SetSpeed(-Speed);
-		 ScalingMotor2->SetSpeed(-Speed);
-	 }
+double ScalerSubsystem::ScaleEncoder()
+{
+	return ScalingEncoder->Get();
+}
+
+void ScalerSubsystem::ReverseSpool(double Speed)
+{
+	ScalingMotor1->SetSpeed(-Speed);
+	ScalingMotor2->SetSpeed(-Speed);
+}

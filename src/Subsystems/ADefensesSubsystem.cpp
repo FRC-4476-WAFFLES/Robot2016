@@ -15,15 +15,10 @@ PIDSubsystem("ADefensesSubsystem",0.001,0.000,0.000)
 
 void ADefensesSubsystem::InitDefaultCommand()
 {
-
-
 }
 
 double ADefensesSubsystem::ReturnPIDInput() {
-	rawAngle = Potentiometer->GetAngle();
-	SmartDashboard::PutNumber("ADefenseAngle", rawAngle);
-	return rawAngle;
-
+	return Potentiometer->GetAngle();
 }
 
 void ADefensesSubsystem::UsePIDOutput(double power){
@@ -33,16 +28,16 @@ void ADefensesSubsystem::UsePIDOutput(double power){
 void ADefensesSubsystem::GoToNextPorticulusSetpoint()
 {
 	switch(PorticulusIndex){
-				case 0:
-					SetSetpoint(23);
-					break;
-				case 1:
-					SetSetpoint(234);
-					break;
-				case 2:
-					SetSetpoint(190);
-					PorticulusIndex = -1;
-					break;
+		case 0:
+			SetSetpoint(23);
+			break;
+		case 1:
+			SetSetpoint(234);
+			break;
+		case 2:
+			SetSetpoint(190);
+			PorticulusIndex = -1;
+			break;
 	}
 	PorticulusIndex++;
 }

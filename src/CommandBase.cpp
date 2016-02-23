@@ -30,6 +30,13 @@ void CommandBase::init()
 	aDefenses.reset(new ADefensesSubsystem());
 	scaler.reset(new ScalerSubsystem());
 
-
 	oi.reset(new OI());
+}
+
+void CommandBase::prints() {
+	SmartDashboard::PutNumber("aDefenses.Angle", aDefenses->GetPosition());
+	SmartDashboard::PutNumber("scaler.Scaler.Ticks", scaler->ScaleEncoder());
+	SmartDashboard::PutNumber("scaler.Deploy.Angle", scaler->GetDeploy());
+	SmartDashboard::PutNumber("intake.Angle", intake->GetPosition());
+	SmartDashboard::PutBoolean("intake.OnTarget", intake->OnTarget());
 }

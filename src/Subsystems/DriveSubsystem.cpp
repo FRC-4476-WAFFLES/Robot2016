@@ -11,8 +11,6 @@ DriveSubsystem::DriveSubsystem():
 	 LeftMotorBack = new Victor(DRIVE_MOTOR_LEFT_BACK);
 }
 
-
-
 void DriveSubsystem::InitDefaultCommand()
 {
 	// Set the default command for a subsystem here.

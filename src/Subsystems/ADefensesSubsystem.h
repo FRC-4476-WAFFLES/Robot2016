@@ -3,12 +3,14 @@
 
 #include "WPILib.h"
 #include "CustomSensors/VexEncoder.h"
+
 class ADefensesSubsystem: public PIDSubsystem
 {
 private:
 	int PorticulusIndex;
-		Victor* Motor;
-		VexEncoder* Potentiometer;
+	Victor* Motor;
+	VexEncoder* Potentiometer;
+
 protected:
 	double ReturnPIDInput();
 	void UsePIDOutput(double);
@@ -16,11 +18,8 @@ protected:
 public:
 	ADefensesSubsystem();
 	void InitDefaultCommand();
-	float rawAngle;
 	void GoToNextPorticulusSetpoint();
 	void move(float moveSpeed);
-
-
 };
 
 #endif
