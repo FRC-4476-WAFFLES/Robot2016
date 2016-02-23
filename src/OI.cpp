@@ -53,16 +53,16 @@ OI::OI()
 		temp->WhileHeld(new RollerExtract());
 
 		/****************Scaler****************/
-		temp = new JoystickButton(operatorController, OperatorButton::B);
-		temp->WhileHeld(new ScalerScale());
+		// temp = new JoystickButton(operatorController, OperatorButton::B);
+		// temp->WhileHeld(new ScalerScale());
 		// temp = new JoystickButton(operatorController, OperatorButton::BumperBottomLeft);
 		// temp->WhileHeld(new ScalerRetract());
 		temp = new JoystickButton(operatorController, OperatorButton::BumperBottomRight);
 		temp->WhileHeld(new ScalerCommandGroup());
 
 		/**************A Defenses**************/
-		// temp = new JoystickButton(operatorController, OperatorButton::B);
-		// temp->WhenPressed(new Porticulus());
+		temp = new JoystickButton(operatorController, OperatorButton::B);
+		temp->WhenPressed(new Porticulus());
 		// temp = new JoystickButton(operatorController, OperatorButton::B);
 		// temp->WhenPressed(new ChevalDeFrisse());
 	}

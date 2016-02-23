@@ -1,7 +1,7 @@
 #include <Commands/WaitTrigger.h>
 
-WaitTrigger::WaitTrigger(Trigger* trigger) {
-	this->trigger = trigger;
+WaitTrigger::WaitTrigger(int buttonIndex) {
+	this->trigger = new JoystickButton(oi->operatorController, buttonIndex);
 }
 
 void WaitTrigger::Initialize() {}

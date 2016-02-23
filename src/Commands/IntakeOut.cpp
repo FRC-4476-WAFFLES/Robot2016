@@ -22,7 +22,8 @@ void IntakeOut::Execute()
 // Make this return true when this Command no longer needs to run execute()
 bool IntakeOut::IsFinished()
 {
-	return intake->OnTarget();
+	double error = intake->GetSetpoint() - intake->GetPosition();
+	return error < 10 && error > -10;
 }
 
 // Called once after isFinished returns true
