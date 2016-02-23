@@ -6,7 +6,7 @@
 
 class WaitTime: public CommandBase {
 private:
-	Timer timer;
+	Timer* timer;
 	double duration;
 public:
 	WaitTime(double duration);

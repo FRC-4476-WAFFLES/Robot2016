@@ -11,6 +11,6 @@ bool WaitTrigger::IsFinished() {
 	return trigger->Get();
 }
 
-void End() {}
-void Interrupted() {}
+void WaitTrigger::End() {}
+void WaitTrigger::Interrupted() {}
 
