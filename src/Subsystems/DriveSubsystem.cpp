@@ -22,6 +22,9 @@ double DriveSubsystem::GetGyro() {
 	return gyro->GetAngle();
 }
 
+void DriveSubsystem::resetGyro(){
+	gyro->Reset();
+}
 void DriveSubsystem::Drive(double left, double right)
 {
 	RightMotorFront->SetSpeed(right);

@@ -19,6 +19,7 @@ public:
 	double GetGyro();
 	void Drive (Joystick* left, Joystick* right);
 	void Drive (double left, double right);
+	void resetGyro();
 };
 
 #endif
