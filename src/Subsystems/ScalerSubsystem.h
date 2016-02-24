@@ -20,7 +20,7 @@ public:
 	void ScalingMotors(double Speed);
 	double ScaleEncoder();
 	void ReverseSpool(double Speed);
-
+	void SetPositionLock(Relay::Value JustOneLastTime);
 };
 
 #endif

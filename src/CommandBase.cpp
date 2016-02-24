@@ -38,6 +38,8 @@ void CommandBase::prints() {
 	SmartDashboard::PutNumber("scaler.Scaler.Ticks", scaler->ScaleEncoder());
 	SmartDashboard::PutNumber("scaler.Deploy.Angle", scaler->GetDeploy());
 	SmartDashboard::PutNumber("intake.Angle", intake->GetPosition());
-	SmartDashboard::PutNumber("intake.OnTarget", intake->GetSetpoint() - intake->GetPosition());
+	SmartDashboard::PutNumber("intake.CorrectPosition", intake->GetSetpoint());
+	SmartDashboard::PutNumber("intake.Position" ,intake->GetPosition());
 	SmartDashboard::PutNumber("drive.Gyro", drive->GetGyro());
+	SmartDashboard::PutNumber("drive.encoder.ticks", drive->driveEncoder());
 }

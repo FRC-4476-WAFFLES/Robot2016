@@ -1,15 +1,12 @@
-#ifndef SCALER_SCALE_H
-#define SCALER_SCALE_H
+#ifndef SCALER_RELEASE_H
+#define SCALER_RELEASE_H
 #include "../CommandBase.h"
 #include "WPILib.h"
 
-class ScalerScale: public CommandBase
+class ScalerRelease: public CommandBase
 {
-private:
-
 public:
-
-	ScalerScale();
+	ScalerRelease();
 	void Initialize();
 	void Execute();
 	bool IsFinished();

@@ -11,7 +11,7 @@ private:
 	Victor* LeftMotorFront;
 	Victor* RightMotorBack;
 	Victor* LeftMotorBack;
-
+	Encoder* DriveEncoder;
 	ADXRS450_Gyro* gyro;
 public:
 	DriveSubsystem();
@@ -20,6 +20,7 @@ public:
 	void Drive (Joystick* left, Joystick* right);
 	void Drive (double left, double right);
 	void resetGyro();
+	double driveEncoder();
 };
 
 #endif

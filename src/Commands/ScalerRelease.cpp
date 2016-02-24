@@ -1,37 +1,39 @@
-#include "ScalerScale.h"
+#include "ScalerRelease.h"
 
-ScalerScale::ScalerScale() : CommandBase("ScalerScale")
+ScalerRelease::ScalerRelease() : CommandBase("ScalerRelease")
 {
 	Requires(scaler.get());
 }
 
 // Called just before this Command runs the first time
-void ScalerScale::Initialize()
+void ScalerRelease::Initialize()
 {
 
 }
 
 // Called repeatedly when this Command is scheduled to run
-void ScalerScale::Execute()
+void ScalerRelease::Execute()
 {
-	scaler->ScalingMotors(-0.25);
+	scaler->SetPositionLock(Relay::kReverse);
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool ScalerScale::IsFinished()
+bool ScalerRelease::IsFinished()
 {
-	return scaler->ScaleEncoder()>=395;
+	return true;
+
 }
 
 // Called once after isFinished returns true
-void ScalerScale::End()
+void ScalerRelease::End()
 {
-	scaler->ScalingMotors(0);
+
+
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void ScalerScale::Interrupted()
+void ScalerRelease::Interrupted()
 {
-	scaler->ScalingMotors(0);
+	scaler->SetDeploy(0);
 }

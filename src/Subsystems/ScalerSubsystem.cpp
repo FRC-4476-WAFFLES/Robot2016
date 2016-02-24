@@ -43,3 +43,6 @@ void ScalerSubsystem::ReverseSpool(double Speed)
 	ScalingMotor1->SetSpeed(-Speed);
 	ScalingMotor2->SetSpeed(-Speed);
 }
+void ScalerSubsystem::SetPositionLock(Relay::Value JustOneLastTime){
+	PositionLock->Set(JustOneLastTime);
+}

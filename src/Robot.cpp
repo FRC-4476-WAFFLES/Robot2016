@@ -13,37 +13,18 @@ class Robot: public IterativeRobot
 {
 private:
 	AxisCamera* camera;
-	std::unique_ptr<Command> autonomousCommand;
+	Command* autonomousCommand;
 	SendableChooser* chooser;
 
 //	SendableChooser *ADefesesChooser;
 //	Command *ADefenseCommand;
 
-	void autonomousInit(){
-
-		CommandBase::init();
-				chooser = new SendableChooser();
-				//chooser->AddDefault("Auto do nothing", new AutoDoNothing());
-				chooser->AddDefault("Low Bar auto", new AutoDriveForwardLowBar());
-
-				SmartDashboard::PutData("Auto Modes", chooser);
-
-				//a def
-//		CommandBase::init();
-//				ADefesesChooser = new SendableChooser();
-//				ADefesesChooser->AddDefault("cheval de frisse a defense", new ChevalDeFrisse());
-//				ADefesesChooser->AddDefault("porticulus a defense", new Porticulus());
-//
-//				SmartDashboard::PutData("a defense mode", ADefesesChooser);
-
-	}
-
 	void RobotInit()
 	{
 		CommandBase::init();
 		chooser = new SendableChooser();
-		chooser->AddDefault("Default Auto", new AutoDoNothing());
-		chooser->AddDefault("Default Auto", new AutoDriveForwardLowBar());
+		chooser->AddDefault("Nothing Auto", new AutoDoNothing());
+		chooser->AddObject("LowBar Auto", new AutoDriveForwardLowBar());
 
 		SmartDashboard::PutData("Auto Modes", chooser);
 
@@ -62,8 +43,6 @@ private:
 
 	void DisabledPeriodic()
 	{
-		SmartDashboard::PutNumber("ScalerEncoder", CommandBase::scaler->ScaleEncoder());
-		SmartDashboard::PutNumber("ScalerDeploy", CommandBase::scaler->GetDeploy());
 		Scheduler::GetInstance()->Run();
 		CommandBase::prints();
 	}
@@ -80,9 +59,9 @@ private:
 	void AutonomousInit()
 	{
 //		//gets the selected command
-//		autonomousCommand.reset((Command*)chooser->GetSelected());
+		autonomousCommand = (Command*) chooser->GetSelected();
 //		//starts the selected command
-//		autonomousCommand->Start();
+		autonomousCommand->Start();
 		/* std::string autoSelected = SmartDashboard::GetString("Auto Selector", "Default");
 		if(autoSelected == "My Auto") {
 			autonomousCommand.reset(new MyAutoCommand());
@@ -90,8 +69,10 @@ private:
 			autonomousCommand.reset(new ExampleCommand());
 		} */
 
-		if (autonomousCommand != NULL)
-			autonomousCommand->Start();
+
+
+//		if (autonomousCommand != NULL)
+//			autonomousCommand->Start();
 	}
 
 	void AutonomousPeriodic()

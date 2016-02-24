@@ -2,29 +2,30 @@
 
 AutoDriveForwardLowBar::AutoDriveForwardLowBar()
 {
-	SetTimeout(5.0);
+	Requires(drive.get());
+	SetTimeout(15.0);
 }
 
 // Called just before this Command runs the first time
 void AutoDriveForwardLowBar::Initialize()
 {
 	drive->resetGyro();
+	intake->Disable();
 }
 
 // Called repeatedly when this Command is scheduled to run
 //1.0, 1.0 represents full speed (change accordingly)
 void AutoDriveForwardLowBar::Execute()
 {
-
 	float gyroAngle = drive->GetGyro();
-
-	drive->Drive(-0.1*gyroAngle+0.0, 0.1*gyroAngle+0.0);
+	drive->Drive(0.1*gyroAngle-0.5, -0.1*gyroAngle-0.5);
 }
 
 // Make this return true when this Command no longer needs to run execute()
 bool AutoDriveForwardLowBar::IsFinished()
 {
-	return false;
+
+	return drive->driveEncoder()>13188.;
 }
 
 // Called once after isFinished returns true

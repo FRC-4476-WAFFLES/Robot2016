@@ -3,14 +3,12 @@
 #include "Commands/RollerSuck.h"
 #include "Commands/ScalerCommandGroup.h"
 #include "Commands/IntakeIn.h"
-#include "Commands/IntakeOut.h"
+#include "Commands/IntakeOutNormal.h"
 #include "Commands/RollerExtract.h"
-#include "Commands/ScalerRetract.h"
 #include "Commands/ScalerDeploy.h"
 #include "Commands/IntakeHalfWayPoint.h"
 #include "Commands/Porticulus.h"
-#include "Commands/ScalerScale.h"
-#include "Commands/ScalerCommandGroup.h"
+#include "Commands/ScalerCommandGroupUndeploy.h"
 #include "Commands/ChevalDeFrisse.h"
 OI::OI()
 {
@@ -45,7 +43,7 @@ OI::OI()
 		temp = new JoystickButton(operatorController, OperatorButton::Y);
 		temp->WhenPressed(new IntakeHalfWayPoint());
 		temp = new JoystickButton(operatorController, OperatorButton::BumperTopRight);
-		temp->WhenPressed(new IntakeOut());
+		temp->WhenPressed(new IntakeOutNormal());
 
 		temp = new JoystickButton(operatorController, OperatorButton::X);
 		temp->WhileHeld(new RollerSuck());
@@ -57,8 +55,10 @@ OI::OI()
 		// temp->WhileHeld(new ScalerScale());
 		// temp = new JoystickButton(operatorController, OperatorButton::BumperBottomLeft);
 		// temp->WhileHeld(new ScalerRetract());
-		temp = new JoystickButton(operatorController, OperatorButton::BumperBottomRight);
+		temp = new JoystickButton(operatorController, OperatorButton::Start);
 		temp->WhileHeld(new ScalerCommandGroup());
+		temp = new JoystickButton(operatorController, OperatorButton::Back);
+		temp->WhileHeld(new ScalerCommandGroupUndeploy());
 
 		/**************A Defenses**************/
 		temp = new JoystickButton(operatorController, OperatorButton::B);

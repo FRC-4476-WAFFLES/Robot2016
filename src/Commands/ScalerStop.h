@@ -1,15 +1,12 @@
-#ifndef SCALER_RETRACT_H
-#define SCALER_RETRACT_H
+#ifndef SCALER_STOP_H
+#define SCALER_STOP_H
 #include "../CommandBase.h"
 #include "WPILib.h"
 
-class ScalerRetract: public CommandBase
+class ScalerStop: public CommandBase
 {
-private:
-
 public:
-
-	ScalerRetract();
+	ScalerStop();
 	void Initialize();
 	void Execute();
 	bool IsFinished();

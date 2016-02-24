@@ -10,6 +10,7 @@ DriveSubsystem::DriveSubsystem():
 	 LeftMotorFront = new Victor(DRIVE_MOTOR_LEFT_FRONT);
 	 LeftMotorBack = new Victor(DRIVE_MOTOR_LEFT_BACK);
 	 gyro = new ADXRS450_Gyro();
+	 DriveEncoder = new Encoder(DRIVE_ENCODER_A , DRIVE_ENCODER_B);
 }
 
 void DriveSubsystem::InitDefaultCommand()
@@ -31,4 +32,8 @@ void DriveSubsystem::Drive(double left, double right)
 	LeftMotorFront->SetSpeed(-left);
 	RightMotorBack->SetSpeed(right);
 	LeftMotorBack->SetSpeed(-left);
+}
+double DriveSubsystem::driveEncoder()
+{
+	return DriveEncoder->Get();
 }
