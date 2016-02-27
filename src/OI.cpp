@@ -10,20 +10,11 @@
 #include "Commands/Porticulus.h"
 #include "Commands/ScalerCommandGroupUndeploy.h"
 #include "Commands/ChevalDeFrisse.h"
+#include "Commands/ScalerCommandGroupReallignment.h"
 OI::OI()
 {
 	/*
-	Button:
-	X(In use)
-	A(In use)
-	B(In use)
-	Y(In use)
-	Top left bumper(In use)
-	Top right bumper(In use)
-	Bottom left bumper(In use)
-	Bottom right bumper(In use)
-	Back Button
-	Start Button
+
 	*/
 	//Options between button types: WhenPressed, WhileHeld, ToggleWhenPressed
 	// Process operator interface input here.
@@ -59,6 +50,8 @@ OI::OI()
 		temp->WhileHeld(new ScalerCommandGroup());
 		temp = new JoystickButton(operatorController, OperatorButton::Back);
 		temp->WhileHeld(new ScalerCommandGroupUndeploy());
+		temp = new JoystickButton(operatorController, OperatorButton::BumperBottomLeft);
+		temp->WhileHeld(new ScalerCommandGroupReallignment);
 
 		/**************A Defenses**************/
 		temp = new JoystickButton(operatorController, OperatorButton::B);
