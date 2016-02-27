@@ -8,9 +8,10 @@
 #ifndef DRIVE_AUTO_H_
 #define DRIVE_AUTO_H_
 
-#include <CommandBase.h>
+#include "CommandBase.h"
 
 class DriveAuto: public CommandBase {
+private:
 	double distance;
 	double angle;
 public:

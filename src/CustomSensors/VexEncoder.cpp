@@ -1,5 +1,4 @@
 #include <CustomSensors/VexEncoder.h>
-#include <math.h>
 
 VexEncoder::VexEncoder(int port) {
 	counter = new Counter(port);
