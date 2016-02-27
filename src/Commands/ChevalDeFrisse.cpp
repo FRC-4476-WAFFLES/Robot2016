@@ -1,7 +1,7 @@
 #include "ChevalDeFrisse.h"
+// makes the a defenses mechanism work for the cheval de frisse
 
-
-
+// needs the undivided attention of ADefenses
 ChevalDeFrisse::ChevalDeFrisse() : CommandBase()
 {
 	Requires(aDefenses.get());
@@ -9,6 +9,7 @@ ChevalDeFrisse::ChevalDeFrisse() : CommandBase()
 }
 
 // Called just before this Command runs the first time
+// goes to the next set point for cheval de frisse when the button is pressed
 void ChevalDeFrisse::Initialize()
 {
 	//Initiates the ChevalDeFrisse setpoints everytime the button is pressed
@@ -22,6 +23,7 @@ void ChevalDeFrisse::Execute()
 }
 
 // Make this return true when this Command no longer needs to run execute()
+// stops the command
 bool ChevalDeFrisse::IsFinished()
 {
 	return true;

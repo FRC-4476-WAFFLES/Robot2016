@@ -1,5 +1,9 @@
 #include <Commands/DriveOperator.h>
 
+
+//allows the driver to drive the robot by making the speed of the robot = the Y axis value
+
+// needs the undivided attention of the drive subsystem
 DriveOperator::DriveOperator()
 {
 	Requires(drive.get());
@@ -12,6 +16,7 @@ void DriveOperator::Initialize()
 }
 
 // Called repeatedly when this Command is scheduled to run
+//makes the speed of the robot = the Y axis value of the joysticks
 void DriveOperator::Execute()
 {
 	//drive->Drive(oi.get()->joystickLeft, oi.get()->joystickRight);
@@ -22,12 +27,14 @@ void DriveOperator::Execute()
 }
 
 // Make this return true when this Command no longer needs to run execute()
+// never ends
 bool DriveOperator::IsFinished()
 {
 	return false;
 }
 
 // Called once after isFinished returns true
+//stops the drive motor
 void DriveOperator::End()
 {
 	drive->Drive(0.0, 0.0);
@@ -35,6 +42,7 @@ void DriveOperator::End()
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
+//stops the drive motors when .....see above....
 void DriveOperator::Interrupted()
 {
 	drive->Drive(0.0, 0.0);
