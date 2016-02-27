@@ -1,14 +1,9 @@
+/**
+ * Autonomous mode that does nothing!
+ */
+
 #include "AutoDoNothing.h"
 //includes the .h file so we can use their variables
-/*
- *
- * ------------
- *
- * DOES NOTHING
- * ************
- *
- * ------------
- */
 
 AutoDoNothing::AutoDoNothing()
 {
