@@ -1,6 +1,7 @@
 #include "IntakeManual.h"
 
-
+////////////////DISCRIPTION//////////////////
+//allows the operator to manually adjust the intake tilt.
 
 IntakeManual::IntakeManual() : CommandBase()
 {

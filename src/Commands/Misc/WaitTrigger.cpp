@@ -1,5 +1,6 @@
 #include "WaitTrigger.h"
-
+////////////////DISCRIPTION//////////////////
+// waits for a button press to end.
 WaitTrigger::WaitTrigger(Trigger* t) {
 	trigger = t;
 }

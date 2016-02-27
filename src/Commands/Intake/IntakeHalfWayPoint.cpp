@@ -1,5 +1,9 @@
 #include "IntakeHalfWayPoint.h"
 
+////////////////DISCRIPTION//////////////////
+//sets the PID set point in the intake Subsystem to 455
+
+
 IntakeHalfWayPoint::IntakeHalfWayPoint() : CommandBase("IntakeHalfWayPoint")
 {
 	Requires(intake.get());

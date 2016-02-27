@@ -1,5 +1,9 @@
 #include "IntakeIn.h"
 
+////////////////DISCRIPTION//////////////////
+//sets the intake  in PID set point to 300.
+
+
 IntakeIn::IntakeIn()
 {
 	Requires(intake.get());

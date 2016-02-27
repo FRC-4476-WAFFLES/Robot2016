@@ -1,5 +1,9 @@
 #include "IntakeOut.h"
 
+////////////////DISCRIPTION//////////////////
+// sets the PID intake out set point to 606 encoder Ticks.~~ends~~
+
+
 IntakeOut::IntakeOut() : CommandBase("IntakeOut")
 {
 	Requires(intake.get());
