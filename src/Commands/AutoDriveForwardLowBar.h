@@ -4,15 +4,10 @@
 #include "../CommandBase.h"
 #include "WPILib.h"
 
-class AutoDriveForwardLowBar: public CommandBase
+class AutoDriveForwardLowBar: public CommandGroup
 {
 public:
 	AutoDriveForwardLowBar();
-	void Initialize();
-	void Execute();
-	bool IsFinished();
-	void End();
-	void Interrupted();
 };
 
 #endif
