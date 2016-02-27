@@ -11,6 +11,10 @@ private:
 	Victor* LeftMotorFront;
 	Victor* RightMotorBack;
 	Victor* LeftMotorBack;
+
+	PIDController* distancePID;
+	PIDController* anglePID;
+
 	Encoder* DriveEncoder;
 	ADXRS450_Gyro* gyro;
 public:

@@ -8,7 +8,7 @@ class WaitTrigger: public CommandBase {
 private:
 	Trigger* trigger;
 public:
-	WaitTrigger(int buttonIndex);
+	WaitTrigger(Trigger* trigger);
 	void Initialize();
 	void Execute();
 	bool IsFinished();
