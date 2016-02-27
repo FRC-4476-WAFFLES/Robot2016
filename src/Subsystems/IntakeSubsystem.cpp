@@ -1,7 +1,5 @@
 #include "IntakeSubsystem.h"
 #include "../RobotMap.h"
-#include <iostream>
-#include "Commands/IntakeIn.h"
 
 IntakeSubsystem::IntakeSubsystem() :
 		PIDSubsystem("IntakeSubsystem", 0.01, 0.0, 0.01)
@@ -15,7 +13,7 @@ IntakeSubsystem::IntakeSubsystem() :
 
 void IntakeSubsystem::InitDefaultCommand()
 {
-	SetDefaultCommand(new IntakeIn());
+//	SetDefaultCommand(new IntakeIn());
 }
 
 void IntakeSubsystem::Move(float moveSpeed)

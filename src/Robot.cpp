@@ -1,13 +1,10 @@
-#include <Commands/AutoDriveForwardLowBar.h>
 #include "WPILib.h"
 
-#include "Commands/AutoDoNothing.h"
-#include "Commands/AutoDriveForwardLowBar.h"
-#include "Commands/ChevalDeFrisse.h"
-#include "Commands/Porticulus.h"
+#include "Commands/Auto/AutoDoNothing.h"
+#include "Commands/Auto/AutoDriveForwardLowBar.h"
+#include "Commands/ADefenses/ChevalDeFrisse.h"
+#include "Commands/ADefenses/Porticulus.h"
 #include "CommandBase.h"
-#include <memory>
-#include "iostream"
 
 class Robot: public IterativeRobot
 {

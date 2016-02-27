@@ -1,16 +1,16 @@
 #include "OI.h"
-#include "Commands/DriveOperator.h"
-#include "Commands/RollerSuck.h"
-#include "Commands/ScalerCommandGroup.h"
-#include "Commands/IntakeIn.h"
-#include "Commands/IntakeOutNormal.h"
-#include "Commands/RollerExtract.h"
-#include "Commands/ScalerDeploy.h"
-#include "Commands/IntakeHalfWayPoint.h"
-#include "Commands/Porticulus.h"
-#include "Commands/ScalerCommandGroupUndeploy.h"
-#include "Commands/ChevalDeFrisse.h"
-#include "Commands/ScalerCommandGroupReallignment.h"
+#include "Commands/Intake/IntakeIn.h"
+#include "Commands/Intake/IntakeHalfWayPoint.h"
+#include "Commands/Intake/IntakeOutNormal.h"
+#include "Commands/Roller/RollerSuck.h"
+#include "Commands/Roller/RollerExtract.h"
+#include "Commands/Scaler/ScalerCommandGroup.h"
+#include "Commands/Scaler/ScalerDeploy.h"
+#include "Commands/ADefenses/Porticulus.h"
+#include "Commands/ADefenses/ChevalDeFrisse.h"
+#include "Commands/Scaler/ScalerCommandGroupUndeploy.h"
+#include "Commands/Scaler/ScalerCommandGroupReallignment.h"
+
 OI::OI()
 {
 	/*

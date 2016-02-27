@@ -1,7 +1,5 @@
 #include "ADefensesSubsystem.h"
 #include "../RobotMap.h"
-#include "Commands/Porticulus.h"
-#include "Commands/ChevalDeFrisse.h"
 
 ADefensesSubsystem::ADefensesSubsystem():
 
