@@ -14,6 +14,7 @@ void IntakeHalfWayPoint::Initialize()
 // Called repeatedly when this Command is scheduled to run
 void IntakeHalfWayPoint::Execute()
 {
+	//Intake half way point
 	intake->Enable();
 	intake->SetSetpoint(455);
 }

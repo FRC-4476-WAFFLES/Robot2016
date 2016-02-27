@@ -14,6 +14,7 @@ void IntakeIn::Initialize()
 // Called repeatedly when this Command is scheduled to run
 void IntakeIn::Execute()
 {
+	//Intake inside setpoint/position
 	intake->Enable();
 	intake->SetSetpoint(300);
 }

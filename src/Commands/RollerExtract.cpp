@@ -14,6 +14,7 @@ void RollerExtract::Initialize()
 // Called repeatedly when this Command is scheduled to run
 void RollerExtract::Execute()
 {
+	//Setting roller speed to - meaning it will make the balls go out of intake
 	roller->Roll(-1.0);
 }
 

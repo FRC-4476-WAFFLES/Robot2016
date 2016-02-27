@@ -11,6 +11,7 @@ ChevalDeFrisse::ChevalDeFrisse() : CommandBase()
 // Called just before this Command runs the first time
 void ChevalDeFrisse::Initialize()
 {
+	//Initiates the ChevalDeFrisse setpoints everytime the button is pressed
 	aDefenses->GoToNextChevalDeFrisseSetpoint();
 }
 

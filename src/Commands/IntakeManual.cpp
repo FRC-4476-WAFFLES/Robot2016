@@ -16,6 +16,7 @@ void IntakeManual::Initialize()
 // Called repeatedly when this Command is scheduled to run
 void IntakeManual::Execute()
 {
+	//Use the thumbstick to move the intake manually(no setpoints)
 	float speed = oi.get()->operatorController->GetY();
 	intake.get()->Move(speed*0.5);
 }

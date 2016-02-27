@@ -12,7 +12,7 @@ Porticulus::Porticulus() : CommandBase()
 void Porticulus::Initialize()
 {
 	// If this does not work in Initialize constructor, add it to Execute for a trial *delete this comment after*
-	//Cases only work for int and char
+	//Initializes the porticulus attachment by sequence(every time you click the button it goes to next setpoint)
 	aDefenses->GoToNextPorticulusSetpoint(); // Change this line to initialize if doesn't work(delete this)
 }
 

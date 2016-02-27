@@ -13,6 +13,7 @@ void RollerSuck::Initialize()
 // Called repeatedly when this Command is scheduled to run
 void RollerSuck::Execute()
 {
+	//Setting speed to positive meaning you are taking in the balls with roller
 	roller->Roll(1.0);
 }
 

@@ -14,6 +14,7 @@ void ScalerDeploy::Initialize()
 // Called repeatedly when this Command is scheduled to run
 void ScalerDeploy::Execute()
 {
+
 	scaler->SetDeploy(0.25);
 }
 
