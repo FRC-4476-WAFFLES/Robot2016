@@ -17,16 +17,20 @@ ADefensesSubsystem::ADefensesSubsystem():
 
 void ADefensesSubsystem::InitDefaultCommand()
 {
+	// No default command
 }
 
+// Input for the PID in this PIDSubsystem
 double ADefensesSubsystem::ReturnPIDInput() {
 	return Potentiometer->GetAngle();
 }
 
+// Output for the PID in this PIDSubsystem
 void ADefensesSubsystem::UsePIDOutput(double power){
 	Motor->PIDWrite(-power);
 }
 
+// Keeps track of which portculus setpoint we are at and moves to the next one.
 void ADefensesSubsystem::GoToNextPorticulusSetpoint()
 {
 	Enable();
@@ -46,6 +50,7 @@ void ADefensesSubsystem::GoToNextPorticulusSetpoint()
 	PorticulusIndex++;
 }
 
+// Keeps track of which cheval setpoint we are at and moves to the next one.
 void ADefensesSubsystem::GoToNextChevalDeFrisseSetpoint()
 {
 	Enable();

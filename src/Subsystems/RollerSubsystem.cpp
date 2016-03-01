@@ -14,9 +14,10 @@ RollerSubsystem::RollerSubsystem() :
 
 void RollerSubsystem::InitDefaultCommand()
 {
-	//SetDefaultCommand(new MySpecialCommand());
+	//No default command
 }
 
+// Sets the speed of the intake roller motor.
 void RollerSubsystem::Roll(float power)
 {
 	Roller->SetSpeed(power);

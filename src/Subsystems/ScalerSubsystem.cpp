@@ -20,36 +20,42 @@ ScalerSubsystem::ScalerSubsystem() :
 
 void ScalerSubsystem::InitDefaultCommand()
 {
-	// Set the default command for a subsystem here.
+	// No default command.
 }
 
+// Get the angle of the deployer
 double ScalerSubsystem::GetDeploy()
 {
 	return DeployingVexEncoder->GetAngle();
 }
 
+// Set the motor speed of the deployer
 void ScalerSubsystem::SetDeploy(double Speed)
 {
 	DeployingVictor->SetSpeed(Speed);
 }
 
+// Set the speed of the scaling motors
 void ScalerSubsystem::ScalingMotors(double Speed)
 {
 	ScalingMotor1->SetSpeed(Speed);
 	ScalingMotor2->SetSpeed(Speed);
 }
 
+// Get the distance of the scaler
 double ScalerSubsystem::ScaleEncoder()
 {
 	return ScalingEncoder->Get();
 }
 
+// Run the scaling motors the other way
 void ScalerSubsystem::ReverseSpool(double Speed)
 {
 	ScalingMotor1->SetSpeed(-Speed);
 	ScalingMotor2->SetSpeed(-Speed);
 }
 
+// Set the lock (forward or reverse)
 void ScalerSubsystem::SetPositionLock(Relay::Value JustOneLastTime){
 	PositionLock->Set(JustOneLastTime);
 }

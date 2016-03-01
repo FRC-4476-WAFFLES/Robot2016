@@ -22,7 +22,7 @@ DriveSubsystem::DriveSubsystem():
 
 void DriveSubsystem::InitDefaultCommand()
 {
-	// Set the default command for a subsystem here.
+	// When no other commands are running, we do operator control
 	SetDefaultCommand(new DriveOperator());
 }
 

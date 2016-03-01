@@ -19,24 +19,28 @@ IntakeSubsystem::IntakeSubsystem() :
 
 void IntakeSubsystem::InitDefaultCommand()
 {
-//	SetDefaultCommand(new IntakeIn());
+	// No default command
 }
 
+// Sets the motor to move at a speed, also disables the pid
 void IntakeSubsystem::Move(float moveSpeed)
 {
 	Disable();
 	Arm->SetSpeed(moveSpeed);
 }
 
+// Input for the PID in this PIDSubsystem
 double IntakeSubsystem::ReturnPIDInput() {
 	float angle = IntakeAngle->GetAngle();
 	return angle;
 }
 
+// Output for the PID in this PIDSubsystem
 void IntakeSubsystem::UsePIDOutput(double power){
 	Arm->PIDWrite( power );
 }
 
+// Resets the encoder so that it is in the first rotation
 void IntakeSubsystem::Reset(){
 	IntakeAngle->Reset();
 }

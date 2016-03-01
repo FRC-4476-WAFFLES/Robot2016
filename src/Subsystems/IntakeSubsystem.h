@@ -7,7 +7,7 @@ class IntakeSubsystem: public PIDSubsystem
 {
 private:
 	Victor* Arm;
-	DigitalInput* IntakeRetracted;
+	//DigitalInput* IntakeRetracted;
 	VexEncoder* IntakeAngle;
 protected:
 	double ReturnPIDInput();
