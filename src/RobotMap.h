@@ -24,7 +24,7 @@ const int A_DEFENSES_MOTOR = 9;
 
 // Analog Inputs
 
-//Relay
+// Relay
 const int SCALER_POSITION_LOCK = 0;
 
 // Digital Inputs

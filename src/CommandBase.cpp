@@ -1,6 +1,11 @@
 #include "CommandBase.h"
 #include "Commands/Scheduler.h"
 
+/**
+ * CommandBase is a class that is the parent class to each of the commands used by the robot.
+ * This allows the commands to access each subsystem.
+ */
+
 // Initialize a single static instance of all of your subsystems to NULL
 std::unique_ptr<OI> CommandBase::oi;
 std::unique_ptr<DriveSubsystem> CommandBase::drive;
