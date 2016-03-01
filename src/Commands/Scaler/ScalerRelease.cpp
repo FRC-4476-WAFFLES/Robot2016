@@ -1,3 +1,7 @@
+/**
+ * Releases the locking mechanism on the robot
+ */
+
 #include "ScalerRelease.h"
 
 ScalerRelease::ScalerRelease() : CommandBase("ScalerRelease")

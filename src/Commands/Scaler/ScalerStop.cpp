@@ -1,3 +1,7 @@
+/**
+ * Physically locks the scaler into position
+ */
+
 #include "ScalerStop.h"
 
 ScalerStop::ScalerStop() : CommandBase("ScalerStop")

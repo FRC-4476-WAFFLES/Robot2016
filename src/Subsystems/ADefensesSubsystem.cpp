@@ -1,11 +1,13 @@
+/**
+ * ADefensesSubsystem is a class that keeps references to each of the
+ * manipulators and sensors that are used by the a defenses subsystem.
+ */
+
 #include "ADefensesSubsystem.h"
 #include "../RobotMap.h"
 
 ADefensesSubsystem::ADefensesSubsystem():
-
-// keepGoingUpForP(space)UntilItStartsToWabbleAndThenAdjustDspace)Slowly
-
-PIDSubsystem("ADefensesSubsystem", 0.03, 0.000, 0.000)
+	PIDSubsystem("ADefensesSubsystem", 0.03, 0.000, 0.000)
 {
 	Motor = new Victor(A_DEFENSES_MOTOR);
 	Potentiometer = new VexEncoder(A_DEFENSES_POT);

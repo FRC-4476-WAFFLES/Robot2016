@@ -1,5 +1,8 @@
 #include "RollerSuck.h"
 
+////////////////DISCRIPTION//////////////////
+// Runs the roller in the direction that will suck balls into the robot.
+
 RollerSuck::RollerSuck()
 {
 	Requires(roller.get());

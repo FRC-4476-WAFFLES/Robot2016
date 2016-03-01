@@ -1,6 +1,8 @@
 #include "WaitTrigger.h"
+
 ////////////////DISCRIPTION//////////////////
-// waits for a button press to end.
+// Waits for a button to be pressed on the controller
+
 WaitTrigger::WaitTrigger(Trigger* t) {
 	trigger = t;
 }

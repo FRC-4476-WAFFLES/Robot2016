@@ -1,3 +1,7 @@
+/**
+ * Moves the scaler arm up.
+ */
+
 #include "ScalerDeploy.h"
 
 ScalerDeploy::ScalerDeploy() : CommandBase("ScalerDeploy")

@@ -1,8 +1,12 @@
 #include "WaitTime.h"
+
 ////////////////DISCRIPTION//////////////////
 // waits a certain amount of time that is specified when used.
+
+
 WaitTime::WaitTime(double duration) {
 	this->timer = new Timer();
+	// Duration is the time in seconds that this command should run
 	this->duration = duration;
 }
 

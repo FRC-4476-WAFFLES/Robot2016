@@ -1,3 +1,9 @@
+/**
+ * DriveSubsystem is a class that keeps references to each of the
+ * drive motors and drive encoder.
+ */
+
+
 #include <Commands/Drive/DriveOperator.h>
 #include "DriveSubsystem.h"
 #include "../RobotMap.h"

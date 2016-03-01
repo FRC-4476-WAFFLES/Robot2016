@@ -1,5 +1,8 @@
 #include "RollerExtract.h"
 
+////////////////DISCRIPTION//////////////////
+// Ejects balls from the front of the robot
+
 RollerExtract::RollerExtract()
 {
 	Requires(roller.get());

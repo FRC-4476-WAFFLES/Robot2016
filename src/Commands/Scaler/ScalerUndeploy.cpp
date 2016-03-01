@@ -1,3 +1,7 @@
+/**
+ * Retracts the scaler inside the robot
+ */
+
 #include "ScalerUndeploy.h"
 
 ScalerUndeploy::ScalerUndeploy() : CommandBase("ScalerUndeploy")

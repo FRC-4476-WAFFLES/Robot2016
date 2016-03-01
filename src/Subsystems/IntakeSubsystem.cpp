@@ -1,3 +1,9 @@
+/**
+ * IntakeSubsystem is a class that keeps references to each of the
+ * manipulators and sensors that are used by the intake arm.
+ */
+
+
 #include "IntakeSubsystem.h"
 #include "../RobotMap.h"
 

@@ -1,6 +1,6 @@
 #include "IntakeHalfWayPoint.h"
 
-////////////////DISCRIPTION//////////////////
+////////////////DESCRIPTION//////////////////
 //sets the PID set point in the intake Subsystem to 455
 
 

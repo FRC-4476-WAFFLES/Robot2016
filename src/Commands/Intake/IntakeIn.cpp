@@ -1,6 +1,6 @@
 #include "IntakeIn.h"
 
-////////////////DISCRIPTION//////////////////
+////////////////DESCRIPTION//////////////////
 //sets the intake  in PID set point to 300.
 
 

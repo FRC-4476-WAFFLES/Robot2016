@@ -1,3 +1,9 @@
+/**
+ * ScalerSubsystem is a class that keeps references to each of the
+ * manipulators and sensors that are needed for scaling.
+ */
+
+
 #include "ScalerSubsystem.h"
 #include "../RobotMap.h"
 
@@ -43,6 +49,7 @@ void ScalerSubsystem::ReverseSpool(double Speed)
 	ScalingMotor1->SetSpeed(-Speed);
 	ScalingMotor2->SetSpeed(-Speed);
 }
+
 void ScalerSubsystem::SetPositionLock(Relay::Value JustOneLastTime){
 	PositionLock->Set(JustOneLastTime);
 }

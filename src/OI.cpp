@@ -1,10 +1,13 @@
+/**
+ * OI is a class that is used to setup user input to the robot.
+ */
+
 #include "OI.h"
 #include "Commands/Intake/IntakeIn.h"
 #include "Commands/Intake/IntakeHalfWayPoint.h"
 #include "Commands/Intake/IntakeOutNormal.h"
 #include "Commands/Roller/RollerSuck.h"
 #include "Commands/Roller/RollerExtract.h"
-#include "Commands/Scaler/ScalerCommandGroup.h"
 #include "Commands/Scaler/ScalerDeploy.h"
 #include "Commands/ADefenses/Porticulus.h"
 #include "Commands/ADefenses/ChevalDeFrisse.h"
@@ -46,12 +49,10 @@ OI::OI()
 		// temp->WhileHeld(new ScalerScale());
 		// temp = new JoystickButton(operatorController, OperatorButton::BumperBottomLeft);
 		// temp->WhileHeld(new ScalerRetract());
-		temp = new JoystickButton(operatorController, OperatorButton::Start);
-		temp->WhileHeld(new ScalerCommandGroup());
 		temp = new JoystickButton(operatorController, OperatorButton::Back);
 		temp->WhileHeld(new ScalerCommandGroupUndeploy());
-		temp = new JoystickButton(operatorController, OperatorButton::BumperBottomLeft);
-		temp->WhileHeld(new ScalerCommandGroupReallignment);
+		temp = new JoystickButton(operatorController, OperatorButton::Start);
+		temp->WhileHeld(new ScalerCommandGroupReallignment());
 
 		/**************A Defenses**************/
 		temp = new JoystickButton(operatorController, OperatorButton::B);

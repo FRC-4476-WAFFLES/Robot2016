@@ -1,3 +1,7 @@
+/**
+ * Takes a length as a parameter and goes to that length
+ */
+
 #include "ScalerScaleLong.h"
 
 ScalerScaleLong::ScalerScaleLong(float Length) : CommandBase("ScalerScaleLong")
