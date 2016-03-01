@@ -3,6 +3,7 @@
 #include "ScalerScaleLong.h"
 #include "Commands/Intake/IntakeOut.h"
 #include "Commands/Misc/WaitTrigger.h"
+#include "ScalerDeploy.h"
 #include "ScalerStop.h"
 #include "ScalerRelease.h"
 
