@@ -39,7 +39,7 @@ void DriveAuto::Execute() {
 // Returns true when the distance is within 200 and the angle is within 5 degrees
 bool DriveAuto::IsFinished() {
 	double distanceError = distance - drive->driveEncoder();
-	double angleError = distance - drive->GetGyro();
+	double angleError = angle - drive->GetGyro();
 	return distanceError < 200 && distanceError > -200 && angleError < 5.0 && angleError > -5.0;
 }
 
