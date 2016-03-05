@@ -7,6 +7,9 @@
 #include "CommandBase.h"
 #include "Commands/Auto/AutoScore.h"
 #include "Commands/Auto/AutoDriveReverse.h"
+#include "Commands/Auto/ChevalDeFrisseAuto.h"
+#include "Commands/Auto/PorticulusAuto.h"
+#include "Commands/Auto/RoughTerrainAuto.h"
 
 class Robot: public IterativeRobot
 {
@@ -26,7 +29,9 @@ private:
 		chooser->AddObject("LowBar Auto", new AutoDriveForwardLowBar());
 		chooser->AddObject("LowBarReverse Auto", new AutoDriveReverse());
 		chooser->AddObject("LowBarScore Auto", new AutoScore());
-
+		chooser->AddObject("ChevalDeFrisse Auto", new ChevalDeFrisseAuto());
+		chooser->AddObject("Porticulus Auto", new PorticulusAuto());
+		chooser->AddObject("RoughTerrain Auto", new RoughTerrainAuto());
 		SmartDashboard::PutData("Auto Modes", chooser);
 
 		CameraServer::GetInstance()->SetQuality(50);
@@ -40,6 +45,7 @@ private:
      */
 	void DisabledInit()
 	{
+		CommandBase::aDefenses->ADefensesReset();
 	}
 
 	void DisabledPeriodic()
@@ -59,6 +65,7 @@ private:
 	 */
 	void AutonomousInit()
 	{
+		CommandBase::aDefenses->ADefensesReset();
 //		//gets the selected command
 		autonomousCommand = (Command*) chooser->GetSelected();
 //		//starts the selected command
@@ -84,6 +91,7 @@ private:
 
 	void TeleopInit()
 	{
+		CommandBase::aDefenses->ADefensesReset();
 //		ADefenseCommand = (Command*)ADefesesChooser->GetSelected();
 //		ADefenseCommand->Start();
 		// This makes sure that the autonomous stops running when
@@ -108,3 +116,4 @@ private:
 };
 
 START_ROBOT_CLASS(Robot)
+
