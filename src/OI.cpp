@@ -9,6 +9,7 @@
 #include "Commands/Roller/RollerSuck.h"
 #include "Commands/Roller/RollerExtract.h"
 #include "Commands/Scaler/ScalerDeploy.h"
+#include "Commands/ADefenses/ChooserDispatch.h"
 #include "Commands/ADefenses/Porticulus.h"
 #include "Commands/ADefenses/ChevalDeFrisse.h"
 #include "Commands/Scaler/ScalerCommandGroupUndeploy.h"
@@ -21,6 +22,11 @@ OI::OI()
 	*/
 	//Options between button types: WhenPressed, WhileHeld, ToggleWhenPressed
 	// Process operator interface input here.
+
+	// Choosers
+	aDefensesChooser = new SendableChooser();
+	aDefensesChooser->AddDefault("Portcullis", new Porticulus());
+	aDefensesChooser->AddObject("Cheval de Frise", new ChevalDeFrisse());
 
 	// Joystick port declarations
 	joystickLeft = new Joystick(0);
@@ -56,7 +62,7 @@ OI::OI()
 
 		/**************A Defenses**************/
 		temp = new JoystickButton(operatorController, OperatorButton::B);
-		temp->WhenPressed(new Porticulus());
+		temp->WhenPressed(new ChooserDispatch());
 		// temp = new JoystickButton(operatorController, OperatorButton::B);
 		// temp->WhenPressed(new ChevalDeFrisse());
 	}
