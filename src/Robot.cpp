@@ -104,4 +104,3 @@ private:
 };
 
 START_ROBOT_CLASS(Robot)
-

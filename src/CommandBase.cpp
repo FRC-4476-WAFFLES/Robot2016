@@ -14,17 +14,16 @@ std::unique_ptr<RollerSubsystem> CommandBase::roller;
 std::unique_ptr<ADefensesSubsystem> CommandBase::aDefenses;
 std::unique_ptr<ScalerSubsystem> CommandBase::scaler;
 
+// Empty constructors
 CommandBase::CommandBase(const std::string &name) :
 		Command(name)
-{
-}
+{}
 
 CommandBase::CommandBase() :
 		Command()
-{
+{}
 
-}
-
+// Creates each subsystem, should only be run once!
 void CommandBase::init()
 {
 	// Create a single static instance of all of your subsystems. The following
@@ -38,6 +37,7 @@ void CommandBase::init()
 	oi.reset(new OI());
 }
 
+// Print out some useful information about each subsystem
 void CommandBase::prints() {
 	SmartDashboard::PutNumber("aDefenses.Angle", aDefenses->GetPosition());
 	SmartDashboard::PutNumber("scaler.Scaler.Ticks", scaler->ScaleEncoder());

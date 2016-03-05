@@ -1,0 +1,17 @@
+TODO: Comments
+
+TODO: Things to do/test on the first day of competition:
+  •Test aDefenses chooser
+  •Test the scaler relay for direction
+  •Check setpoints for all subsystems
+    ‣Add setpoint for cheval just above the ramps before lowering all the way
+    ‣Get autonomous drive setpoints on practice field
+  •Do a systems check of all subsystems and commands in the pits before each match
+  •Test scaler
+  •Test all autos
+    ‣Do nothing (also test after disabling while the driver is moving the wheels)
+    ‣Score auto
+    ‣Low bar auto
+    ‣Low bar and back auto
+    ‣ADefense auto
+    ‣Rough terrain auto
