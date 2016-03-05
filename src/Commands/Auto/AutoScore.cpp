@@ -1,7 +1,3 @@
-/**
- * Drives forward under the low bar
- */
-
 #include "AutoScore.h"
 #include "Commands/Drive/DriveAuto.h"
 #include "AutoDriveForwardLowBar.h"

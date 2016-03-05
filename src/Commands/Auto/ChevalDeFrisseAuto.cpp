@@ -1,7 +1,5 @@
-/**
- * Drives forward under the low bar
- */
-#include "ChevalDeFrisseAuto.h"
+
+ #include "ChevalDeFrisseAuto.h"
 #include "Commands/ADefenses/ChevalDeFrisse.h"
 #include "Commands/Drive/DriveAuto.h"
 #include "Commands/Misc/WaitTime.h"

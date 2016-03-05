@@ -1,6 +1,3 @@
-/**
- * Drives forward under the low bar
- */
 #include "AutoDriveReverse.h"
 #include "Commands/Drive/DriveAuto.h"
 

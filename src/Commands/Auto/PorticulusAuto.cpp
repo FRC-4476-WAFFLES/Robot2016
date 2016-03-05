@@ -1,7 +1,3 @@
-/**
- * Drives forward under the low bar
- */
-
 #include "PorticulusAuto.h"
 #include "Commands/Drive/DriveAuto.h"
 #include "Commands/ADefenses/Porticulus.h"
