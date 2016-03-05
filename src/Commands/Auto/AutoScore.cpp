@@ -13,7 +13,9 @@ AutoScore::AutoScore()
 	SetTimeout(15.0);
 	AddSequential(new IntakeOut);
 	AddSequential(new DriveAuto(13188.0, 0.0));
+	//todo: Adjust setpoint
 	AddSequential(new DriveAuto(13188.0,136.5));
+	//todo: Adjust setpoint
 	AddSequential(new DriveAuto(25681.9,136.5));
 	AddSequential(new RollerExtract);
 }

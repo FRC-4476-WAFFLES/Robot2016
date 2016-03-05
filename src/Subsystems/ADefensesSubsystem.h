@@ -22,6 +22,8 @@ public:
 	void GoToNextPorticulusSetpoint();
 	void move(float moveSpeed);
 	void GoToNextChevalDeFrisseSetpoint();
+	void GoToNextPorticulusSetpointAuto();
+	void ADefensesReset();
 };
 
 #endif

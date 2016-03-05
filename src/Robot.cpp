@@ -5,6 +5,8 @@
 #include "Commands/ADefenses/ChevalDeFrisse.h"
 #include "Commands/ADefenses/Porticulus.h"
 #include "CommandBase.h"
+#include "Commands/Auto/AutoScore.h"
+#include "Commands/Auto/AutoDriveReverse.h"
 
 class Robot: public IterativeRobot
 {
@@ -22,6 +24,8 @@ private:
 		chooser = new SendableChooser();
 		chooser->AddDefault("Nothing Auto", new AutoDoNothing());
 		chooser->AddObject("LowBar Auto", new AutoDriveForwardLowBar());
+		chooser->AddObject("LowBarReverse Auto", new AutoDriveReverse());
+		chooser->AddObject("LowBarScore Auto", new AutoScore());
 
 		SmartDashboard::PutData("Auto Modes", chooser);
 

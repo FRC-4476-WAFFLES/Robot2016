@@ -50,6 +50,13 @@ void ADefensesSubsystem::GoToNextPorticulusSetpoint()
 	PorticulusIndex++;
 }
 
+void ADefensesSubsystem::ADefensesReset()
+{
+	PorticulusIndex = 0;
+	ChevalDeFrisseIndex = 0;
+}
+
+
 // Keeps track of which cheval setpoint we are at and moves to the next one.
 void ADefensesSubsystem::GoToNextChevalDeFrisseSetpoint()
 {
@@ -58,8 +65,12 @@ void ADefensesSubsystem::GoToNextChevalDeFrisseSetpoint()
 		case 0:
 			SetSetpoint(40);
 			break;
-
 		case 1:
+			//todo: Change this setpoint so that it right over the lowest position
+			SetSetpoint(200);
+					break;
+
+		case 2:
 			SetSetpoint(261);
 			ChevalDeFrisseIndex = -1;
 			break;
