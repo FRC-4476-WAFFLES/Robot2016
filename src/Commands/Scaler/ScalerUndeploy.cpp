@@ -18,7 +18,7 @@ void ScalerUndeploy::Initialize()
 // Called repeatedly when this Command is scheduled to run
 void ScalerUndeploy::Execute()
 {
-	scaler->SetDeploy(-0.25);
+	scaler->SetDeploy(0.25);
 }
 
 // Make this return true when this Command no longer needs to run execute()
