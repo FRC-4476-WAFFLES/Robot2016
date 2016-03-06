@@ -20,7 +20,7 @@ void IntakeHalfWayPoint::Execute()
 {
 	//Intake half way point
 	intake->Enable();
-	intake->SetSetpoint(554);
+	intake->SetSetpoint(385);
 }
 
 // Make this return true when this Command no longer needs to run execute()

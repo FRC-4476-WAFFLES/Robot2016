@@ -65,7 +65,8 @@ private:
 	void AutonomousInit()
 	{
 		CommandBase::aDefenses->ADefensesReset();
-//		//gets the selected command
+		CommandBase::drive->ReZero();
+		//gets the selected command
 		autonomousCommand = (Command*) chooser->GetSelected();
 //		//starts the selected command
 		autonomousCommand->Start();

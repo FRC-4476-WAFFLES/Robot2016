@@ -1,7 +1,7 @@
 /**
  * Releases the locking mechanism on the robot
  */
-
+#include "stdio.h"
 #include "ScalerRelease.h"
 
 ScalerRelease::ScalerRelease() : CommandBase("ScalerRelease")
@@ -12,7 +12,7 @@ ScalerRelease::ScalerRelease() : CommandBase("ScalerRelease")
 // Called just before this Command runs the first time
 void ScalerRelease::Initialize()
 {
-
+	printf("Release");
 }
 
 // Called repeatedly when this Command is scheduled to run

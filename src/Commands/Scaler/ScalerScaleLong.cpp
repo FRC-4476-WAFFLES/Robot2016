@@ -20,11 +20,13 @@ void ScalerScaleLong::Initialize()
 void ScalerScaleLong::Execute()
 {
 	if (scaler->ScaleEncoder()>LikeLength) {
-		scaler->ScalingMotors(0.25);
+		scaler->ScalingMotors(0.75);
 	}
 	else {
-		scaler->ScalingMotors(-0.25);
+		//If it works well, increase to 0.5 then 0.75 and then full
+		scaler->ScalingMotors(-0.75);
 	}
+	//If it works well, increase to 0.5 then 0.75 and then full
 	scaler->SetDeploy(-0.25);
 }
 // Make this return true when this Command no longer needs to run execute()

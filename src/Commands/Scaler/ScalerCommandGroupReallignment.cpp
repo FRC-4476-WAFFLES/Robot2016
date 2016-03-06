@@ -13,11 +13,11 @@
 
 ScalerCommandGroupReallignment::ScalerCommandGroupReallignment() : CommandGroup()
 {
-	AddSequential(new ScalerRelease());
-	AddSequential(new IntakeOut());
-	AddSequential(new ScalerDeploy());
-	AddSequential(new ScalerScaleLong(-3498*1.05));
-	AddSequential(new WaitTrigger());
+	//AddSequential(new ScalerRelease());
+	//AddSequential(new IntakeOut());
+	//AddSequential(new ScalerDeploy());
+	//AddSequential(new ScalerScaleLong(-3498*1.05));
+	//AddSequential(new WaitTrigger());
 	AddSequential(new ScalerScaleLong(395));
 	AddSequential(new ScalerStop());
 }

@@ -55,10 +55,10 @@ OI::OI()
 		// temp->WhileHeld(new ScalerScale());
 		// temp = new JoystickButton(operatorController, OperatorButton::BumperBottomLeft);
 		// temp->WhileHeld(new ScalerRetract());
-		temp = new JoystickButton(operatorController, OperatorButton::Back);
-		temp->WhileHeld(new ScalerCommandGroupUndeploy());
-		temp = new JoystickButton(operatorController, OperatorButton::Start);
-		temp->WhileHeld(new ScalerCommandGroupReallignment());
+		//temp = new JoystickButton(operatorController, OperatorButton::Back);
+		//temp->WhenPressed(new ScalerCommandGroupUndeploy());
+		//temp = new JoystickButton(operatorController, OperatorButton::Start);
+		//temp->WhenPressed(new ScalerCommandGroupReallignment());
 
 		/**************A Defenses**************/
 		temp = new JoystickButton(operatorController, OperatorButton::B);

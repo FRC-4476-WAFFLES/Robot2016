@@ -1,7 +1,7 @@
 /**
  * Moves the scaler arm up.
  */
-
+#include "stdio.h"
 #include "ScalerDeploy.h"
 
 ScalerDeploy::ScalerDeploy() : CommandBase("ScalerDeploy")
@@ -12,7 +12,7 @@ ScalerDeploy::ScalerDeploy() : CommandBase("ScalerDeploy")
 // Called just before this Command runs the first time
 void ScalerDeploy::Initialize()
 {
-
+	printf("Deploy");
 }
 
 // Called repeatedly when this Command is scheduled to run

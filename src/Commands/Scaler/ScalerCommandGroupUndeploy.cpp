@@ -10,8 +10,8 @@
 
 ScalerCommandGroupUndeploy::ScalerCommandGroupUndeploy() : CommandGroup()
 {
-	AddSequential(new ScalerRelease());
-	AddSequential(new IntakeOut());
+	//AddSequential(new ScalerRelease());
+	//AddSequential(new IntakeOut());
 	AddSequential(new ScalerScaleLong(0));
 	AddSequential(new ScalerUndeploy());
 }

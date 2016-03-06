@@ -1,7 +1,7 @@
 /**
  * Retracts the scaler inside the robot
  */
-
+#include "stdio.h"
 #include "ScalerUndeploy.h"
 
 ScalerUndeploy::ScalerUndeploy() : CommandBase("ScalerUndeploy")
@@ -12,7 +12,7 @@ ScalerUndeploy::ScalerUndeploy() : CommandBase("ScalerUndeploy")
 // Called just before this Command runs the first time
 void ScalerUndeploy::Initialize()
 {
-
+	printf("Undeploy");
 }
 
 // Called repeatedly when this Command is scheduled to run

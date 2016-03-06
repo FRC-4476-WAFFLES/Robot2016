@@ -67,7 +67,7 @@ void ADefensesSubsystem::GoToNextChevalDeFrisseSetpoint()
 			break;
 		case 1:
 			//todo: Change this setpoint so that it right over the lowest position
-			SetSetpoint(200);
+			SetSetpoint(159);
 					break;
 
 		case 2:

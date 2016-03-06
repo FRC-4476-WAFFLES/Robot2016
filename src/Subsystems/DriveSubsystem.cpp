@@ -46,3 +46,8 @@ double DriveSubsystem::driveEncoder()
 {
 	return DriveEncoder->Get();
 }
+void DriveSubsystem::ReZero(){
+	resetGyro();
+	DriveEncoder->Reset();
+}
+

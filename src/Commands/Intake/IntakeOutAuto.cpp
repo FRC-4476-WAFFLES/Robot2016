@@ -1,22 +1,22 @@
-#include "IntakeOutNormal.h"
+#include "IntakeOutAuto.h"
 
 ////////////////DISCRIPTION//////////////////
-// sets the PID intake out set point to 606 encoder Ticks. ~~never ends~~
+// sets the PID intake out set point to 606 encoder Ticks.~~ends~~
 
 
-IntakeOutNormal::IntakeOutNormal() : CommandBase("IntakeOutNormal")
+IntakeOutAuto::IntakeOutAuto() : CommandBase("IntakeOutAuto")
 {
 	Requires(intake.get());
 }
 
 // Called just before this Command runs the first time
-void IntakeOutNormal::Initialize()
+void IntakeOutAuto::Initialize()
 {
 	intake->SetSetpoint(418);
 }
 
 // Called repeatedly when this Command is scheduled to run
-void IntakeOutNormal::Execute()
+void IntakeOutAuto::Execute()
 {
 	intake->Enable();
 	intake->SetSetpointRelative(oi->operatorController->GetRawAxis(3));
@@ -24,21 +24,21 @@ void IntakeOutNormal::Execute()
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool IntakeOutNormal::IsFinished()
+bool IntakeOutAuto::IsFinished()
 {
-	return false;
-
+	double error = intake->GetSetpoint() - intake->GetPosition();
+	return error < 10 && error > -10;
 }
 
 // Called once after isFinished returns true
-void IntakeOutNormal::End()
+void IntakeOutAuto::End()
 {
 
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void IntakeOutNormal::Interrupted()
+void IntakeOutAuto::Interrupted()
 {
 
 }

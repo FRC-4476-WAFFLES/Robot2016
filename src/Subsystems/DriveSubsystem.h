@@ -22,6 +22,7 @@ public:
 	void Drive (double left, double right);
 	void resetGyro();
 	double driveEncoder();
+	void ReZero();
 };
 
 #endif
