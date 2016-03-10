@@ -14,7 +14,7 @@ ADefensesInitialization::ADefensesInitialization() : CommandBase()
 void ADefensesInitialization::Initialize()
 {
 	//Initializes the ADefensesInitialization attachment by sequence(every time you click the button it goes to next setpoint)
-	switch((int*) oi->ADefensesChooser->GetSelected()) {
+	switch((int) oi->ADefensesChooser->GetSelected()) {
 	case 0:
 		aDefenses->GoToNextChevalDeFrisseSetpoint();
 		break;

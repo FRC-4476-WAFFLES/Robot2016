@@ -1,7 +1,8 @@
 #include "PorticulusAuto.h"
-#include "Commands/Drive/DriveAuto.h"
 #include "Commands/ADefenses/Porticulus.h"
+#include "Commands/Drive/DriveAuto.h"
 #include "Commands/Misc/WaitTime.h"
+
 PorticulusAuto::PorticulusAuto()
 {
 	SetTimeout(15.0);

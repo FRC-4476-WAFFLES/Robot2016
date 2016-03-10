@@ -36,7 +36,7 @@ void ADefensesSubsystem::GoToNextPorticulusSetpoint()
 	Enable();
 	switch(PorticulusIndex){
 				case 0:
-					SetSetpoint(40);
+					SetSetpoint(35);
 					break;
 				case 1:
 					SetSetpoint(254);
@@ -63,7 +63,7 @@ void ADefensesSubsystem::GoToNextChevalDeFrisseSetpoint()
 	Enable();
 		switch(ChevalDeFrisseIndex){
 		case 0:
-			SetSetpoint(40);
+			SetSetpoint(35);
 			break;
 		case 1:
 			//todo: Change this setpoint so that it right over the lowest position

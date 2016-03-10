@@ -29,9 +29,9 @@ OI::OI()
 	operatorController = new Joystick(2);
 
 	ADefensesChooser = new SendableChooser();
-	ADefensesChooser->AddDefault("Cheval De Frisse", &0);
-	ADefensesChooser->AddObject("Porticulus", &1);
-	SmartDashboard::PutData("ADefense types", Chooser);
+	ADefensesChooser->AddDefault("Cheval De Frisse", (void*) 0);
+	ADefensesChooser->AddObject("Porticulus", (void*) 1);
+	SmartDashboard::PutData("ADefense types", ADefensesChooser);
 
 	// Commands
 	{
