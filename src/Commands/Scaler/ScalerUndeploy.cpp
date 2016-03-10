@@ -24,7 +24,7 @@ void ScalerUndeploy::Execute()
 // Make this return true when this Command no longer needs to run execute()
 bool ScalerUndeploy::IsFinished()
 {
-	return scaler->GetDeploy()>630;
+	return scaler->GetDeploy()<245;
 
 }
 

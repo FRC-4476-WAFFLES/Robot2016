@@ -3,15 +3,15 @@
 ////////////////DISCRIPTION//////////////////
 // Waits for a button to be pressed on the controller
 
-WaitTrigger::WaitTrigger(Trigger* t) {
-	trigger = t;
+WaitTrigger::WaitTrigger(){
+
 }
 
 void WaitTrigger::Initialize() {}
 void WaitTrigger::Execute() {}
 
 bool WaitTrigger::IsFinished() {
-	return trigger->Get();
+	return oi->operatorController->GetRawButton(OI::BumperBottomRight);
 }
 
 void WaitTrigger::End() {}

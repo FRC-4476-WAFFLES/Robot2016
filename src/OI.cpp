@@ -9,6 +9,7 @@
 #include "Commands/Roller/RollerSuck.h"
 #include "Commands/Roller/RollerExtract.h"
 #include "Commands/Scaler/ScalerDeploy.h"
+#include "Commands/ADefenses/ADefensesInitialization.h"
 #include "Commands/ADefenses/Porticulus.h"
 #include "Commands/ADefenses/ChevalDeFrisse.h"
 #include "Commands/Scaler/ScalerCommandGroupUndeploy.h"
@@ -26,6 +27,11 @@ OI::OI()
 	joystickLeft = new Joystick(0);
 	joystickRight = new Joystick(1);
 	operatorController = new Joystick(2);
+
+	ADefensesChooser = new SendableChooser();
+	ADefensesChooser->AddDefault("Cheval De Frisse", &0);
+	ADefensesChooser->AddObject("Porticulus", &1);
+	SmartDashboard::PutData("ADefense types", Chooser);
 
 	// Commands
 	{
@@ -56,8 +62,8 @@ OI::OI()
 
 		/**************A Defenses**************/
 		temp = new JoystickButton(operatorController, OperatorButton::B);
-		temp->WhenPressed(new Porticulus());
-		// temp = new JoystickButton(operatorController, OperatorButton::B);
-		// temp->WhenPressed(new ChevalDeFrisse());
+		temp->WhenPressed(new ADefensesInitialization());
 	}
+
+
 }

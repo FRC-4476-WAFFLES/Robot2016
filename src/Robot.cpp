@@ -2,8 +2,7 @@
 
 #include "Commands/Auto/AutoDoNothing.h"
 #include "Commands/Auto/AutoDriveForwardLowBar.h"
-#include "Commands/ADefenses/ChevalDeFrisse.h"
-#include "Commands/ADefenses/Porticulus.h"
+
 #include "CommandBase.h"
 #include "Commands/Auto/AutoScore.h"
 #include "Commands/Auto/AutoDriveReverse.h"
@@ -92,8 +91,6 @@ private:
 	void TeleopInit()
 	{
 		CommandBase::aDefenses->ADefensesReset();
-//		ADefenseCommand = (Command*)ADefesesChooser->GetSelected();
-//		ADefenseCommand->Start();
 		// This makes sure that the autonomous stops running when
 		// teleop starts running. If you want the autonomous to
 		// continue until interrupted by another command, remove

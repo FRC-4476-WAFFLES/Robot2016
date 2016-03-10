@@ -20,7 +20,7 @@ void IntakeIn::Execute()
 {
 	//Intake inside setpoint/position
 	intake->Enable();
-	intake->SetSetpoint(300);
+	intake->SetSetpoint(295);
 }
 
 // Make this return true when this Command no longer needs to run execute()
