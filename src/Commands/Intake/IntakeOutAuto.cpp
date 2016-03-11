@@ -12,7 +12,7 @@ IntakeOutAuto::IntakeOutAuto() : CommandBase("IntakeOutAuto")
 // Called just before this Command runs the first time
 void IntakeOutAuto::Initialize()
 {
-	intake->SetSetpoint(418);
+	intake->SetSetpoint(423);
 }
 
 // Called repeatedly when this Command is scheduled to run

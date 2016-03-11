@@ -6,18 +6,12 @@
 PorticulusAuto::PorticulusAuto()
 {
 	SetTimeout(15.0);
-	//todo: Adjust setpoint
 	AddSequential(new DriveAuto(3032.0, 0.0));
 	AddSequential(new Porticulus);
 	AddSequential(new Porticulus);
 
 
-	AddSequential(new WaitTime(1.0));
-	//todo: Adjust setpoint
+	AddSequential(new WaitTime(2.0));
 	AddSequential(new DriveAuto (13132.0, 0.0));
 	AddSequential(new Porticulus);
-
-	AddSequential(new WaitTime(2));
-	//todo: Adjust setpoint
-
 }

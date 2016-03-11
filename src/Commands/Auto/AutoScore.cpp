@@ -14,7 +14,7 @@ AutoScore::AutoScore()
 {
 	SetTimeout(15.0);
 	AddSequential(new IntakeOutAuto);
-	AddParallel(new RollerSuckTime(1.0));
+	AddParallel(new RollerSuckTime(3.0));
 
 	AddSequential(new DriveAuto(-17817.0, 0.0));
 	AddSequential(new WaitTime(1.0));
