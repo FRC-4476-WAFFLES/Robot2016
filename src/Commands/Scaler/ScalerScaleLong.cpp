@@ -8,12 +8,14 @@ ScalerScaleLong::ScalerScaleLong(float Length) : CommandBase("ScalerScaleLong")
 {
 	LikeLength = Length;
 	Requires(scaler.get());
+	longStopTimer = new Timer();
 }
 
 // Called just before this Command runs the first time
 void ScalerScaleLong::Initialize()
 {
-
+	longStopTimer->Reset();
+	longStopTimer->Start();
 }
 
 // Called repeatedly when this Command is scheduled to run
@@ -27,7 +29,10 @@ void ScalerScaleLong::Execute()
 		scaler->ScalingMotors(-0.75);
 	}
 	//If it works well, increase to 0.5 then 0.75 and then full
-	scaler->SetDeploy(-0.25);
+	if(longStopTimer->Get() < 2)
+		scaler->SetDeploy(-0.25);
+	else
+		scaler->SetDeploy(0);
 }
 // Make this return true when this Command no longer needs to run execute()
 bool ScalerScaleLong::IsFinished()
