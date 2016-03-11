@@ -7,6 +7,7 @@
 class ScalerScaleLong: public CommandBase
 {
 private:
+	Timer* longStopTimer;
 	float LikeLength;
 public:
 
