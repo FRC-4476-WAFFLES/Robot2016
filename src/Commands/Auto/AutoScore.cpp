@@ -21,7 +21,6 @@ AutoScore::AutoScore()
 	AddSequential(new DriveAuto(-19817.0,60.0));
 	AddSequential(new WaitTime(1.0));
 	AddSequential(new DriveAuto(-27653.9,60.0));
-
 	AddSequential(new DriveRollerExtract);
 
 

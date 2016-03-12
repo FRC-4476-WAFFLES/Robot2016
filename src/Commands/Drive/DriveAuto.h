@@ -14,8 +14,10 @@ class DriveAuto: public CommandBase {
 private:
 	double distance;
 	double angle;
+	double speed;
 public:
 	DriveAuto(double distance, double angle);
+	DriveAuto(double distance, double angle, double speed);
 	void Initialize();
 	void Execute();
 	bool IsFinished();

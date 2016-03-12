@@ -18,6 +18,6 @@ ScalerCommandGroupReallignment::ScalerCommandGroupReallignment() : CommandGroup(
 	AddSequential(new ScalerDeploy());
 	AddSequential(new ScalerScaleLong(-3498*1.05));
 	AddSequential(new WaitTrigger());
-	AddSequential(new ScalerScaleLong(395));
+	AddSequential(new ScalerScaleLong(295));
 	AddSequential(new ScalerStop());
 }

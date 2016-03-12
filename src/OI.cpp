@@ -14,7 +14,8 @@
 #include "Commands/ADefenses/ChevalDeFrisse.h"
 #include "Commands/Scaler/ScalerCommandGroupUndeploy.h"
 #include "Commands/Scaler/ScalerCommandGroupReallignment.h"
-
+#include "Commands/Scaler/ScalerRelease.h"
+#include "Commands/Scaler/ScalerStop.h"
 OI::OI()
 {
 	/*
@@ -55,10 +56,14 @@ OI::OI()
 		// temp->WhileHeld(new ScalerScale());
 		// temp = new JoystickButton(operatorController, OperatorButton::BumperBottomLeft);
 		// temp->WhileHeld(new ScalerRetract());
-		//temp = new JoystickButton(operatorController, OperatorButton::Back);
-		//temp->WhenPressed(new ScalerCommandGroupUndeploy());
-		//temp = new JoystickButton(operatorController, OperatorButton::Start);
-		//temp->WhenPressed(new ScalerCommandGroupReallignment());
+		temp = new JoystickButton(operatorController, OperatorButton::Back);
+		temp->WhenPressed(new ScalerCommandGroupUndeploy());
+		temp = new JoystickButton(operatorController, OperatorButton::Start);
+		temp->WhenPressed(new ScalerCommandGroupReallignment());
+		temp = new JoystickButton(operatorController, 11);
+		temp->WhenPressed(new ScalerRelease());
+		temp = new JoystickButton(operatorController, 12);
+		temp->WhenPressed(new ScalerStop());
 
 		/**************A Defenses**************/
 		temp = new JoystickButton(operatorController, OperatorButton::B);

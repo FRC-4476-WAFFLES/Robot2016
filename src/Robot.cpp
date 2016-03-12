@@ -33,7 +33,7 @@ private:
 		chooser->AddObject("RoughTerrain Auto", new RoughTerrainAuto());
 		SmartDashboard::PutData("Auto Modes", chooser);
 
-		CameraServer::GetInstance()->SetQuality(50);
+		CameraServer::GetInstance()->SetQuality(25);
 		CameraServer::GetInstance()->StartAutomaticCapture("cam0");
 	}
 

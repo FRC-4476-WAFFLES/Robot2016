@@ -12,7 +12,7 @@ IntakeOutNormal::IntakeOutNormal() : CommandBase("IntakeOutNormal")
 // Called just before this Command runs the first time
 void IntakeOutNormal::Initialize()
 {
-	intake->SetSetpoint(423);
+	intake->SetSetpoint(343);
 }
 
 // Called repeatedly when this Command is scheduled to run

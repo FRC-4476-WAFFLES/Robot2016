@@ -11,6 +11,17 @@ DriveAuto::DriveAuto(double distance, double angle) {
 	// Remember distance and angle for later
 	this->distance = distance;
 	this->angle = angle;
+	this->speed = 0.5;
+}
+
+DriveAuto::DriveAuto(double distance, double angle, double speed) {
+	// We need the drive subsystem to not be doing anything else
+	Requires(drive.get());
+
+	// Remember distance and angle for later
+	this->distance = distance;
+	this->angle = angle;
+	this->speed = speed;
 }
 
 void DriveAuto::Initialize() {
@@ -33,7 +44,7 @@ void DriveAuto::Execute() {
 	double angleError = angle - drive->GetGyro();
 
 	// Set the motors to run
-	drive->Drive(-0.05*angleError + 0.5*distanceError, 0.1*angleError + 0.5*distanceError);
+	drive->Drive(-0.05*angleError + speed*distanceError, 0.1*angleError + speed*distanceError);
 }
 
 // Returns true when the distance is within 200 and the angle is within 5 degrees

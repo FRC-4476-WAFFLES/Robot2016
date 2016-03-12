@@ -31,9 +31,11 @@ bool DriveRollerExtract::IsFinished() {
 // Stop the motors when this command ends
 void DriveRollerExtract::End() {
 	drive->Drive(0.0, 0.0);
+	roller->Roll(0);
 }
 
 // Stop the motors when this command is interrupted by another
 void DriveRollerExtract::Interrupted() {
 	drive->Drive(0.0, 0.0);
+	roller->Roll(0);
 }

@@ -10,5 +10,5 @@ RoughTerrainAuto::RoughTerrainAuto()
 {
 
 	//SetTimeout(15.0);
-	AddSequential(new DriveAuto(-13188.0, 0.0));
+	AddSequential(new DriveAuto(-17188.0, 0.0, 1.0));
 }

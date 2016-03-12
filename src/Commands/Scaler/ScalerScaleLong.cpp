@@ -33,6 +33,8 @@ void ScalerScaleLong::Execute()
 		scaler->SetDeploy(-0.25);
 	else
 		scaler->SetDeploy(0);
+
+	scaler->SetPositionLock(Relay::kForward);
 }
 // Make this return true when this Command no longer needs to run execute()
 bool ScalerScaleLong::IsFinished()
@@ -45,6 +47,8 @@ bool ScalerScaleLong::IsFinished()
 void ScalerScaleLong::End()
 {
 	scaler->ScalingMotors(0);
+	scaler->SetPositionLock(Relay::kOff);
+	scaler->SetDeploy(0);
 }
 
 // Called when another command which requires one or more of the same
@@ -52,4 +56,6 @@ void ScalerScaleLong::End()
 void ScalerScaleLong::Interrupted()
 {
 	scaler->ScalingMotors(0);
+	scaler->SetPositionLock(Relay::kOff);
+	scaler->SetDeploy(0);
 }

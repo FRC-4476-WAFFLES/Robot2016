@@ -6,6 +6,8 @@
 
 class ScalerStop: public CommandBase
 {
+private:
+	Timer* t;
 public:
 	ScalerStop();
 	void Initialize();

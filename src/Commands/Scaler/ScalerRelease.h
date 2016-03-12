@@ -6,7 +6,10 @@
 
 class ScalerRelease: public CommandBase
 {
+private:
+	Timer* t;
 public:
+
 	ScalerRelease();
 	void Initialize();
 	void Execute();
