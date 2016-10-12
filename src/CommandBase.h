@@ -2,13 +2,10 @@
 #define COMMAND_BASE_H
 
 #include <string>
-#include "Subsystems/IntakeSubsystem.h"
+#include "Subsystems/ShooterSubsystem.h"
 #include "Subsystems/DriveSubsystem.h"
 #include "OI.h"
 #include "WPILib.h"
-#include "Subsystems/RollerSubsystem.h"
-#include "Subsystems/ADefensesSubsystem.h"
-#include "Subsystems/ScalerSubsystem.h"
 //#include "subsystems/CameraSubsystem.h"
 
 /**
@@ -24,11 +21,8 @@ public:
 	static void init();
 	static void prints();
 	// Create a single static instance of all of your subsystems
-	static std::unique_ptr<IntakeSubsystem> intake;
 	static std::unique_ptr<DriveSubsystem> drive;
-	static std::unique_ptr<RollerSubsystem> roller;
-	static std::unique_ptr<ADefensesSubsystem> aDefenses;
-	static std::unique_ptr<ScalerSubsystem> scaler;
+	static std::unique_ptr<ShooterSubsystem> shooter;
 	static std::unique_ptr<OI> oi;
 	//static std::unique_ptr<CameraSubsystem> camera;
 };

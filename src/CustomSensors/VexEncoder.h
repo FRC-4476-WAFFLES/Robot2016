@@ -3,7 +3,7 @@
 
 #include "WPILib.h"
 
-class VexEncoder: SensorBase {
+class VexEncoder: public SensorBase, public PIDSource {
 private:
 	Counter* counter;
 	float lastInt;
@@ -18,6 +18,7 @@ public:
 
 	// Gets the angle of the sensor taking the continuous rotation into account.
 	float GetAngle();
+	double PIDGet() override;
 
 	// Reset the angle such that it is in its first rotation.
 	void Reset();

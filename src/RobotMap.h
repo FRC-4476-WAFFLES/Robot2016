@@ -11,29 +11,29 @@
  */
  
 // PID Motors
-const int DRIVE_MOTOR_LEFT_FRONT = 0;
-const int DRIVE_MOTOR_LEFT_BACK = 1;
-const int DRIVE_MOTOR_RIGHT_FRONT = 2;
-const int DRIVE_MOTOR_RIGHT_BACK = 3;
-const int SCALER_CLIMB_1 = 4;
-const int SCALER_CLIMB_2 = 5;
-const int SCALER_DEPLOYER = 6;
-const int INTAKE_MOTOR_ARM = 7;
-const int ROLLER_MOTOR = 8;
-const int A_DEFENSES_MOTOR = 9;
+constexpr int DRIVE_MOTOR_LEFT_FRONT = 0;
+constexpr int DRIVE_MOTOR_LEFT_BACK = 1;
+constexpr int DRIVE_MOTOR_RIGHT_FRONT = 2;
+constexpr int DRIVE_MOTOR_RIGHT_BACK = 3;
+constexpr int PIVOT = 4;
+constexpr int TOP_SHOOTER = 5;
+constexpr int BOTTOM_SHOOTER = 6;
+constexpr int TOP_ROLLER = 7;
+constexpr int BOTTOM_ROLLER = 8;
+constexpr int EXTENSION = 9;
 
 // Analog Inputs
 
 // Relay
-const int SCALER_POSITION_LOCK = 0;
+constexpr int SCALER_POSITION_LOCK = 0;
 
 // Digital Inputs
-const int INTAKE_ENCODER = 0;
-const int SCALING_DEPLOYING_ENCODER = 1;
-const int A_DEFENSES_POT = 2;
-const int SCALER_CLIMB_ENCODER_A = 3;
-const int SCALER_CLIMB_ENCODER_B = 4;
-const int DRIVE_ENCODER_A = 5;
-const int DRIVE_ENCODER_B = 6;
+constexpr int PIVOT_E = 0;
+constexpr int EXTENSION_E = 1;
+constexpr int BOTTOM_HARDSTOP = 2;
+constexpr int TOP_SHOOTER_E = 3; // And 4
+constexpr int DRIVE_ENCODER_A = 5;
+constexpr int DRIVE_ENCODER_B = 6;
+constexpr int BOTTOM_SHOOTER_E = 7; // And 8
 
 #endif

@@ -40,6 +40,9 @@ float VexEncoder::GetAngle() {
 	return newValue;
 }
 
+double VexEncoder::PIDGet() {
+	return GetAngle();
+}
 
 float VexEncoder::GetRawAngle() {
 	// PWM is 220Hz (from the docs) (And convert to degrees).

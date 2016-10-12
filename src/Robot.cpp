@@ -1,14 +1,6 @@
 #include "WPILib.h"
 
-#include "Commands/Auto/AutoDoNothing.h"
-#include "Commands/Auto/AutoDriveForwardLowBar.h"
-
 #include "CommandBase.h"
-#include "Commands/Auto/AutoScore.h"
-#include "Commands/Auto/AutoDriveReverse.h"
-#include "Commands/Auto/ChevalDeFrisseAuto.h"
-#include "Commands/Auto/PorticulusAuto.h"
-#include "Commands/Auto/RoughTerrainAuto.h"
 
 class Robot: public IterativeRobot
 {
@@ -23,15 +15,6 @@ private:
 	void RobotInit()
 	{
 		CommandBase::init();
-		chooser = new SendableChooser();
-		chooser->AddDefault("Nothing Auto", new AutoDoNothing());
-		chooser->AddObject("LowBar Auto", new AutoDriveForwardLowBar());
-		chooser->AddObject("LowBarReverse Auto", new AutoDriveReverse());
-		chooser->AddObject("LowBarScore Auto", new AutoScore());
-		chooser->AddObject("ChevalDeFrisse Auto", new ChevalDeFrisseAuto());
-		chooser->AddObject("Porticulus Auto", new PorticulusAuto());
-		chooser->AddObject("RoughTerrain Auto", new RoughTerrainAuto());
-		SmartDashboard::PutData("Auto Modes", chooser);
 
 		CameraServer::GetInstance()->SetQuality(25);
 		CameraServer::GetInstance()->StartAutomaticCapture("cam0");
@@ -44,7 +27,6 @@ private:
      */
 	void DisabledInit()
 	{
-		CommandBase::aDefenses->ADefensesReset();
 	}
 
 	void DisabledPeriodic()
@@ -64,7 +46,6 @@ private:
 	 */
 	void AutonomousInit()
 	{
-		CommandBase::aDefenses->ADefensesReset();
 		CommandBase::drive->ReZero();
 		//gets the selected command
 		autonomousCommand = (Command*) chooser->GetSelected();
@@ -91,7 +72,6 @@ private:
 
 	void TeleopInit()
 	{
-		CommandBase::aDefenses->ADefensesReset();
 		// This makes sure that the autonomous stops running when
 		// teleop starts running. If you want the autonomous to
 		// continue until interrupted by another command, remove

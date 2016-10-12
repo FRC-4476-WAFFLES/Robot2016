@@ -1,18 +1,13 @@
-#ifndef ROLLER_SUCK_H
-#define ROLLER_SUCK_H
+#pragma once
 
 #include "CommandBase.h"
-#include "WPILib.h"
 
-class RollerSuck: public CommandBase
-{
+class Shoot: public CommandBase {
 public:
-	RollerSuck();
+	Shoot();
 	void Initialize();
 	void Execute();
 	bool IsFinished();
 	void End();
 	void Interrupted();
 };
-
-#endif
