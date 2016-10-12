@@ -1,6 +1,8 @@
 #include <Commands/Shooter/Shoot.h>
 
-Shoot::Shoot() {
+Shoot::Shoot():
+  CommandBase("DriveAuto")
+{
   // We need the shooter subsystem to not be doing anything else
   Requires(shooter.get());
 }

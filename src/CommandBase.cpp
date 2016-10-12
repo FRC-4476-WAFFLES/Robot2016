@@ -16,10 +16,6 @@ CommandBase::CommandBase(const std::string &name) :
 		Command(name)
 {}
 
-CommandBase::CommandBase() :
-		Command()
-{}
-
 // Creates each subsystem, should only be run once!
 void CommandBase::init()
 {
@@ -33,6 +29,7 @@ void CommandBase::init()
 
 // Print out some useful information about each subsystem
 void CommandBase::prints() {
+	shooter->prints();
 	SmartDashboard::PutNumber("drive.Gyro", drive->GetGyro());
 	SmartDashboard::PutNumber("drive.encoder.ticks", drive->driveEncoder());
 }

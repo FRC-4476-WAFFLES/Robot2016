@@ -26,6 +26,17 @@ ShooterSubsystem::ShooterSubsystem():
   bottom_shooter_pid(new PIDController(0.01, 0.0, 0.01, bottom_shooter_e, bottom_shooter)),
   extension_pid(new PIDController(0.01, 0.0, 0.01, extension_e, extension))
 {
+  // Make the PID for the shooter attempt to reach a speed
+  top_shooter_pid->SetPIDSourceType(PIDSourceType::kRate);
+  bottom_shooter_pid->SetPIDSourceType(PIDSourceType::kRate);
+
+  // Set the tolerances for the PIDs
+  pivot_pid->SetAbsoluteTolerance(5.0);
+  top_shooter_pid->SetAbsoluteTolerance(100.0);
+  bottom_shooter_pid->SetAbsoluteTolerance(100.0);
+  extension_pid->SetAbsoluteTolerance(5.0);
+
+  // Invert the bottom shooter
   bottom_shooter->SetInverted(true);
   bottom_roller->SetInverted(true);
 }
@@ -58,10 +69,17 @@ void ShooterSubsystem::SetRollers(double speed)
 }
 
 void ShooterSubsystem::SetShooter(double speed) {
-  top_shooter_pid->Enable();
-  top_shooter_pid->SetSetpoint(speed);
-  bottom_shooter_pid->Enable();
-  bottom_shooter_pid->SetSetpoint(speed);
+  if(speed != 0.0) {
+    top_shooter_pid->Enable();
+    top_shooter_pid->SetSetpoint(speed);
+    bottom_shooter_pid->Enable();
+    bottom_shooter_pid->SetSetpoint(speed);
+  } else {
+    top_shooter_pid->Disable();
+    top_shooter->SetSpeed(0.0);
+    bottom_shooter_pid->Disable();
+    bottom_shooter->SetSpeed(0.0);
+  }
 }
 
 bool ShooterSubsystem::ShooterOnTarget() {
@@ -69,6 +87,19 @@ bool ShooterSubsystem::ShooterOnTarget() {
 }
 
 void ShooterSubsystem::SetExtension(double angle) {
-  extension_pid->Enable();
-  extension_pid->SetSetpoint(angle);
+  if(angle != 0.0) {
+    extension_pid->Enable();
+    extension_pid->SetSetpoint(angle);
+  } else {
+    extension_pid->Disable();
+    extension->SetSpeed(0.0);
+  }
+}
+
+void ShooterSubsystem::prints() {
+  SmartDashboard::PutString("shooter.command", GetCurrentCommand()->GetName());
+  SmartDashboard::PutNumber("shooter.pivot_e [deg]", pivot_e->GetAngle());
+  SmartDashboard::PutNumber("shooter.extension_e [deg]", extension_e->GetAngle());
+  SmartDashboard::PutNumber("shooter.top_shooter_e [t/s]", top_shooter_e->GetRate());
+  SmartDashboard::PutNumber("shooter.bottom_shooter_e [t/s]", bottom_shooter_e->GetRate());
 }

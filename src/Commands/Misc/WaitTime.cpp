@@ -4,7 +4,9 @@
 // waits a certain amount of time that is specified when used.
 
 
-WaitTime::WaitTime(double duration) {
+WaitTime::WaitTime(double duration):
+	CommandBase("DriveAuto")
+{
 	this->timer = new Timer();
 	// Duration is the time in seconds that this command should run
 	this->duration = duration;

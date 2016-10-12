@@ -4,7 +4,9 @@
 
 #include "DriveAuto.h"
 
-DriveAuto::DriveAuto(double distance, double angle) {
+DriveAuto::DriveAuto(double distance, double angle):
+	CommandBase("DriveAuto")
+{
 	// We need the drive subsystem to not be doing anything else
 	Requires(drive.get());
 
@@ -14,7 +16,9 @@ DriveAuto::DriveAuto(double distance, double angle) {
 	this->speed = 0.5;
 }
 
-DriveAuto::DriveAuto(double distance, double angle, double speed) {
+DriveAuto::DriveAuto(double distance, double angle, double speed):
+			CommandBase("DriveAuto")
+{
 	// We need the drive subsystem to not be doing anything else
 	Requires(drive.get());
 

@@ -4,7 +4,8 @@
 // Allows the driver to drive the robot by making the speed of the robot = the Y axis value
 
 // needs the undivided attention of the drive subsystem
-DriveOperator::DriveOperator()
+DriveOperator::DriveOperator():
+	CommandBase("DriveAuto")
 {
 	Requires(drive.get());
 }

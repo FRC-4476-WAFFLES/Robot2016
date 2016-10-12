@@ -38,4 +38,5 @@ public:
 	void SetShooter(double speed);
 	bool ShooterOnTarget();
 	void SetExtension(double angle);
+	void prints();
 };
