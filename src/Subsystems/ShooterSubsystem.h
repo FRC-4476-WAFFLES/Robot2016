@@ -25,10 +25,14 @@ private:
 public:
 #warning "You didn't setup the numbers"
 	static constexpr double shot_angle = 0.0;
+	static constexpr double intake_angle = 0.0;
 	static constexpr double shot_speed = 0.0;
-	static constexpr double extension_out = 0.0;
+	static constexpr double shooter_intake_speed= 0.0;
 	static constexpr double roller_out = 0.0;
 	static constexpr double roller_in = 0.0;
+	static constexpr double extention_in = 0.0;
+	static constexpr double extention_out = 0.0;
+
 
 	ShooterSubsystem();
 	void InitDefaultCommand();
