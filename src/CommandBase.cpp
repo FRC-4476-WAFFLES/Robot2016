@@ -10,7 +10,7 @@
 std::unique_ptr<OI> CommandBase::oi;
 std::unique_ptr<DriveSubsystem> CommandBase::drive;
 std::unique_ptr<ShooterSubsystem> CommandBase::shooter;
-
+std::unique_ptr<ExtentionSubsystem> CommandBase::extention;
 // Empty constructors
 CommandBase::CommandBase(const std::string &name) :
 		Command(name)
@@ -23,6 +23,7 @@ void CommandBase::init()
 	// line should be repeated for each subsystem in the project.
 	drive.reset(new DriveSubsystem());
 	shooter.reset(new ShooterSubsystem());
+	extention.reset(new ExtentionSubsystem());
 
 	oi.reset(new OI());
 }
@@ -30,6 +31,7 @@ void CommandBase::init()
 // Print out some useful information about each subsystem
 void CommandBase::prints() {
 	shooter->prints();
+	extention->print();
 	SmartDashboard::PutNumber("drive.Gyro", drive->GetGyro());
 	SmartDashboard::PutNumber("drive.encoder.ticks", drive->driveEncoder());
 }

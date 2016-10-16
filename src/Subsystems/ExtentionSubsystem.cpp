@@ -9,6 +9,7 @@
 #include "Commands/Shooter/Shoot.h"
 
 ExtentionSubsystem::ExtentionSubsystem():
+  Subsystem("ExtentionSubsystem"){
 
 }
 
@@ -17,32 +18,10 @@ void ExtentionSubsystem::InitDefaultCommand()
 
 }
 
-void ExtentionSubsystem::PivotGotoAngle(double angle)
+void ExtentionSubsystem::print()
 {
-
-}
-
-bool ExtentionSubsystem::PivotOnTarget() {
-
-}
-
-void ExtentionSubsystem::SetRollers(double speed)
-{
-
-}
-
-void ExtentionSubsystem::SetShooter(double speed) {
-
-}
-
-bool ExtentionSubsystem::ShooterOnTarget() {
-
-}
-
-void ExtentionSubsystem::SetExtension(double angle) {
-
-}
-
-void ExtentionSubsystem::prints() {
-
+  if (GetCurrentCommand() != NULL)
+    SmartDashboard::PutString("extention.command", GetCurrentCommand()->GetName());
+  else
+    SmartDashboard::PutString("extention.command", "None");
 }

@@ -4,9 +4,10 @@
 #include <string>
 #include "Subsystems/ShooterSubsystem.h"
 #include "Subsystems/DriveSubsystem.h"
+#include "Subsystems/ExtentionSubsystem.h"
 #include "OI.h"
 #include "WPILib.h"
-//#include "subsystems/CameraSubsystem.h"
+
 
 /**
  * The base for all commands. All atomic commands should subclass CommandBase.
@@ -23,7 +24,8 @@ public:
 	static std::unique_ptr<DriveSubsystem> drive;
 	static std::unique_ptr<ShooterSubsystem> shooter;
 	static std::unique_ptr<OI> oi;
-	//static std::unique_ptr<CameraSubsystem> camera;
+	static std::unique_ptr<ExtentionSubsystem> extention;
+
 };
 
 #endif

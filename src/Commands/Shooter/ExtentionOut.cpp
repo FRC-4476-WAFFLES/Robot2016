@@ -1,16 +1,16 @@
-#include <Commands/Shooter/ExtentionOutIn.h>
+#include <Commands/Shooter/ExtentionOut.h>
 #include <Commands/Shooter/Shoot.h>
 
 ExtentionOut::ExtentionOut():
   CommandBase("ExtentionOut")
 {
-
+  Requires(extention.get());
 }
 
 void ExtentionOut::Initialize() {}
 
 void ExtentionOut::Execute() {
-  shooter->SetExtention(extention_out);
+  shooter->SetExtension(shooter->extention_out);
 
 
 

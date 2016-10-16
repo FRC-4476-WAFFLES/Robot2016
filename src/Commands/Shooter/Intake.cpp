@@ -8,13 +8,13 @@ Intake::Intake():
   Requires(shooter.get());
 }
 
-void Intake::Initialize() {}
+void Intake::Initialize() {
+}
 
 void Intake::Execute() {
   shooter->PivotGotoAngle(shooter->intake_angle);
-  shooter->SetShooter(oi->operatorController->GetRawAxis(2)*shooter->shooter_intake_speed);
-  shooter->SetRollers(oi->operatorController->GetRawAxis(4));
-
+  shooter->SetShooter(oi->operatorController->GetRawAxis(1)*shooter->shooter_intake_speed);
+  shooter->SetRollers(oi->operatorController->GetRawAxis(1));
 
 
 }

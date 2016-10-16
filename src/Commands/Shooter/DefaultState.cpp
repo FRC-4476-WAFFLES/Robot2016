@@ -3,6 +3,8 @@
 #include <Commands/Shooter/Intake.h>
 #include <Commands/Shooter/ExtentionIn.h>
 #include <Commands/Shooter/ExtentionOut.h>
+#include <Commands/Shooter/ShooterUp.h>
+
 DefaultState::DefaultState():
   CommandBase("DefaultState")
 {
@@ -18,22 +20,15 @@ void DefaultState::Execute() {
   shooter->SetRollers(0.0);
 
   if(oi->operatorController->GetRawButton(oi->OperatorButton::B)) {
-    shooter->SetCurrentCommand(new Shoot());
+      Scheduler::GetInstance()->AddCommand(new Shoot());
   }
 
   if(oi->operatorController->GetRawButton(oi->OperatorButton::A)) {
-    shooter->SetCurrentCommand(new Intake());
-  }
-
-  if(oi->operatorController->GetRawButton(oi->OperatorButton::BumperTopRight)) {
-    shooter->SetCurrentCommand(new ExtentionIn());
-  }
-  if(oi->operatorController->GetRawButton(oi->OperatorButton::BumperTopLeft)) {
-    shooter->SetCurrentCommand(new ExtentionOut());
+      Scheduler::GetInstance()->AddCommand(new Intake());
   }
 
   if(oi->operatorController->GetRawButton(oi->OperatorButton::Y)) {
-    shooter->SetCurrentCommand(new ShooterUp());
+      Scheduler::GetInstance()->AddCommand(new ShooterUp());
   }
 }
 

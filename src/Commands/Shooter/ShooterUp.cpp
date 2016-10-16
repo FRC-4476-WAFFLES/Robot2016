@@ -1,4 +1,4 @@
-#include <Commands/ShooterUper/ShooterUp.h>
+#include <Commands/Shooter/ShooterUp.h>
 
 ShooterUp::ShooterUp():
   CommandBase("ShooterUp")

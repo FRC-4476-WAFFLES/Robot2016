@@ -5,7 +5,6 @@
 class Robot: public IterativeRobot
 {
 private:
-	AxisCamera* camera;
 	Command* autonomousCommand;
 	SendableChooser* chooser;
 
@@ -16,8 +15,7 @@ private:
 	{
 		CommandBase::init();
 
-		CameraServer::GetInstance()->SetQuality(25);
-		CameraServer::GetInstance()->StartAutomaticCapture("cam0");
+
 	}
 
 	/**

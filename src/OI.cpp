@@ -3,6 +3,8 @@
  */
 
 #include "OI.h"
+#include "Commands/Shooter/ExtentionIn.h"
+#include "Commands/Shooter/ExtentionOut.h"
 OI::OI()
 {
 	/*
@@ -16,4 +18,11 @@ OI::OI()
 	joystickRight = new Joystick(1);
 	operatorController = new Joystick(2);
 
+	Button* temp;
+
+	temp = new JoystickButton(operatorController,OperatorButton::BumperTopLeft);
+	temp->WhenPressed(new ExtentionOut());
+
+	temp = new JoystickButton(operatorController,OperatorButton::BumperTopRight);
+	temp->WhenPressed(new ExtentionIn());
 }

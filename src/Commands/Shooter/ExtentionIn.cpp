@@ -1,17 +1,16 @@
-#include <Commands/Shooter/ExtentionInIn.h>
-#include <Commands/Shooter/Shoot.h>
+#include <Commands/Shooter/ExtentionIn.h>
 
 ExtentionIn::ExtentionIn():
   CommandBase("ExtentionIn")
 {
-
+  Requires(extention.get());
 
 }
 
 void ExtentionIn::Initialize() {}
 
 void ExtentionIn::Execute() {
-  shooter->SetExtention(extention_in);
+  shooter->SetExtension(shooter->extention_in);
 
 
 

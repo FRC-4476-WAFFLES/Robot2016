@@ -15,7 +15,7 @@ private:
 	Victor* extension;
 	VexEncoder* pivot_e;
 	VexEncoder* extension_e;
-	DigitalInput* bottom_hardstop;
+	//DigitalInput* bottom_hardstop;
 	Encoder* top_shooter_e;
 	Encoder* bottom_shooter_e;
 	PIDController* pivot_pid;
@@ -27,11 +27,11 @@ public:
 	static constexpr double shot_angle = 0.0;
 	static constexpr double intake_angle = 0.0;
 	static constexpr double shot_speed = 0.0;
-	static constexpr double shooter_intake_speed= 0.0;
-	static constexpr double roller_out = 0.0;
+	static constexpr double shooter_intake_speed = 6.0;
 	static constexpr double roller_in = 0.0;
-	static constexpr double extention_in = 0.0;
-	static constexpr double extention_out = 0.0;
+	static constexpr double roller_out = 0.0;
+	static constexpr double extention_in = 41.0;
+	static constexpr double extention_out = 214.0;
 
 
 	ShooterSubsystem();
