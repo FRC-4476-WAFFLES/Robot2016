@@ -1,5 +1,4 @@
 #include <Commands/Shooter/DefaultState.h>
-#include <Commands/Shooter/Shoot.h>
 #include <Commands/Shooter/Intake.h>
 #include <Commands/Shooter/ExtentionIn.h>
 #include <Commands/Shooter/ExtentionOut.h>
@@ -19,9 +18,6 @@ void DefaultState::Execute() {
   shooter->SetShooter(0.0);
   shooter->SetRollers(0.0);
 
-  if(oi->operatorController->GetRawButton(oi->OperatorButton::B)) {
-      Scheduler::GetInstance()->AddCommand(new Shoot());
-  }
 
   if(oi->operatorController->GetRawButton(oi->OperatorButton::A)) {
       Scheduler::GetInstance()->AddCommand(new Intake());

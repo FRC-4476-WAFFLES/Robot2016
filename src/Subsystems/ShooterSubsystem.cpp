@@ -6,7 +6,6 @@
 
 #include "ShooterSubsystem.h"
 #include "../RobotMap.h"
-#include "Commands/Shooter/Shoot.h"
 #include "Commands/Shooter/DefaultState.h"
 #include "../OI.h"
 ShooterSubsystem::ShooterSubsystem():
@@ -22,9 +21,9 @@ ShooterSubsystem::ShooterSubsystem():
   //bottom_hardstop(new DigitalInput(BOTTOM_HARDSTOP)),
   top_shooter_e(new Encoder(TOP_SHOOTER_E, TOP_SHOOTER_E + 1)),
   bottom_shooter_e(new Encoder(BOTTOM_SHOOTER_E, BOTTOM_SHOOTER_E + 1)),
-  pivot_pid(new PIDController(-0.01, 0.0, 0.01, pivot_e, pivot)),
-  top_shooter_pid(new PIDController(0.000035, 0.0, 0.0, top_shooter_e, top_shooter)),
-  bottom_shooter_pid(new PIDController(-0.000035, 0.0, 0.0, bottom_shooter_e, bottom_shooter)),
+  pivot_pid(new PIDController(-0.0035, 0.0, -0.001, pivot_e, pivot)),
+  top_shooter_pid(new PIDController(0.000025, 0.0000125, 0.0, top_shooter_e, top_shooter)),
+  bottom_shooter_pid(new PIDController(-0.000025, -0.0000125, 0.0, bottom_shooter_e, bottom_shooter)),
   extension_pid(new PIDController(0.01, 0.0, 0.01, extension_e, extension))
 {
   // Make the PID for the shooter attempt to reach a speed
@@ -55,10 +54,10 @@ void ShooterSubsystem::PivotGotoAngle(double angle)
 //    pivot_pid->SetSetpoint(angle);
 //  } else {
       pivot_pid->Disable();
-//    pivot->SetSpeed(0.0);
+    pivot->SetSpeed(0.0);
 //  }
 
-  pivot->SetSpeed(0.0);
+
 }
 
 bool ShooterSubsystem::PivotOnTarget() {
@@ -72,11 +71,11 @@ void ShooterSubsystem::SetRollers(double speed)
 }
 
 void ShooterSubsystem::SetShooter(double speed) {
-  if(true) {//speed != 0.0) {
+  if(speed != 0.0) {
     top_shooter_pid->Enable();
     top_shooter_pid->SetSetpoint(speed*SHOOTER_ENCODER_COEFFICIENT);
     bottom_shooter_pid->Enable();
-    bottom_shooter_pid->SetSetpoint(-speed*SHOOTER_ENCODER_COEFFICIENT);
+    bottom_shooter_pid->SetSetpoint(-speed*SHOOTER_ENCODER_COEFFICIENT*3);
   } else {
     top_shooter_pid->Disable();
     top_shooter_pid->Reset();
@@ -92,13 +91,13 @@ bool ShooterSubsystem::ShooterOnTarget() {
 }
 
 void ShooterSubsystem::SetExtension(double angle) {
-  if(angle != 0.0) {
-    extension_pid->Enable();
-    extension_pid->SetSetpoint(angle);
-  } else {
+//  if(angle != 0.0) {
+//    extension_pid->Enable();
+//    extension_pid->SetSetpoint(angle);
+//  } else {
     extension_pid->Disable();
     extension->SetSpeed(0.0);
-  }
+//  }
 }
 
 void ShooterSubsystem::prints() {

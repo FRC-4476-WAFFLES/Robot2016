@@ -6,7 +6,7 @@
 
 #include "ExtentionSubsystem.h"
 #include "../RobotMap.h"
-#include "Commands/Shooter/Shoot.h"
+#include "Commands/Shooter/ExtentionDefaultState.h"
 
 ExtentionSubsystem::ExtentionSubsystem():
   Subsystem("ExtentionSubsystem"){
@@ -15,7 +15,7 @@ ExtentionSubsystem::ExtentionSubsystem():
 
 void ExtentionSubsystem::InitDefaultCommand()
 {
-
+  SetDefaultCommand(new ExtentionDefaultState());
 }
 
 void ExtentionSubsystem::print()

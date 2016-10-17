@@ -1,5 +1,5 @@
 #include <Commands/Shooter/Intake.h>
-#include <Commands/Shooter/Shoot.h>
+#include <Commands/Shooter/ShooterUp.h>
 
 Intake::Intake():
   CommandBase("Intake")
@@ -16,6 +16,9 @@ void Intake::Execute() {
   shooter->SetShooter(oi->operatorController->GetRawAxis(1)*shooter->shooter_intake_speed);
   shooter->SetRollers(oi->operatorController->GetRawAxis(1));
 
+  if(oi->operatorController->GetRawButton(oi->OperatorButton::Y)) {
+      Scheduler::GetInstance()->AddCommand(new ShooterUp());
+  }
 
 }
 

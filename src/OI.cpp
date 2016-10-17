@@ -20,9 +20,5 @@ OI::OI()
 
 	Button* temp;
 
-	temp = new JoystickButton(operatorController,OperatorButton::BumperTopLeft);
-	temp->WhenPressed(new ExtentionOut());
 
-	temp = new JoystickButton(operatorController,OperatorButton::BumperTopRight);
-	temp->WhenPressed(new ExtentionIn());
 }
