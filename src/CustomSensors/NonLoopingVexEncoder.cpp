@@ -1,6 +1,7 @@
 #include <CustomSensors/NonLoopingVexEncoder.h>
+#include <cmath>
 
-NonLoopingVexEncoder::NonLoopingVexEncoder(int port, float tearpoint = 0):
+NonLoopingVexEncoder::NonLoopingVexEncoder(int port, float tearpoint):
   tearpoint(tearpoint)
 {
 	counter = new Counter(port);
@@ -14,7 +15,7 @@ NonLoopingVexEncoder::NonLoopingVexEncoder(int port, float tearpoint = 0):
 float NonLoopingVexEncoder::GetAngle() {
 	// Nothing fancy anymore
 	auto raw = GetRawAngle();
-	auto result = ((raw + tearpoint) % 360.0 + 360.0) % 360.0 - tearpoint;
+	auto result = fmod(fmod(raw + tearpoint, 360.0) + 360.0, 360.0) - tearpoint;
 	return result;
 }
 

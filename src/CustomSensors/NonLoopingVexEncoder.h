@@ -8,7 +8,7 @@ private:
 	const float tearpoint;
 public:
 	// Initialize a new sensor. tearpoint will be the place where the sensor is discontinuous
-	NonLoopingVexEncoder(int port, float tearpoint);
+	NonLoopingVexEncoder(int port, float tearpoint = 0.0);
 
 	// Get the angle (in degrees) that the sensor is reading. Does not account for continuous rotation.
 	float GetRawAngle();
