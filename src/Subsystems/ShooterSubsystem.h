@@ -2,7 +2,7 @@
 
 #include "Commands/Subsystem.h"
 #include "WPILib.h"
-#include "CustomSensors/VexEncoder.h"
+#include "CustomSensors/NonLoopingVexEncoder.h"
 
 class ShooterSubsystem: public Subsystem
 {
@@ -13,8 +13,8 @@ private:
 	Victor* top_roller;
 	Victor* bottom_roller;
 	Victor* extension;
-	VexEncoder* pivot_e;
-	VexEncoder* extension_e;
+	NonLoopingVexEncoder* pivot_e;
+	NonLoopingVexEncoder* extension_e;
 	//DigitalInput* bottom_hardstop;
 	Encoder* top_shooter_e;
 	Encoder* bottom_shooter_e;

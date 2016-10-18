@@ -1,6 +1,6 @@
 #include <CustomSensors/NonLoopingVexEncoder.h>
 
-NonLoopingVexEncoder::NonLoopingVexEncoder(int port, float tearpoint):
+NonLoopingVexEncoder::NonLoopingVexEncoder(int port, float tearpoint = 0):
   tearpoint(tearpoint)
 {
 	counter = new Counter(port);
