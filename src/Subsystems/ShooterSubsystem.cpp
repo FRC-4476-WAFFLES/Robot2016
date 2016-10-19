@@ -56,8 +56,6 @@ void ShooterSubsystem::PivotGotoAngle(double angle)
     pivot_pid->Disable();
     pivot->SetSpeed(0.0);
   }
-
-
 }
 
 bool ShooterSubsystem::PivotOnTarget() {
