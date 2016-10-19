@@ -15,7 +15,7 @@ NonLoopingVexEncoder::NonLoopingVexEncoder(int port, float tearpoint):
 float NonLoopingVexEncoder::GetAngle() {
 	// Nothing fancy anymore
 	auto raw = GetRawAngle();
-	auto result = fmod(fmod(raw + tearpoint, 360.0) + 360.0, 360.0) - tearpoint;
+	auto result = fmod(fmod(raw - tearpoint, 360.0) + 360.0, 360.0) + tearpoint;
 	return result;
 }
 

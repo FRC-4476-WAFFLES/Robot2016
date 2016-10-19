@@ -16,7 +16,7 @@ ShooterSubsystem::ShooterSubsystem():
   top_roller(new Victor(TOP_ROLLER)),
   bottom_roller(new Victor(BOTTOM_ROLLER)),
   extension(new Victor(EXTENSION)),
-  pivot_e(new NonLoopingVexEncoder(PIVOT_E)),
+  pivot_e(new NonLoopingVexEncoder(PIVOT_E, -40.0)),
   extension_e(new NonLoopingVexEncoder(EXTENSION_E)),
   //bottom_hardstop(new DigitalInput(BOTTOM_HARDSTOP)),
   top_shooter_e(new Encoder(TOP_SHOOTER_E, TOP_SHOOTER_E + 1)),
@@ -49,13 +49,13 @@ void ShooterSubsystem::InitDefaultCommand()
 
 void ShooterSubsystem::PivotGotoAngle(double angle)
 {
-//  if(angle != 0.0) {
-//    pivot_pid->Enable();
-//    pivot_pid->SetSetpoint(angle);
-//  } else {
-      pivot_pid->Disable();
+  if(angle != 0.0) {
+    pivot_pid->Enable();
+    pivot_pid->SetSetpoint(angle);
+  } else {
+    pivot_pid->Disable();
     pivot->SetSpeed(0.0);
-//  }
+  }
 
 
 }
@@ -75,7 +75,7 @@ void ShooterSubsystem::SetShooter(double speed) {
     top_shooter_pid->Enable();
     top_shooter_pid->SetSetpoint(speed*SHOOTER_ENCODER_COEFFICIENT);
     bottom_shooter_pid->Enable();
-    bottom_shooter_pid->SetSetpoint(-speed*SHOOTER_ENCODER_COEFFICIENT*3);
+    bottom_shooter_pid->SetSetpoint(speed*SHOOTER_ENCODER_COEFFICIENT*3);
   } else {
     top_shooter_pid->Disable();
     top_shooter_pid->Reset();
@@ -91,13 +91,13 @@ bool ShooterSubsystem::ShooterOnTarget() {
 }
 
 void ShooterSubsystem::SetExtension(double angle) {
-//  if(angle != 0.0) {
-//    extension_pid->Enable();
-//    extension_pid->SetSetpoint(angle);
-//  } else {
+  if(angle != 0.0) {
+    extension_pid->Enable();
+    extension_pid->SetSetpoint(angle);
+  } else {
     extension_pid->Disable();
     extension->SetSpeed(0.0);
-//  }
+  }
 }
 
 void ShooterSubsystem::prints() {
