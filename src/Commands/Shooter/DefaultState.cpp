@@ -14,6 +14,11 @@ DefaultState::DefaultState():
 void DefaultState::Initialize() {}
 
 void DefaultState::Execute() {
+  if(oi->operatorController->GetRawButton(oi->Start)) {
+    shooter->SetFlashlight(true);
+  } else {
+    shooter->SetFlashlight(false);
+  }
   shooter->PivotGotoAngle(0.0);
   shooter->SetShooter(0.0);
   shooter->SetRollers(0.0);
