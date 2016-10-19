@@ -44,6 +44,8 @@ bool ShooterUp::IsFinished() {
 
 void ShooterUp::End() {
   shooter->PivotGotoAngle(0.0);
+  shooter->SetShooter(0.0);
+  shooter->SetRollers(0.0);
 }
 
 void ShooterUp::Interrupted() {

@@ -49,13 +49,13 @@ void ShooterSubsystem::InitDefaultCommand()
 
 void ShooterSubsystem::PivotGotoAngle(double angle)
 {
-//  if(angle != 0.0) {
-//    pivot_pid->Enable();
-//    pivot_pid->SetSetpoint(angle);
-//  } else {
+  if(angle != 0.0) {
+    pivot_pid->Enable();
+    pivot_pid->SetSetpoint(angle);
+  } else {
       pivot_pid->Disable();
     pivot->SetSpeed(0.0);
-//  }
+  }
 
 
 }
@@ -91,13 +91,13 @@ bool ShooterSubsystem::ShooterOnTarget() {
 }
 
 void ShooterSubsystem::SetExtension(double angle) {
-//  if(angle != 0.0) {
-//    extension_pid->Enable();
-//    extension_pid->SetSetpoint(angle);
-//  } else {
+  if(angle != 0.0) {
+    extension_pid->Enable();
+    extension_pid->SetSetpoint(angle);
+  } else {
     extension_pid->Disable();
     extension->SetSpeed(0.0);
-//  }
+  }
 }
 
 void ShooterSubsystem::prints() {
