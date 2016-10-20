@@ -13,7 +13,6 @@ private:
 	Victor* top_roller;
 	Victor* bottom_roller;
 	Victor* extension;
-	Relay* flashlight;
 	NonLoopingVexEncoder* pivot_e;
 	NonLoopingVexEncoder* extension_e;
 	//DigitalInput* bottom_hardstop;
@@ -24,11 +23,11 @@ private:
 	PIDController* bottom_shooter_pid;
 	PIDController* extension_pid;
 public:
-	static constexpr double shot_angle = -28.0;
-	static constexpr double intake_angle = 294.0;
-	static constexpr double shot_speed = -100.0;
+	static constexpr double shot_angle = -50.0;
+	static constexpr double intake_angle = 222.0;
+	static constexpr double shot_speed = -44.0;
 	static constexpr double shooter_intake_speed = 6.0;
-	static constexpr double roller_in = 0.15;
+	static constexpr double roller_in = 0.3;
 	static constexpr double roller_out = -0.3;
 	static constexpr double extention_in = 41.0;
 	static constexpr double extention_out = 214.0;
@@ -42,6 +41,5 @@ public:
 	void SetShooter(double speed);
 	bool ShooterOnTarget();
 	void SetExtension(double angle);
-	void SetFlashlight(bool on);
 	void prints();
 };
