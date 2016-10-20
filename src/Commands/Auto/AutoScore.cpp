@@ -4,6 +4,7 @@
 #include "Commands/Auto/ShootAuto.h"
 #include "Commands/Shooter/Intake.h"
 #include "Commands/Shooter/ExtentionOut.h"
+
 AutoScore::AutoScore()
 {
 	SetTimeout(15.0);

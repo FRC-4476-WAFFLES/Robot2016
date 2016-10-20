@@ -25,8 +25,8 @@ constexpr int EXTENSION = 9;
 // Analog Inputs
 
 // Relay
-constexpr int SCALER_POSITION_LOCK = 0;
-#warning "remember to set up bottom hardstop and pivot encoder ports!!"
+constexpr int FLASHLIGHT = 0;
+
 // Digital Inputs
 constexpr int BOTTOM_SHOOTER_E = 0; // And 1
 constexpr int EXTENSION_E = 2;

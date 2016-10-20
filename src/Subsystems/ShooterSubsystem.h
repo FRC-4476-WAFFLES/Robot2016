@@ -13,6 +13,7 @@ private:
 	Victor* top_roller;
 	Victor* bottom_roller;
 	Victor* extension;
+	Relay* flashlight;
 	NonLoopingVexEncoder* pivot_e;
 	NonLoopingVexEncoder* extension_e;
 	//DigitalInput* bottom_hardstop;
@@ -41,5 +42,7 @@ public:
 	void SetShooter(double speed);
 	bool ShooterOnTarget();
 	void SetExtension(double angle);
+	void SetFlashlight(bool on);
+	void ManualControl(bool flashlight, double extension, double speed, double pivot);
 	void prints();
 };

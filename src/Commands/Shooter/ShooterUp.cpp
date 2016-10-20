@@ -1,6 +1,8 @@
 #include <Commands/Shooter/ShooterUp.h>
 #include <Commands/Shooter/Intake.h>
 #include <Commands/Shooter/ExtentionOut.h>
+#include <Commands/Shooter/ExtentionIn.h>
+
 ShooterUp::ShooterUp():
   CommandBase("ShooterUp")
 {
@@ -11,22 +13,33 @@ ShooterUp::ShooterUp():
 void ShooterUp::Initialize() {}
 
 void ShooterUp::Execute() {
+  shooter->PivotGotoAngle(shooter->shot_angle);
+  if (extention->GetCurrentCommand()->GetName() == "ExtentionOut") {
+    shooter->SetFlashlight(true);
+    shooter->SetShooter(shooter->shot_speed);
 
-    if (extention->GetCurrentCommand()->GetName() == "ExtentionOut"){
-      shooter->PivotGotoAngle(shooter->shot_angle);
-      shooter->SetShooter(shooter->shot_speed);
-      SmartDashboard::PutString("check one","complete");
+    if (oi->operatorController->GetRawButton(oi->OperatorButton::B)) {
+	shot_timer.Start();
+	shooter->SetRollers(shooter->roller_out);
+    } else {
+	shooter->SetRollers(shooter->roller_in);
 
-      if (oi->operatorController->GetRawButton(oi->OperatorButton::B)) {
-	  shooter->SetRollers(shooter->roller_out);
-      } else {
-	  shooter->SetRollers(shooter->roller_in);
-      }
+	// Move extension in after shot
+	if(shot_timer.HasPeriodPassed(0.5)) {
+	    Scheduler::GetInstance()->AddCommand(new ExtentionIn());
+	}
+	// Don't count this time towards the button getting held down
+	shot_timer.Stop();
+	shot_timer.Reset();
+    }
   } else {
     shooter->PivotGotoAngle(shooter->shot_angle);
     shooter->SetShooter(0.0);
     shooter->SetRollers(0.0);
-    SmartDashboard::PutString("check one","not complete");
+
+    // Don't count this time towards the button getting held down
+    shot_timer.Stop();
+    shot_timer.Reset();
   }
 
 
@@ -34,8 +47,6 @@ void ShooterUp::Execute() {
   if(oi->operatorController->GetRawButton(oi->OperatorButton::A)) {
       Scheduler::GetInstance()->AddCommand(new Intake());
   }
-
-
 }
 
 bool ShooterUp::IsFinished() {

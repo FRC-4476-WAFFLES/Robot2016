@@ -16,6 +16,7 @@ ShooterSubsystem::ShooterSubsystem():
   top_roller(new Victor(TOP_ROLLER)),
   bottom_roller(new Victor(BOTTOM_ROLLER)),
   extension(new Victor(EXTENSION)),
+  flashlight(new Relay(FLASHLIGHT, Relay::kForwardOnly)),
   pivot_e(new NonLoopingVexEncoder(PIVOT_E)),
   extension_e(new NonLoopingVexEncoder(EXTENSION_E)),
   //bottom_hardstop(new DigitalInput(BOTTOM_HARDSTOP)),
@@ -98,6 +99,22 @@ void ShooterSubsystem::SetExtension(double angle) {
     extension_pid->Disable();
     extension->SetSpeed(0.0);
   }
+}
+
+void ShooterSubsystem::SetFlashlight(bool on) {
+  flashlight->Set(on ? Relay::kOn : Relay::kOff);
+}
+
+void ShooterSubsystem::ManualControl(bool flashlight, double extension_speed, double shooter_speed, double pivot_speed) {
+  SetFlashlight(flashlight);
+  extension_pid->Disable();
+  extension->SetSpeed(extension_speed);
+  top_shooter_pid->Disable();
+  top_shooter->SetSpeed(shooter_speed);
+  bottom_shooter_pid->Disable();
+  bottom_shooter->SetSpeed(shooter_speed);
+  pivot_pid->Disable();
+  pivot->SetSpeed(pivot_speed);
 }
 
 void ShooterSubsystem::prints() {
