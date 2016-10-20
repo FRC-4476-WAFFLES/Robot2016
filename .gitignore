@@ -1,4 +1,5 @@
 # Builds shouldn't be in the git
+Debug
 
 # Windows image file caches
 Thumbs.db

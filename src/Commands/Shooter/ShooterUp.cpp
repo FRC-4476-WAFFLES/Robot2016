@@ -34,8 +34,10 @@ void ShooterUp::Execute() {
     }
   } else {
     shooter->PivotGotoAngle(shooter->shot_angle);
-    shooter->SetShooter(0.0);
-    shooter->SetRollers(0.0);
+    auto axis = oi->operatorController->GetRawAxis(1);
+    axis = axis > 0.0 ? axis : 0.0;
+    shooter->SetShooter(axis*shooter->shooter_intake_speed);
+    shooter->SetRollers(axis);
 
     // Don't count this time towards the button getting held down
     shot_timer.Stop();
