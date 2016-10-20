@@ -24,7 +24,7 @@ ShooterSubsystem::ShooterSubsystem():
   bottom_shooter_e(new Encoder(BOTTOM_SHOOTER_E, BOTTOM_SHOOTER_E + 1)),
   pivot_pid(new PIDController(-0.0035, 0.0, -0.001, pivot_e, pivot)),
   top_shooter_pid(new PIDController(0.000025, 0.0000125, 0.0, top_shooter_e, top_shooter)),
-  bottom_shooter_pid(new PIDController(-0.000025, -0.0000125, 0.0, bottom_shooter_e, bottom_shooter)),
+  bottom_shooter_pid(new PIDController(0.000025, 0.0000125, 0.0, bottom_shooter_e, bottom_shooter)),
   extension_pid(new PIDController(0.01, 0.0, 0.01, extension_e, extension))
 {
   // Make the PID for the shooter attempt to reach a speed
@@ -74,7 +74,7 @@ void ShooterSubsystem::SetShooter(double speed) {
     top_shooter_pid->Enable();
     top_shooter_pid->SetSetpoint(speed*SHOOTER_ENCODER_COEFFICIENT);
     bottom_shooter_pid->Enable();
-    bottom_shooter_pid->SetSetpoint(speed*SHOOTER_ENCODER_COEFFICIENT*3);
+    bottom_shooter_pid->SetSetpoint(-speed*SHOOTER_ENCODER_COEFFICIENT);
   } else {
     top_shooter_pid->Disable();
     top_shooter_pid->Reset();

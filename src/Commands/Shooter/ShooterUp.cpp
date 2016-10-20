@@ -2,7 +2,8 @@
 #include <Commands/Shooter/Intake.h>
 #include <Commands/Shooter/ExtentionOut.h>
 ShooterUp::ShooterUp():
-  CommandBase("ShooterUp")
+  CommandBase("ShooterUp"),
+  shot_timer(Timer())
 {
   // We need the ShooterUper subsystem to not be doing anything else
   Requires(shooter.get());

@@ -21,7 +21,7 @@ void ExtentionDefaultState::Execute() {
       Scheduler::GetInstance()->AddCommand(new ExtentionOut());
   }
 
-  if(oi->operatorController->GetRawButton(oi->OperatorButton::BumperTopLeft)) {
+  if(oi->operatorController->GetRawButton(oi->OperatorButton::BumperBottomLeft)) {
       Scheduler::GetInstance()->AddCommand(new ExtentionOut());
       Scheduler::GetInstance()->AddCommand(new Intake());
   }

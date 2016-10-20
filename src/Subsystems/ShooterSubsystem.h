@@ -24,7 +24,7 @@ private:
 	PIDController* bottom_shooter_pid;
 	PIDController* extension_pid;
 public:
-	static constexpr double shot_angle = -28.0;
+	static constexpr double shot_angle = -26.0;
 	static constexpr double intake_angle = 294.0;
 	static constexpr double shot_speed = -100.0;
 	static constexpr double shooter_intake_speed = 6.0;
