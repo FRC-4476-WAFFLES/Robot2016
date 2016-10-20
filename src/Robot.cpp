@@ -1,5 +1,7 @@
 #include "WPILib.h"
-
+#include "Commands/Auto/AutoScore.h"
+#include "Commands/Auto/AutoScore2Ball.h"
+#include "Commands/Auto/AutoDoNothing.h"
 #include "CommandBase.h"
 
 class Robot: public IterativeRobot
@@ -15,6 +17,10 @@ private:
 	{
 		CommandBase::init();
 
+		chooser = new SendableChooser();
+		chooser->AddObject("LowBarScore Auto", new AutoScore());
+		chooser->AddObject("LowBarTwoBallGather Auto", new AutoScore2Ball());
+		chooser->AddObject("No Auto", new AutoDoNothing());
 
 	}
 

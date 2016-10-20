@@ -34,7 +34,7 @@ bool ExtentionIn::IsFinished() {
 }
 
 void ExtentionIn::End() {
-  shooter->SetExtension(0.0);
+
 }
 
 void ExtentionIn::Interrupted() {

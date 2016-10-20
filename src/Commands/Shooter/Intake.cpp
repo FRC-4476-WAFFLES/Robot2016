@@ -12,7 +12,6 @@ void Intake::Initialize() {
 }
 
 void Intake::Execute() {
-  shooter->SetFlashlight(false);
   shooter->PivotGotoAngle(shooter->intake_angle);
   shooter->SetShooter(oi->operatorController->GetRawAxis(1)*shooter->shooter_intake_speed);
   shooter->SetRollers(oi->operatorController->GetRawAxis(1));
@@ -28,7 +27,6 @@ bool Intake::IsFinished() {
 }
 
 void Intake::End() {
-  shooter->SetFlashlight(false);
   shooter->PivotGotoAngle(0.0);
   shooter->SetShooter(0.0);
   shooter->SetRollers(0.0);
