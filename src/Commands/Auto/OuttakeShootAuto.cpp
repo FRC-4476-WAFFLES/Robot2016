@@ -2,33 +2,40 @@
 #include <Commands/Shooter/Intake.h>
 #include <Commands/Shooter/ExtentionOut.h>
 OuttakeShootAuto::OuttakeShootAuto():
-  CommandBase("OuttakeShootAuto")
+  CommandBase("OuttakeShootAuto"),
+  t_running(false)
 {
-
+  t.reset(new Timer());
 }
 
 void OuttakeShootAuto::Initialize() {
-  t.Stop();
-  t.Reset();
+  t->Stop();
+  t->Reset();
 }
 
 void OuttakeShootAuto::Execute() {
   shooter->PivotGotoAngle(shooter->shot_angle);
   shooter->SetShooter(30.0);
 
-  if(shooter->ShooterOnTarget()){
-      t.Start();
+  if (shooter->ShooterOnTarget()){
+      if (!t_running) {
+	  t->Start();
+	  t_running = true;
+      }
       shooter->SetRollers(shooter->roller_out);
   } else{
-      t.Stop();
-      t.Reset();
+      if (t_running) {
+	t->Stop();
+	t->Reset();
+	t_running = false;
+      }
       shooter->SetRollers(shooter->roller_in);
   }
 }
 
 bool OuttakeShootAuto::IsFinished() {
   // The command is done after a shot has fired
-  return t.HasPeriodPassed(1.0);
+  return false;
 }
 
 void OuttakeShootAuto::End() {

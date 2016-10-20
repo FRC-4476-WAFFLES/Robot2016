@@ -4,7 +4,8 @@
 
 class OuttakeShootAuto: public CommandBase {
 private:
-  Timer t;
+  std::unique_ptr<Timer> t;
+  bool t_running;
 public:
   OuttakeShootAuto();
   void Initialize();

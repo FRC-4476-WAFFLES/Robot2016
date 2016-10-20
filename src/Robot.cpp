@@ -20,8 +20,8 @@ private:
 		chooser = new SendableChooser();
 		chooser->AddObject("LowBarScore Auto", new AutoScore());
 		chooser->AddObject("LowBarTwoBallGather Auto", new AutoScore2Ball());
-		chooser->AddObject("No Auto", new AutoDoNothing());
-
+		chooser->AddDefault("No Auto", new AutoDoNothing());
+		SmartDashboard::PutData("Auto Modes", chooser);
 	}
 
 	/**

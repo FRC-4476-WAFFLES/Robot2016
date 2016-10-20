@@ -17,7 +17,7 @@ ShooterSubsystem::ShooterSubsystem():
   bottom_roller(new Victor(BOTTOM_ROLLER)),
   extension(new Victor(EXTENSION)),
   flashlight(new Relay(FLASHLIGHT, Relay::kForwardOnly)),
-  pivot_e(new NonLoopingVexEncoder(PIVOT_E)),
+  pivot_e(new NonLoopingVexEncoder(PIVOT_E, -60)),
   extension_e(new NonLoopingVexEncoder(EXTENSION_E)),
   //bottom_hardstop(new DigitalInput(BOTTOM_HARDSTOP)),
   top_shooter_e(new Encoder(TOP_SHOOTER_E, TOP_SHOOTER_E + 1)),
@@ -33,8 +33,8 @@ ShooterSubsystem::ShooterSubsystem():
 
   // Set the tolerances for the PIDs
   pivot_pid->SetAbsoluteTolerance(5.0);
-  top_shooter_pid->SetAbsoluteTolerance(10000.0);
-  bottom_shooter_pid->SetAbsoluteTolerance(10000.0);
+  top_shooter_pid->SetAbsoluteTolerance(100.0);
+  bottom_shooter_pid->SetAbsoluteTolerance(100.0);
   extension_pid->SetAbsoluteTolerance(5.0);
 
   // Invert the bottom shooter

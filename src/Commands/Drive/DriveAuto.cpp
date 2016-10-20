@@ -48,7 +48,7 @@ void DriveAuto::Execute() {
 	double angleError = angle - drive->GetGyro();
 
 	// Set the motors to run
-	drive->Drive(-0.05*angleError + speed*distanceError, 0.1*angleError + speed*distanceError);
+	drive->Drive(0.05*angleError - speed*distanceError, 0.1*angleError - speed*distanceError);
 }
 
 // Returns true when the distance is within 200 and the angle is within 5 degrees
