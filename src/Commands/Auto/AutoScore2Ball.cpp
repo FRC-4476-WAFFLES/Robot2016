@@ -11,13 +11,13 @@
 AutoScore2Ball::AutoScore2Ball()
 {
 	SetTimeout(15.0);
-	AddSequential(new DriveAuto(12439.0, 0.0));
+	AddSequential(new DriveAuto(13439.0, 0.0, 0.7));
 	AddSequential(new OuttakeShootAuto());
-	AddSequential(new DriveAuto(6748.0, 0.0));
-	Scheduler::GetInstance()->AddCommand(new IntakeAuto());
-	AddSequential(new DriveAuto(-1000.0, 0.0));
-	Scheduler::GetInstance()->AddCommand(new ShooterUp());
-	AddSequential(new DriveAuto(16359.0, 0.0));
+	AddSequential(new DriveAuto(6748.0, 0.0, 0.7));
+	AddParallel(new IntakeAuto());
+	AddSequential(new DriveAuto(-100.0, 0.0, 0.7));
+	AddParallel(new ShooterUp());
+	AddSequential(new DriveAuto(13439.0, 0.0, 0.7));
 	AddSequential(new OuttakeShootAuto());
 	AddSequential(new DriveAuto(0.0, 0.0));
 }

@@ -9,6 +9,8 @@ private:
 	float lastInt;
 	float lastFract;
 	bool first;
+
+	volatile void Init();
 public:
 	// Initialize a new sensor.
 	VexEncoder(int port);

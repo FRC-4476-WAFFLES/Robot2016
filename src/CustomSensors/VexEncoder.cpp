@@ -4,9 +4,13 @@ VexEncoder::VexEncoder(int port) {
 	counter = new Counter(port);
 	counter->SetSemiPeriodMode(true);
 	counter->SetSamplesToAverage(1);
-	GetAngle();
-	lastInt = 0;
-	first = true;
+	Init();
+}
+
+volatile void VexEncoder::Init() {
+  GetAngle();
+  lastInt = 0;
+  first = true;
 }
 
 float VexEncoder::GetAngle() {

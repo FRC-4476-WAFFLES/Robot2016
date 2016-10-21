@@ -13,7 +13,7 @@ void Intake::Initialize() {
 
 void Intake::Execute() {
   shooter->PivotGotoAngle(shooter->intake_angle);
-  shooter->SetShooter(oi->operatorController->GetRawAxis(1)*shooter->shooter_intake_speed);
+  shooter->SetShooterWithoutTarget(oi->operatorController->GetRawAxis(1)*shooter->shooter_intake_speed);
   shooter->SetRollers(oi->operatorController->GetRawAxis(1));
 
   if(oi->operatorController->GetRawButton(oi->OperatorButton::Y)) {

@@ -17,7 +17,7 @@ ShooterSubsystem::ShooterSubsystem():
   bottom_roller(new Victor(BOTTOM_ROLLER)),
   extension(new Victor(EXTENSION)),
   flashlight(new Relay(FLASHLIGHT, Relay::kForwardOnly)),
-  pivot_e(new NonLoopingVexEncoder(PIVOT_E, -60)),
+  pivot_e(new VexEncoder(PIVOT_E)),
   extension_e(new NonLoopingVexEncoder(EXTENSION_E)),
   //bottom_hardstop(new DigitalInput(BOTTOM_HARDSTOP)),
   top_shooter_e(new Encoder(TOP_SHOOTER_E, TOP_SHOOTER_E + 1)),
@@ -33,8 +33,8 @@ ShooterSubsystem::ShooterSubsystem():
 
   // Set the tolerances for the PIDs
   pivot_pid->SetAbsoluteTolerance(5.0);
-  top_shooter_pid->SetAbsoluteTolerance(100.0);
-  bottom_shooter_pid->SetAbsoluteTolerance(100.0);
+  top_shooter_pid->SetAbsoluteTolerance(4.0*SHOOTER_ENCODER_COEFFICIENT);
+  bottom_shooter_pid->SetAbsoluteTolerance(4.0*SHOOTER_ENCODER_COEFFICIENT);
   extension_pid->SetAbsoluteTolerance(5.0);
 
   // Invert the bottom shooter
@@ -54,11 +54,9 @@ void ShooterSubsystem::PivotGotoAngle(double angle)
     pivot_pid->Enable();
     pivot_pid->SetSetpoint(angle);
   } else {
-      pivot_pid->Disable();
+    pivot_pid->Disable();
     pivot->SetSpeed(0.0);
   }
-
-
 }
 
 bool ShooterSubsystem::PivotOnTarget() {
@@ -73,8 +71,30 @@ void ShooterSubsystem::SetRollers(double speed)
 
 void ShooterSubsystem::SetShooter(double speed) {
   if(speed != 0.0) {
+    if(!top_shooter_pid->IsEnabled() || !top_shooter_pid->GetSetpoint() == speed) {
+      top_shooter_pid->Enable();
+      top_shooter_pid->SetAbsoluteTolerance(4.0*SHOOTER_ENCODER_COEFFICIENT);
+      top_shooter_pid->SetSetpoint(speed*SHOOTER_ENCODER_COEFFICIENT);
+      bottom_shooter_pid->Enable();
+      bottom_shooter_pid->SetAbsoluteTolerance(4.0*SHOOTER_ENCODER_COEFFICIENT);
+      bottom_shooter_pid->SetSetpoint(-speed*SHOOTER_ENCODER_COEFFICIENT);
+    }
+  } else {
+    top_shooter_pid->Disable();
+    top_shooter_pid->Reset();
+    top_shooter->SetSpeed(0.0);
+    bottom_shooter_pid->Disable();
+    top_shooter_pid->Reset();
+    bottom_shooter->SetSpeed(0.0);
+  }
+}
+
+void ShooterSubsystem::SetShooterWithoutTarget(double speed) {
+  if(speed != 0.0) {
+    top_shooter_pid->SetAbsoluteTolerance(0.0);
     top_shooter_pid->Enable();
     top_shooter_pid->SetSetpoint(speed*SHOOTER_ENCODER_COEFFICIENT);
+    bottom_shooter_pid->SetAbsoluteTolerance(0.0);
     bottom_shooter_pid->Enable();
     bottom_shooter_pid->SetSetpoint(-speed*SHOOTER_ENCODER_COEFFICIENT);
   } else {
@@ -119,6 +139,8 @@ void ShooterSubsystem::ManualControl(bool flashlight, double extension_speed, do
 
 void ShooterSubsystem::prints() {
   SmartDashboard::PutString("shooter.command", GetCurrentCommand()->GetName());
+  SmartDashboard::PutBoolean("shooter.top_on_target", top_shooter_pid->OnTarget());
+  SmartDashboard::PutBoolean("shooter.bottom_on_target", bottom_shooter_pid->OnTarget());
   SmartDashboard::PutNumber("shooter.pivot_e [deg]", pivot_e->GetAngle());
   SmartDashboard::PutNumber("shooter.extension_e [deg]", extension_e->GetAngle());
   SmartDashboard::PutNumber("shooter.top_shooter_e [rps]", top_shooter_e->GetRate()/SHOOTER_ENCODER_COEFFICIENT);

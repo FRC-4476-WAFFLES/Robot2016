@@ -15,7 +15,7 @@ void OuttakeShootAuto::Initialize() {
 
 void OuttakeShootAuto::Execute() {
   shooter->PivotGotoAngle(shooter->shot_angle);
-  shooter->SetShooter(30.0);
+  shooter->SetShooter(-20.0);
 
   if (shooter->ShooterOnTarget()){
       if (!t_running) {
@@ -35,7 +35,7 @@ void OuttakeShootAuto::Execute() {
 
 bool OuttakeShootAuto::IsFinished() {
   // The command is done after a shot has fired
-  return false;
+  return t->HasPeriodPassed(0.5);
 }
 
 void OuttakeShootAuto::End() {
