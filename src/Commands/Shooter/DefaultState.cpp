@@ -3,7 +3,7 @@
 #include <Commands/Shooter/ExtentionIn.h>
 #include <Commands/Shooter/ExtentionOut.h>
 #include <Commands/Shooter/ShooterUp.h>
-
+#include <Commands/Shooter/ShooterManual.h>
 DefaultState::DefaultState():
   CommandBase("DefaultState")
 {
@@ -31,8 +31,13 @@ void DefaultState::Execute() {
   if(oi->operatorController->GetRawButton(oi->OperatorButton::Y)) {
       Scheduler::GetInstance()->AddCommand(new ShooterUp());
   }
-}
 
+  if(oi->operatorController->GetRawButton(oi->OperatorButton::Start)) {
+    Scheduler::GetInstance()->AddCommand(new ShooterManual());
+  }
+
+
+}
 bool DefaultState::IsFinished() {
   return false;
 }

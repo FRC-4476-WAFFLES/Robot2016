@@ -2,12 +2,13 @@
 
 #include "CommandBase.h"
 
-class DefaultState: public CommandBase {
+class BallDetector: public CommandBase {
 public:
-	DefaultState();
+	BallDetector();
 	void Initialize();
 	void Execute();
 	bool IsFinished();
 	void End();
 	void Interrupted();
+	bool reached_speed = false;
 };

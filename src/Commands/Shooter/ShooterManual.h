@@ -2,9 +2,11 @@
 
 #include "CommandBase.h"
 
-class DefaultState: public CommandBase {
+class ShooterManual: public CommandBase {
+private:
+  Timer shot_timer;
 public:
-	DefaultState();
+	ShooterManual();
 	void Initialize();
 	void Execute();
 	bool IsFinished();
