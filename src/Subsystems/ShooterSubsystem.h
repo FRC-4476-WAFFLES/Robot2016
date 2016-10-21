@@ -46,6 +46,6 @@ public:
 	double DeltaSpeed();
 	void SetExtension(double angle);
 	void SetFlashlight(bool on);
-	void ManualControl(bool flashlight, double extension, double speed, double pivot);
+	void ManualControl(bool flashlight, double extension, double speed, double pivot, float roller_speed);
 	void prints();
 };

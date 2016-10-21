@@ -125,7 +125,7 @@ void ShooterSubsystem::SetFlashlight(bool on) {
   flashlight->Set(on ? Relay::kOn : Relay::kOff);
 }
 
-void ShooterSubsystem::ManualControl(bool flashlight, double extension_speed, double shooter_speed, double pivot_speed) {
+void ShooterSubsystem::ManualControl(bool flashlight, double extension_speed, double shooter_speed, double pivot_speed, float roller_speed) {
   SetFlashlight(flashlight);
   extension_pid->Disable();
   extension->SetSpeed(extension_speed);
@@ -135,6 +135,8 @@ void ShooterSubsystem::ManualControl(bool flashlight, double extension_speed, do
   bottom_shooter->SetSpeed(shooter_speed);
   pivot_pid->Disable();
   pivot->SetSpeed(pivot_speed);
+  top_roller->SetSpeed(roller_speed);
+  bottom_roller->SetSpeed(roller_speed);
 }
 
 void ShooterSubsystem::prints() {
