@@ -16,7 +16,7 @@ void ShooterUp::Execute() {
   shooter->PivotGotoAngle(shooter->shot_angle);
   if (extention->GetCurrentCommand()->GetName() == "ExtentionOut") {
     shooter->SetFlashlight(true);
-    shooter->SetShooterWithoutTarget(shooter->shot_speed);
+    shooter->SetShooter(shooter->shot_speed);
 
     if (oi->operatorController->GetRawButton(oi->OperatorButton::B)) {
 	shot_timer.Start();
@@ -34,10 +34,13 @@ void ShooterUp::Execute() {
     }
   } else {
     shooter->PivotGotoAngle(shooter->shot_angle);
-    auto axis = oi->operatorController->GetRawAxis(1);
-    axis = axis > 0.0 ? axis : 0.0;
-    shooter->SetShooterWithoutTarget(axis*shooter->shooter_intake_speed);
-    shooter->SetRollers(axis);
+    if(oi->operatorController->GetRawAxis(1) > 0.05) {
+	shooter->SetShooterWithoutTarget(oi->operatorController->GetRawAxis(1)*shooter->shooter_intake_speed);
+	shooter->SetRollers(oi->operatorController->GetRawAxis(1));
+    } else {
+        shooter->SetShooterWithoutTarget(0.0);
+        shooter->SetRollers(0.0);
+    }
 
     // Don't count this time towards the button getting held down
     shot_timer.Stop();

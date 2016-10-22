@@ -73,10 +73,10 @@ void ShooterSubsystem::SetShooter(double speed) {
   if(speed != 0.0) {
     if(!top_shooter_pid->IsEnabled() || !top_shooter_pid->GetSetpoint() == speed) {
       top_shooter_pid->Enable();
-      top_shooter_pid->SetAbsoluteTolerance(4.0*SHOOTER_ENCODER_COEFFICIENT);
+      top_shooter_pid->SetAbsoluteTolerance(10.0*SHOOTER_ENCODER_COEFFICIENT);
       top_shooter_pid->SetSetpoint(speed*SHOOTER_ENCODER_COEFFICIENT);
       bottom_shooter_pid->Enable();
-      bottom_shooter_pid->SetAbsoluteTolerance(4.0*SHOOTER_ENCODER_COEFFICIENT);
+      bottom_shooter_pid->SetAbsoluteTolerance(10.0*SHOOTER_ENCODER_COEFFICIENT);
       bottom_shooter_pid->SetSetpoint(-speed*SHOOTER_ENCODER_COEFFICIENT);
     }
   } else {
