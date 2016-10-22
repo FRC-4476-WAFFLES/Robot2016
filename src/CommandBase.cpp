@@ -1,6 +1,8 @@
 #include "CommandBase.h"
 #include "Commands/Scheduler.h"
 
+#include <algorithm>
+
 /**
  * CommandBase is a class that is the parent class to each of the commands used by the robot.
  * This allows the commands to access each subsystem.
@@ -34,4 +36,8 @@ void CommandBase::prints() {
 	extention->print();
 	SmartDashboard::PutNumber("drive.Gyro", drive->GetGyro());
 	SmartDashboard::PutNumber("drive.encoder.ticks", drive->driveEncoder());
+
+	int time_remaining = ceil(DriverStation::GetInstance().GetMatchTime() / 15.0);
+	time_remaining = std::min(0, time_remaining - 3);
+	SmartDashboard::PutNumber("Time to breach", time_remaining);
 }
