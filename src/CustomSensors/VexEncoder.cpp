@@ -1,46 +1,65 @@
 #include <CustomSensors/VexEncoder.h>
+#include <cmath>
 
-VexEncoder::VexEncoder(int port) {
-	counter = new Counter(port);
-	counter->SetSemiPeriodMode(true);
-	counter->SetSamplesToAverage(1);
-	Init();
+VexEncoder::VexEncoder(int port, float tearpoint):
+	input(port),
+	counter_high(&input),
+	counter_low(&input),
+	tearpoint(tearpoint),
+	last_int(0.0),
+	last_fract(0.0),
+	first(true),
+	error(false),
+	error_count(0)
+{
+	counter_high.SetSemiPeriodMode(true);
+	counter_high.SetSamplesToAverage(1);
+
+	counter_low.SetSemiPeriodMode(false);
+	counter_low.SetSamplesToAverage(1);
 }
 
-volatile void VexEncoder::Init() {
-  GetAngle();
-  lastInt = 0;
-  first = true;
+void VexEncoder::prints() {
+	SmartDashboard::PutNumber("Raw: ", GetRawAngle());
+	SmartDashboard::PutBoolean("error_count: ", error_count);
 }
 
 float VexEncoder::GetAngle() {
 	float rawAngle = GetRawAngle();
 
-	// Throw away angles outside the acceptable range
-	if(rawAngle > 360 || rawAngle<0) {
-		return lastFract + (lastInt * 360.0);
+	// Throw away values that produced errors
+	if(error) {
+		return last_fract + (last_int * 360.0);
 	}
 
 	// Reset on the first run through
 	if(first) {
-		lastInt = 0;
-		lastFract = rawAngle;
+		// Account for the tearpoint.
+		if(rawAngle > tearpoint) {
+			last_int = -1;
+		} else {
+			last_int = 0;
+		}
+
+		last_fract = rawAngle;
+
+		// The next run through won't be the first
 		first = false;
-		return rawAngle;
+		return rawAngle + (last_int * 360.0);
 	}
 
 	// Find the shortest path to the new value
-	if(rawAngle-lastFract > 180.0){
-		lastInt--;
-	} else if (rawAngle-lastFract < -180.0){
-		lastInt++;
+	if(rawAngle-last_fract > 180.0){
+		last_int--;
+	} else if (rawAngle-last_fract < -180.0){
+		last_int++;
 	}
 
 	// Calculate the new value
-	float newValue = rawAngle + ((float)lastInt * 360.0);
+	float newValue = rawAngle + (last_int * 360.0);
 
 	// Remember this for next time
-	lastFract = rawAngle;
+	last_fract = rawAngle;
 	return newValue;
 }
 
@@ -49,8 +68,23 @@ double VexEncoder::PIDGet() {
 }
 
 float VexEncoder::GetRawAngle() {
-	// PWM is 220Hz (from the docs) (And convert to degrees).
-	float angle = (counter->GetPeriod()*240.0)*360.0;
+	float high = counter_high.GetPeriod();
+	float low = counter_low.GetPeriod();
+
+	// Calculate the duty cycle and multiply by 360.0 degrees
+	float sum = (high + low);
+	float angle = (high / sum) * 360.0;
+
+	error =
+		// Check for angle in range
+		angle > 360.0 || angle < 0.0 ||
+		// Check for pulse period in range (taken from datasheet https://content.vexrobotics.com/vexpro/pdf/Magnetic-Encoder-User's-Guide-01282016.pdf)
+		sum > (1.0/220.0) || sum < (1.0/268.0);
+
+	if(error) {
+		error_count++;
+	}
+
 	return angle;
 }
 

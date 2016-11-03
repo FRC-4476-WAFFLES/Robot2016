@@ -149,4 +149,5 @@ void ShooterSubsystem::prints() {
   SmartDashboard::PutNumber("shooter.bottom_shooter_e [rps]", bottom_shooter_e->GetRate()/SHOOTER_ENCODER_COEFFICIENT);
   SmartDashboard::PutNumber("shooter.top_shooter_e [rotations]", top_shooter_e->Get()/SHOOTER_ENCODER_COEFFICIENT);
   SmartDashboard::PutNumber("shooter.bottom_shooter_e [rotations]", bottom_shooter_e->Get()/SHOOTER_ENCODER_COEFFICIENT);
+  pivot_e->prints();
 }

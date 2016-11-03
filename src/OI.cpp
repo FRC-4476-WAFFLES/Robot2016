@@ -17,8 +17,4 @@ OI::OI()
 	joystickLeft = new Joystick(0);
 	joystickRight = new Joystick(1);
 	operatorController = new Joystick(2);
-
-	Button* temp;
-
-
 }
