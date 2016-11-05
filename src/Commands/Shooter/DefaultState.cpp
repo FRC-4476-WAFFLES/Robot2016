@@ -32,11 +32,9 @@ void DefaultState::Execute() {
       Scheduler::GetInstance()->AddCommand(new ShooterUp());
   }
 
-  if(oi->operatorController->GetRawButton(oi->OperatorButton::Start)) {
-    Scheduler::GetInstance()->AddCommand(new ShooterManual());
-  }
-
-
+  // if(oi->operatorController->GetRawButton(oi->OperatorButton::Start)) {
+  //   Scheduler::GetInstance()->AddCommand(new ShooterManual());
+  // }
 }
 bool DefaultState::IsFinished() {
   return false;

@@ -3,8 +3,8 @@
 
 VexEncoder::VexEncoder(int port, float tearpoint):
 	input(port),
-	counter_high(&input),
-	counter_low(&input),
+	counter_high(),
+	counter_low(),
 	tearpoint(tearpoint),
 	last_int(0.0),
 	last_fract(0.0),
@@ -12,16 +12,15 @@ VexEncoder::VexEncoder(int port, float tearpoint):
 	error(false),
 	error_count(0)
 {
+	counter_high.SetUpSource(input);
 	counter_high.SetSemiPeriodMode(true);
-	counter_high.SetSamplesToAverage(1);
 
+	counter_low.SetUpSource(input);
 	counter_low.SetSemiPeriodMode(false);
-	counter_low.SetSamplesToAverage(1);
 }
 
 void VexEncoder::prints() {
-	SmartDashboard::PutNumber("Raw: ", GetRawAngle());
-	SmartDashboard::PutBoolean("error_count: ", error_count);
+	SmartDashboard::PutNumber("error_count ", error_count);
 }
 
 float VexEncoder::GetAngle() {
