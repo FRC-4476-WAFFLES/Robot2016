@@ -1,5 +1,6 @@
 #include <Commands/Shooter/Intake.h>
 #include <Commands/Shooter/ShooterUp.h>
+#include <Commands/Misc/ChevalMode.h>
 #include <algorithm>
 
 Intake::Intake():
@@ -20,6 +21,10 @@ void Intake::Execute() {
   } else {
       shooter->SetShooterWithoutTarget(0.0);
       shooter->SetRollers(0.0);
+  }
+
+  if(oi->operatorController->GetRawButton(oi->OperatorButton::BumperTopRight)) {
+    Scheduler::GetInstance()->AddCommand(new ChevalMode());
   }
 
   if(oi->operatorController->GetRawButton(oi->OperatorButton::Y)) {

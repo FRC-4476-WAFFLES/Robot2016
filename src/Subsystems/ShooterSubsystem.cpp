@@ -22,7 +22,7 @@ ShooterSubsystem::ShooterSubsystem():
   //bottom_hardstop(new DigitalInput(BOTTOM_HARDSTOP)),
   top_shooter_e(new Encoder(TOP_SHOOTER_E, TOP_SHOOTER_E + 1)),
   bottom_shooter_e(new Encoder(BOTTOM_SHOOTER_E, BOTTOM_SHOOTER_E + 1)),
-  pivot_pid(new PIDController(-0.0035, 0.0, -0.001, pivot_e, pivot)),
+  pivot_pid(new PIDController(-0.01, 0.0, -0.032, pivot_e, pivot)),
   top_shooter_pid(new PIDController(0.000025, 0.0000125, 0.0, top_shooter_e, top_shooter)),
   bottom_shooter_pid(new PIDController(0.000025, 0.0000125, 0.0, bottom_shooter_e, bottom_shooter)),
   extension_pid(new PIDController(0.01, 0.0, 0.01, extension_e, extension))

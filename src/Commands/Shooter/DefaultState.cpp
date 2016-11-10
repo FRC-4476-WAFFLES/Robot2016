@@ -36,6 +36,7 @@ void DefaultState::Execute() {
   //   Scheduler::GetInstance()->AddCommand(new ShooterManual());
   // }
 }
+
 bool DefaultState::IsFinished() {
   return false;
 }

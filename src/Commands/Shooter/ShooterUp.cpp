@@ -25,7 +25,7 @@ void ShooterUp::Execute() {
 	shooter->SetRollers(shooter->roller_in);
 
 	// Move extension in after shot
-	if(shot_timer.HasPeriodPassed(0.5)) {
+	if(shot_timer.HasPeriodPassed(0.2)) {
 	    Scheduler::GetInstance()->AddCommand(new ExtentionIn());
 	}
 	// Don't count this time towards the button getting held down
