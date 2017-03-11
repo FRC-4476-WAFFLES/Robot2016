@@ -9,6 +9,7 @@ private:
 	Victor* Arm;
 	//DigitalInput* IntakeRetracted;
 	VexEncoder* IntakeAngle;
+
 protected:
 	double ReturnPIDInput();
 	void UsePIDOutput(double);

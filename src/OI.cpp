@@ -29,10 +29,10 @@ OI::OI()
 	joystickRight = new Joystick(1);
 	operatorController = new Joystick(2);
 
-	ADefensesChooser = new SendableChooser();
-	ADefensesChooser->AddDefault("Cheval De Frisse", (void*) 0);
-	ADefensesChooser->AddObject("Porticulus", (void*) 1);
-	SmartDashboard::PutData("ADefense types", ADefensesChooser);
+////	ADefensesChooser = new SendableChooser();
+//	ADefensesChooser->AddDefault("Cheval De Frisse", (void*) 0);
+//	ADefensesChooser->AddObject("Porticulus", (void*) 1);
+//	SmartDashboard::PutData("ADefense types", ADefensesChooser);
 
 	// Commands
 	{

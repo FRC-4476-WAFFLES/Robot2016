@@ -23,7 +23,7 @@ public:
 	Joystick* joystickLeft;
 	Joystick* joystickRight;
 	Joystick* operatorController;
-	SendableChooser* ADefensesChooser;
+	//SendableChooser* ADefensesChooser;
 };
 
 #endif

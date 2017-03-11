@@ -13,9 +13,9 @@
 class Robot: public IterativeRobot
 {
 private:
-	AxisCamera* camera;
+//	AxisCamera* camera;
 	Command* autonomousCommand;
-	SendableChooser* chooser;
+//	SendableChooser* chooser;
 
 //	SendableChooser *ADefesesChooser;
 //	Command *ADefenseCommand;
@@ -23,18 +23,18 @@ private:
 	void RobotInit()
 	{
 		CommandBase::init();
-		chooser = new SendableChooser();
-		chooser->AddDefault("Nothing Auto", new AutoDoNothing());
-		chooser->AddObject("LowBar Auto", new AutoDriveForwardLowBar());
-		chooser->AddObject("LowBarReverse Auto", new AutoDriveReverse());
-		chooser->AddObject("LowBarScore Auto", new AutoScore());
-		chooser->AddObject("ChevalDeFrisse Auto", new ChevalDeFrisseAuto());
-		chooser->AddObject("Porticulus Auto", new PorticulusAuto());
-		chooser->AddObject("RoughTerrain Auto", new RoughTerrainAuto());
-		SmartDashboard::PutData("Auto Modes", chooser);
-
-		CameraServer::GetInstance()->SetQuality(25);
-		CameraServer::GetInstance()->StartAutomaticCapture("cam0");
+//		chooser = new SendableChooser();
+//		chooser->AddDefault("Nothing Auto", new AutoDoNothing());
+//		chooser->AddObject("LowBar Auto", new AutoDriveForwardLowBar());
+//		chooser->AddObject("LowBarReverse Auto", new AutoDriveReverse());
+//		chooser->AddObject("LowBarScore Auto", new AutoScore());
+//		chooser->AddObject("ChevalDeFrisse Auto", new ChevalDeFrisseAuto());
+//		chooser->AddObject("Porticulus Auto", new PorticulusAuto());
+//		chooser->AddObject("RoughTerrain Auto", new RoughTerrainAuto());
+//		SmartDashboard::PutData("Auto Modes", chooser);
+//
+//		CameraServer::GetInstance()->SetQuality(25);
+//		CameraServer::GetInstance()->StartAutomaticCapture("cam0");
 	}
 
 	/**
@@ -67,7 +67,7 @@ private:
 		CommandBase::aDefenses->ADefensesReset();
 		CommandBase::drive->ReZero();
 		//gets the selected command
-		autonomousCommand = (Command*) chooser->GetSelected();
+//		autonomousCommand = (Command*) chooser->GetSelected();
 //		//starts the selected command
 		autonomousCommand->Start();
 		/* std::string autoSelected = SmartDashboard::GetString("Auto Selector", "Default");

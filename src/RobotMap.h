@@ -23,6 +23,7 @@ const int ROLLER_MOTOR = 8;
 const int A_DEFENSES_MOTOR = 9;
 
 // Analog Inputs
+const int SONAR = 0;
 
 // Relay
 const int SCALER_POSITION_LOCK = 0;

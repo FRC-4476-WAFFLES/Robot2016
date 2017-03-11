@@ -18,6 +18,7 @@ DriveSubsystem::DriveSubsystem():
 
 	 gyro = new ADXRS450_Gyro();
 	 DriveEncoder = new Encoder(DRIVE_ENCODER_A , DRIVE_ENCODER_B);
+	 SonarSensor = new AnalogInput(SONAR);
 }
 
 void DriveSubsystem::InitDefaultCommand()

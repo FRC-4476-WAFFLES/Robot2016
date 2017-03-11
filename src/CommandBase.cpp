@@ -47,4 +47,6 @@ void CommandBase::prints() {
 	SmartDashboard::PutNumber("intake.Position" ,intake->GetPosition());
 	SmartDashboard::PutNumber("drive.Gyro", drive->GetGyro());
 	SmartDashboard::PutNumber("drive.encoder.ticks", drive->driveEncoder());
+	SmartDashboard::PutNumber("SonarSensor inches", drive->SonarSensor->GetVoltage()*1000/0.977/25.4);
+	SmartDashboard::PutNumber("SonarSensor voltage", drive->SonarSensor->GetVoltage());
 }

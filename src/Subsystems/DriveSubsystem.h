@@ -23,6 +23,7 @@ public:
 	void resetGyro();
 	double driveEncoder();
 	void ReZero();
+	AnalogInput* SonarSensor;
 };
 
 #endif
