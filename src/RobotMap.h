@@ -23,7 +23,7 @@ const int ROLLER_MOTOR = 8;
 const int A_DEFENSES_MOTOR = 9;
 
 // Analog Inputs
-const int SONAR = 0;
+
 
 // Relay
 const int SCALER_POSITION_LOCK = 0;
@@ -36,5 +36,10 @@ const int SCALER_CLIMB_ENCODER_A = 3;
 const int SCALER_CLIMB_ENCODER_B = 4;
 const int DRIVE_ENCODER_A = 5;
 const int DRIVE_ENCODER_B = 6;
+constexpr int SONAR_IN = 7;
+
+
+//Digital Outputs
+constexpr int SONAR_OUT = 8;
 
 #endif

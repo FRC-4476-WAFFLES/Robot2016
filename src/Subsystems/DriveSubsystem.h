@@ -22,8 +22,9 @@ public:
 	void Drive (double left, double right);
 	void resetGyro();
 	double driveEncoder();
+	double sonar();
 	void ReZero();
-	AnalogInput* SonarSensor;
+	Ultrasonic* SonarSensor;
 };
 
 #endif

@@ -18,13 +18,17 @@ DriveSubsystem::DriveSubsystem():
 
 	 gyro = new ADXRS450_Gyro();
 	 DriveEncoder = new Encoder(DRIVE_ENCODER_A , DRIVE_ENCODER_B);
-	 SonarSensor = new AnalogInput(SONAR);
+	 SonarSensor = new Ultrasonic(SONAR_OUT, SONAR_IN);
+	 SonarSensor->SetAutomaticMode(true);
 }
 
 void DriveSubsystem::InitDefaultCommand()
 {
 	// When no other commands are running, we do operator control
 	SetDefaultCommand(new DriveOperator());
+}
+double DriveSubsystem::sonar(){
+	return (SonarSensor->GetRangeInches())/12;
 }
 
 double DriveSubsystem::GetGyro() {
